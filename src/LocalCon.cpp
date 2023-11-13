@@ -4,6 +4,7 @@ LocalCon::LocalCon()
     : weight(1),
       rhs(0)
 {
+  // todo init key by ori_key
 }
 LocalCon::~LocalCon()
 {
@@ -35,21 +36,22 @@ LocalConUtil::~LocalConUtil()
 }
 
 LocalCon &LocalConUtil::GetCon(
-  size_t idx)
+    size_t idx)
 {
   return conSet[idx];
 }
 
 void LocalConUtil::insertUnsat(
-  size_t conIdx)
+    size_t conIdx)
 {
   conSet[conIdx].posInUnsatConIdxs = unsatConIdxs.size();
   unsatConIdxs.push_back(conIdx);
 }
 
 void LocalConUtil::RemoveUnsat(
-  size_t conIdx)
+    size_t conIdx)
 {
+  assert(unsatConIdxs.size() > 0);
   if (unsatConIdxs.size() == 1)
   {
     unsatConIdxs.pop_back();

@@ -3,25 +3,25 @@
 #include "ModelCon.h"
 #include "ModelVar.h"
 
-class Presolve
+class Setup
 {
 private:
   ModelConUtil *modelConUtil;
   ModelVarUtil *modelVarUtil;
   void TightenBound();
-  void TightenBoundVar(ModelCon &con);
-  bool Propagate();
+  void TightenBoundVar(ModelCon &modelCon);
+  bool TightBoundGlobally();
   bool SetVarType();
   void SetVarIdx2ObjIdx();
   vector<size_t> fixedIdxs;
-  int deleteConNum;
-  int deleteVarNum;
-  int inferVarNum;
+  size_t deleteConNum;
+  size_t deleteVarNum;
+  size_t inferVarNum;
 
 public:
-  Presolve(
+  Setup(
       ModelConUtil *_modelConUtil,
       ModelVarUtil *_modelVarUtil);
-  ~Presolve();
+  ~Setup();
   void Run();
 };

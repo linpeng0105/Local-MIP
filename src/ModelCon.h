@@ -8,29 +8,38 @@ public:
   size_t idx;
   bool isEqual;
   bool isLess;
-  vector<double> coeffSet;
+  bool isLarge;
+  vector<Integer> coeffSet;
   vector<size_t> varIdxs;
   vector<size_t> posInVar;
-  double rhs;
+  Integer rhs;
   bool inferSAT;
+  size_t termNum;
 
-  ModelCon(const string &name, size_t idx);
+  ModelCon(
+      const string &_name,
+      size_t _idx);
   ~ModelCon();
 };
 
 class ModelConUtil
 {
 public:
-  unordered_map<string, size_t> name2Idx;
+  unordered_map<string, size_t> name2idx;
   vector<ModelCon> conSet;
   string objName;
-  int conNum;
+  size_t conNum;
 
   ModelConUtil();
   ~ModelConUtil();
-  size_t MakeCon(const string &name);
-  size_t GetConIdx(const string &name);
-  const ModelCon &GetCon(size_t idx) const;
-  ModelCon &GetCon(size_t idx);
-  ModelCon &GetCon(const string &name);
+  size_t MakeCon(
+      const string &name);
+  size_t GetConIdx(
+      const string &name);
+  const ModelCon &GetCon(
+      size_t idx) const;
+  ModelCon &GetCon(
+      size_t idx);
+  ModelCon &GetCon(
+      const string &name);
 };

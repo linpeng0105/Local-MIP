@@ -4,8 +4,7 @@ ReaderMPS::ReaderMPS(
     ModelConUtil *_modelConUtil,
     ModelVarUtil *_modelVarUtil)
     : modelConUtil(_modelConUtil),
-      modelVarUtil(_modelVarUtil),
-      readInt(false)
+      modelVarUtil(_modelVarUtil)
 {
 }
 
@@ -13,90 +12,74 @@ ReaderMPS::~ReaderMPS()
 {
 }
 
-void ReaderMPS::IssSetup(
-    istringstream &iss,
-    const string &line)
+void ReaderMPS::Read(char *filename)
 {
-  iss.clear();
-  iss.str(line);
-  iss.seekg(0, ios::beg);
-}
 
-void ReaderMPS::PushCoeffVarIdx(
-    const size_t conIdx,
-    const double coeff,
-    const string &varName)
-{
-  auto &con = modelConUtil->conSet[conIdx];
-  size_t varIdx = modelVarUtil->MakeVar(varName, readInt);
-  auto &var = modelVarUtil->GetVar(varIdx);
-
-  var.conIdxs.push_back(conIdx);
-  var.posInCon.push_back(con.varIdxs.size());
-
-  con.coeffSet.push_back(coeff);
-  con.varIdxs.push_back(varIdx);
-  con.posInVar.push_back(var.conIdxs.size() - 1);
-}
-
-void ReaderMPS::Read(
-    char *fileName)
-{
-  istringstream iss;
-  string line;
-  ifstream inFile(fileName);
+  ifstream infile(filename);
+  string modelName;
   string tempStr;
-
-  if (!inFile)
+  char conType;
+  string conName;
+  string inverseConName;
+  size_t inverseConIdx;
+  size_t conIdx;
+  string varName;
+  Integer coefficient;
+  double tempVal;
+  Integer rhs;
+  string varType;
+  double inputBound;
+  if (!infile)
   {
-    printf("The input filename %s is invalid, please input the correct filename.\n ",
-           fileName);
+    printf("o The input filename %s is invalid.\n", filename);
     exit(-1);
   }
-  // printf("c NAME section\n");
-  while (getline(inFile, line)) // NAME section
+  while (getline(infile, readLine)) // NAME section
   {
-    if (line[0] == '*' || line.length() < 1)
+    if (readLine[0] == '*' ||
+        readLine.length() < 1)
       continue;
-    if (line[0] == 'R')
+    if (readLine[0] == 'R')
       break;
-    IssSetup(iss, line);
-    iss >> tempStr >> modelName;
+    IssSetup();
+    if (!(iss >> tempStr >> modelName))
+      continue;
+    if (modelName.length() < 1)
+      continue;
     printf("c Model name: %s\n", modelName.c_str());
   }
-  // printf("c ROWS section\n");
-  modelConUtil->conSet.emplace_back("", 0); // con[0] is objective function
-  while (getline(inFile, line))             // ROWS section
+  modelConUtil->conSet.emplace_back("", 0); // obj
+  while (getline(infile, readLine)) // ROWS section
   {
-    if (line[0] == '*' || line.length() < 1)
+    if (readLine[0] == '*' ||
+        readLine.length() < 1)
       continue;
-    if (line[0] == 'C')
+    if (readLine[0] == 'C')
       break;
-    IssSetup(iss, line);
-    char conType;
-    string conName;
-    iss >> conType >> conName;
+    IssSetup();
+    if (!(iss >> conType >> conName))
+      continue;
     if (conType == 'L')
     {
-      size_t idx = modelConUtil->MakeCon(conName);
-      modelConUtil->conSet[idx].isEqual = false;
-      modelConUtil->conSet[idx].isLess = true;
+      conIdx = modelConUtil->MakeCon(conName);
+      modelConUtil->conSet[conIdx].isEqual = false;
+      modelConUtil->conSet[conIdx].isLess = true;
     }
     else if (conType == 'E')
     {
-      size_t idx = modelConUtil->MakeCon(conName);
-      modelConUtil->conSet[idx].isEqual = true;
-      modelConUtil->conSet[idx].isLess = false;
-      string d_name = conName + "!";
-      size_t d_idx = modelConUtil->MakeCon(d_name);
-      modelConUtil->conSet[d_idx].isEqual = true;
-      modelConUtil->conSet[d_idx].isLess = false;
+      conIdx = modelConUtil->MakeCon(conName);
+      modelConUtil->conSet[conIdx].isEqual = true;
+      modelConUtil->conSet[conIdx].isLess = false;
+      inverseConName = conName + "!";
+      inverseConIdx = modelConUtil->MakeCon(inverseConName);
+      modelConUtil->conSet[inverseConIdx].isEqual = true;
+      modelConUtil->conSet[inverseConIdx].isLess = false;
     }
     else if (conType == 'G')
     {
-      size_t idx = modelConUtil->MakeCon(conName);
-      modelConUtil->conSet[idx].isEqual = false;
-      modelConUtil->conSet[idx].isLess = false;
+      conIdx = modelConUtil->MakeCon(conName);
+      modelConUtil->conSet[conIdx].isEqual = false;
+      modelConUtil->conSet[conIdx].isLess = false;
     }
     else
     {
@@ -106,36 +89,30 @@ void ReaderMPS::Read(
       modelConUtil->conSet[0].isLess = false;
     }
   }
-  // printf("c COLUMNS section\n");
-  while (getline(inFile, line)) // COLUMNS section
+  while (getline(infile, readLine)) // COLUMNS section
   {
-    if (line[0] == '*' || line.length() < 1)
+    if (readLine[0] == '*' ||
+        readLine.length() < 1)
       continue;
-    if (line[0] == 'R')
+    if (readLine[0] == 'R')
       break;
-    IssSetup(iss, line);
-    string varName;
-    string conName;
-    double coefficient;
-    size_t conIdx;
-    double tempVal;
-    iss >> varName >> conName;
+    IssSetup();
+    if (!(iss >> varName >> conName))
+      continue;
     if (conName == "\'MARKER\'")
     {
       iss >> tempStr;
-      if (tempStr == "\'INTORG\'" || tempStr == "\'INTEND\'")
-      {
-        readInt = !readInt;
+      if (tempStr == "\'INTORG\'" ||
+          tempStr == "\'INTEND\'")
         continue;
-      }
       else
       {
-        printf("c error %s\n", line.c_str());
+        printf("c error %s\n", readLine.c_str());
         exit(-1);
       }
     }
     iss >> tempVal;
-    coefficient = tempVal;
+    coefficient = tempVal * ZoomTimes;
     conIdx = modelConUtil->GetConIdx(conName);
     PushCoeffVarIdx(conIdx, coefficient, varName);
     if (modelConUtil->conSet[conIdx].isEqual)
@@ -143,66 +120,67 @@ void ReaderMPS::Read(
     if (iss >> conName)
     {
       iss >> tempVal;
-      coefficient = tempVal;
+      coefficient = tempVal * ZoomTimes;
       conIdx = modelConUtil->GetConIdx(conName);
       PushCoeffVarIdx(conIdx, coefficient, varName);
       if (modelConUtil->conSet[conIdx].isEqual)
         PushCoeffVarIdx(conIdx + 1, -coefficient, varName);
     }
   }
-  // printf("c RHS  section\n");
-  while (getline(inFile, line)) // RHS  section
+  while (getline(infile, readLine)) // RHS  section
   {
-    if (line[0] == '*' || line.length() < 1)
+    if (readLine[0] == '*' ||
+        readLine.length() < 1)
       continue;
-    if (line[0] == 'B' || line[0] == 'E')
+    if (readLine[0] == 'B' ||
+        readLine[0] == 'E')
       break;
     // assert(line[0] != 'R'); // do not handle RANGS and SOS
-    IssSetup(iss, line);
-    string conName;
-    double conRHS;
-    size_t conIdx;
-    double tempVal;
-    iss >> tempStr >> conName >> tempVal;
+    IssSetup();
+    if (!(iss >> tempStr >> conName >> tempVal))
+      continue;
     if (conName.length() < 1)
       continue;
-    conRHS = tempVal;
+    rhs = tempVal * ZoomTimes;
     conIdx = modelConUtil->GetConIdx(conName);
-    modelConUtil->conSet[conIdx].rhs = conRHS;
+    modelConUtil->conSet[conIdx].rhs = rhs;
     if (modelConUtil->conSet[conIdx].isEqual)
-      modelConUtil->conSet[conIdx + 1].rhs = -conRHS;
+      modelConUtil->conSet[conIdx + 1].rhs = -rhs;
 
     if (iss >> conName)
     {
       iss >> tempVal;
-      conRHS = tempVal;
+      rhs = tempVal * ZoomTimes;
       conIdx = modelConUtil->GetConIdx(conName);
-      modelConUtil->conSet[conIdx].rhs = conRHS;
+      modelConUtil->conSet[conIdx].rhs = rhs;
       if (modelConUtil->conSet[conIdx].isEqual)
-        modelConUtil->conSet[conIdx + 1].rhs = -conRHS;
+        modelConUtil->conSet[conIdx + 1].rhs = -rhs;
     }
   }
-  // printf("c BOUNDS section\n");
-  while (getline(inFile, line)) // BOUNDS section
+  while (getline(infile, readLine)) // BOUNDS section
   {
-    if (line[0] == '*' || line.length() < 1)
+    if (readLine[0] == '*' ||
+        readLine.length() < 1)
       continue;
-    if (line[0] == 'E')
+    if (readLine[0] == 'E')
       break;
-    // assert(line[0] != 'I'); // do not handle INDICATORS
-    IssSetup(iss, line);
-    string varType;
-    string varName;
-    double inputBound;
-    iss >> varType >> tempStr >> varName >> inputBound;
+    assert(readLine[0] != 'I'); // do not handle INDICATORS
+    IssSetup();
+    if (!(iss >> varType >> tempStr >> varName))
+      continue;
+    iss >> inputBound;
     auto &var = modelVarUtil->GetVar(varName);
+    if (var.type == VarType::Binary)
+    {
+      var.SetType(VarType::Integer);
+      var.upperBound = InfiniteUpperBound;
+    }
     if (varType == "UP")
-      var.upperBound = inputBound;
+      var.upperBound = floor(inputBound);
     else if (varType == "LO")
-      var.lowerBound = inputBound;
+      var.lowerBound = ceil(inputBound);
     else if (varType == "BV")
     {
-      var.SetType(VarType::INT);
       var.upperBound = 1;
       var.lowerBound = 0;
     }
@@ -212,7 +190,6 @@ void ReaderMPS::Read(
       var.upperBound = floor(inputBound);
     else if (varType == "FX")
     {
-      var.SetType(VarType::INT);
       var.lowerBound = inputBound;
       var.upperBound = inputBound;
     }
@@ -226,16 +203,43 @@ void ReaderMPS::Read(
     else if (varType == "PL")
       var.upperBound = InfiniteUpperBound;
   }
-  inFile.close();
-  for (int i = 1; i < modelConUtil->conSet.size(); ++i) // deal con_type =='G'
+  infile.close();
+  for (conIdx = 1; conIdx < modelConUtil->conSet.size(); ++conIdx) // deal con_type =='G'
   {
-    auto &con = modelConUtil->conSet[i];
-    if (con.isLess == false && con.isEqual == false)
+    auto &con = modelConUtil->conSet[conIdx];
+    if (con.isLess == false &&
+        con.isEqual == false)
     {
       con.isLess = true;
-      for (double &coefficient : con.coeffSet)
-        coefficient = -coefficient;
+      for (Integer &inverseCoefficient : con.coeffSet)
+        inverseCoefficient = -inverseCoefficient;
       con.rhs = -con.rhs;
     }
   }
+  modelConUtil->conNum = modelConUtil->conSet.size();
+  modelVarUtil->varNum = modelVarUtil->varSet.size();
+}
+
+inline void ReaderMPS::IssSetup()
+{
+  iss.clear();
+  iss.str(readLine);
+  iss.seekg(0, ios::beg);
+}
+
+void ReaderMPS::PushCoeffVarIdx(
+    const size_t _conIdx,
+    const Integer _coeff,
+    const string &_varName)
+{
+  auto &con = modelConUtil->conSet[_conIdx];
+  size_t _varIdx = modelVarUtil->MakeVar(_varName);
+  auto &var = modelVarUtil->GetVar(_varIdx);
+
+  var.conIdxs.push_back(_conIdx);
+  var.posInCon.push_back(con.varIdxs.size());
+
+  con.coeffSet.push_back(_coeff);
+  con.varIdxs.push_back(_varIdx);
+  con.posInVar.push_back(var.conIdxs.size() - 1);
 }

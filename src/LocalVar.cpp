@@ -48,7 +48,8 @@ LocalVarUtil::~LocalVarUtil()
   tempVarIdxs.clear();
 }
 
-LocalVar &LocalVarUtil::GetVar(size_t idx)
+LocalVar &LocalVarUtil::GetVar(
+    size_t idx)
 {
   return varSet[idx];
 }

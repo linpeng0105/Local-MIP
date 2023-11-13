@@ -8,8 +8,8 @@
 
 //        name,               type,  short-name, must-need, default, low, high, comments
 #define PARAS \
-    PARA( cutoff            ,   double   , '\0' ,  false , 5000   , 0  , 1e8    , "Cutoff time") \
-    PARA( Presolve          ,   int      , '\0' ,  false , 1      , 0  , 1      , "Presolve") \
+    PARA( cutoff            ,   double   , '\0' ,  false , 7200   , 0  , 1e8    , "Cutoff time") \
+    PARA( randomSeed        ,   int      , '\0' ,  false , 2832   , 0  , 100000 , "randomSeed") \
     PARA( PrintSol          ,   int      , '\0' ,  false , 0      , 0  , 1      , "Print best found solution or not")
 
 //            name,   short-name, must-need, default, comments
@@ -30,7 +30,7 @@ struct paras
 
 void parse_args(int argc, char *argv[]);
 void print_change();
-double identify_opt(const char *file);
+Integer identify_opt(const char *file);
 };
 
 #define INIT_ARGS __global_paras.parse_args(argc, argv);

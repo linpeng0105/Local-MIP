@@ -15,27 +15,24 @@
 #include <sys/time.h>
 #include <stdlib.h>
 #include <chrono>
-#include <boost/thread.hpp>
-#include <boost/thread/thread.hpp>
 using namespace std;
-const double MaxValue = std::numeric_limits<double>::max();
-const double minValue = -MaxValue;
-const double DefaultUpperBound = 100000000;
-const double DefaultLowerBound = 0;
-const double InfiniteUpperBound = 100000000;
-const double InfiniteLowerBound = -100000000;
-const double Epsilon = 1.0e-9;
-const double Tolerance = 1.0e-6;
+using Integer = __int128_t;
+const Integer MaxValue = numeric_limits<Integer>::max();
+const Integer MinValue = -MaxValue;
+long long const ZoomTimes = 1000000000000000;
+int const Power = 15;
+const Integer DefaultUpperBound = 1;
+const Integer DefaultLowerBound = 0;
+const Integer InfiniteUpperBound = 1000000;
+const Integer InfiniteLowerBound = -1000000;
 enum class VarType
 {
-  BINARY,
-  INT,
-  REAL,
-  FIXED
+    Binary,
+    Integer,
+    Fixed
 };
-
-bool LessEqual(double a, double b);
-bool GreaterEqual(double a, double b);
-bool Equal(double a, double b);
-bool L(double a, double b);
-bool Greater(double a, double b);
+string itos(__int128_t v);
+std::chrono::_V2::system_clock::time_point TimeNow();
+double ElapsedTime(
+    std::chrono::_V2::system_clock::time_point &a,
+    std::chrono::_V2::system_clock::time_point &b);

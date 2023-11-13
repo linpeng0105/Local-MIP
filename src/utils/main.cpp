@@ -6,8 +6,6 @@ int main(int argc, char **argv)
 
     INIT_ARGS
 
-    __global_paras.print_change();
-
     Solver *solver = new Solver();
     solver->Run();
 

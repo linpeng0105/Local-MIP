@@ -8,16 +8,13 @@ class ReaderMPS
 private:
   ModelConUtil *modelConUtil;
   ModelVarUtil *modelVarUtil;
-  string modelName;
-  bool readInt;
-  bool isBin;
-  void IssSetup(
-      istringstream &iss,
-      const string &line);
+  istringstream iss;
+  string readLine;
+  inline void IssSetup();
   void PushCoeffVarIdx(
-      const size_t con_idx,
-      const double coeff,
-      const string &var_name);
+      const size_t _conIdx,
+      const Integer _coeff,
+      const string &_varName);
 
 public:
   ReaderMPS(
