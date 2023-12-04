@@ -11,17 +11,17 @@ class Solver
 private:
   char *fileName;
   Integer optimalObj;
-  void ParseObj();
-  bool SkipInstance();
-
-public:
   ReaderMPS *readerMPS;
   ModelConUtil *modelConUtil;
   ModelVarUtil *modelVarUtil;
   LocalILP *localILP;
-  Setup *setup;
+  Presolve *presolve;
   chrono::_V2::system_clock::time_point clkStart =
       chrono::high_resolution_clock::now();
+  void ParseFileName();
+  int RunSolver();
+
+public:
   Solver();
   ~Solver();
   void Run();

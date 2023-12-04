@@ -6,20 +6,21 @@ class ModelCon
 public:
   string name;
   size_t idx;
-  bool isEqual;
-  bool isLess;
-  bool isLarge;
   vector<Integer> coeffSet;
-  vector<size_t> varIdxs;
+  vector<size_t> varIdxSet;
   vector<size_t> posInVar;
   Integer rhs;
   bool inferSAT;
   size_t termNum;
+  ConType type;
 
   ModelCon(
       const string &_name,
-      size_t _idx);
+      size_t _idx,
+      ConType _type);
   ~ModelCon();
+  void SetType(
+      ConType _type);
 };
 
 class ModelConUtil
@@ -33,13 +34,14 @@ public:
   ModelConUtil();
   ~ModelConUtil();
   size_t MakeCon(
-      const string &name);
+      const string &_name,
+      ConType _type);
   size_t GetConIdx(
-      const string &name);
+      const string &_name);
   const ModelCon &GetCon(
-      size_t idx) const;
+      size_t _idx) const;
   ModelCon &GetCon(
-      size_t idx);
+      size_t _idx);
   ModelCon &GetCon(
-      const string &name);
+      const string &_name);
 };

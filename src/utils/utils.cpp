@@ -1,4 +1,5 @@
 #include "header.h"
+#include "../Solver.h"
 
 string itos(__int128_t v)
 {

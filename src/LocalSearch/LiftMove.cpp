@@ -10,14 +10,14 @@ void LocalILP::LiftMove()
   {
     for (size_t termIdx = 0; termIdx < modelObj.termNum; ++termIdx)
     {
-      size_t varIdx = modelObj.varIdxs[termIdx];
+      size_t varIdx = modelObj.varIdxSet[termIdx];
       auto &localVar = localVarUtil.GetVar(varIdx);
       auto &modelVar = modelVarUtil->GetVar(varIdx);
       lowerDelta[termIdx] = modelVar.lowerBound - localVar.nowValue;
       upperDelta[termIdx] = modelVar.upperBound - localVar.nowValue;
       for (size_t j = 0; j < modelVar.termNum; ++j)
       {
-        size_t conIdx = modelVar.conIdxs[j];
+        size_t conIdx = modelVar.conIdxSet[j];
         auto &localCon = localConUtil.conSet[conIdx];
         auto &modelCon = modelConUtil->conSet[conIdx];
         size_t posInCon = modelVar.posInCon[j];
@@ -54,7 +54,7 @@ void LocalILP::LiftMove()
   Integer objDelta_u;
   for (size_t termIdx = 0; termIdx < modelObj.termNum; ++termIdx)
   {
-    size_t varIdx = modelObj.varIdxs[termIdx];
+    size_t varIdx = modelObj.varIdxSet[termIdx];
     Integer coeff = modelObj.coeffSet[termIdx];
     Integer l_d = lowerDelta[termIdx];
     Integer u_d = upperDelta[termIdx];
@@ -97,13 +97,13 @@ void LocalILP::LiftMove()
     affectedVar.clear();
     auto &bestLocalVar = localVarUtil.GetVar(bestVarIdx);
     auto &bestModelVar = modelVarUtil->GetVar(bestVarIdx);
-    for (auto conIdx : bestModelVar.conIdxs)
+    for (auto conIdx : bestModelVar.conIdxSet)
     {
       if (conIdx == 0)
         continue;
       auto &localCon = localConUtil.GetCon(conIdx);
       auto &modelCon = modelConUtil->GetCon(conIdx);
-      for (auto varIdx : modelCon.varIdxs)
+      for (auto varIdx : modelCon.varIdxSet)
         affectedVar.insert(varIdx);
     }
     for (auto varIdx : affectedVar)
@@ -117,7 +117,7 @@ void LocalILP::LiftMove()
       upperDelta[idxInObj] = modelVar.upperBound - localVar.nowValue;
       for (size_t termIdx = 0; termIdx < modelVar.termNum; ++termIdx)
       {
-        size_t conIdx = modelVar.conIdxs[termIdx];
+        size_t conIdx = modelVar.conIdxSet[termIdx];
         auto &localCon = localConUtil.conSet[conIdx];
         auto &modelCon = modelConUtil->conSet[conIdx];
         size_t posInCon = modelVar.posInCon[termIdx];
@@ -151,7 +151,7 @@ void LocalILP::LiftMove()
     for (size_t termIdx = 0; termIdx < modelObj.termNum; ++termIdx)
     {
       size_t randomIdx = mt() % (modelObj.termNum);
-      size_t varIdx = modelObj.varIdxs[randomIdx];
+      size_t varIdx = modelObj.varIdxSet[randomIdx];
       Integer coeff = modelObj.coeffSet[randomIdx];
       auto &localVar = localVarUtil.GetVar(varIdx);
       auto &modelVar = modelVarUtil->GetVar(varIdx);

@@ -3,7 +3,7 @@
 #include "ModelCon.h"
 #include "ModelVar.h"
 
-class Setup
+class Presolve
 {
 private:
   ModelConUtil *modelConUtil;
@@ -19,9 +19,9 @@ private:
   size_t inferVarNum;
 
 public:
-  Setup(
+  Presolve(
       ModelConUtil *_modelConUtil,
       ModelVarUtil *_modelVarUtil);
-  ~Setup();
-  void Run();
+  ~Presolve();
+  bool Run();
 };

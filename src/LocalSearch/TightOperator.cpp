@@ -12,7 +12,7 @@ long LocalILP::TightScore(
   bool isNowSat;
   for (size_t termIdx = 0; termIdx < modelVar.termNum; ++termIdx)
   {
-    conIdx = modelVar.conIdxs[termIdx];
+    conIdx = modelVar.conIdxSet[termIdx];
     posInCon = modelVar.posInCon[termIdx];
     auto &localCon = localConUtil.conSet[conIdx];
     auto &modelCon = modelConUtil->conSet[conIdx];
@@ -32,14 +32,14 @@ long LocalILP::TightScore(
     {
       newGap =
           localCon.gap + modelCon.coeffSet[posInCon] * delta;
-      isPreSat = localCon.gap <= 0;
-      isNowSat = newGap <= 0;
+      isPreSat = SAT(modelCon.type, localCon.gap);
+      isNowSat = SAT(modelCon.type, newGap);
       if (!isPreSat && isNowSat)
         score += localCon.weight;
       else if (isPreSat && !isNowSat)
         score -= localCon.weight;
       else if (!isPreSat && !isNowSat)
-        if (localCon.gap > newGap)
+        if (abs(localCon.gap) > abs(newGap))
           score += localCon.weight * rvd;
         else
           score -= localCon.weight * rvd;
@@ -56,7 +56,7 @@ bool LocalILP::TightDelta(
     size_t termIdx,
     Integer &res)
 {
-  auto varIdx = modelCon.varIdxs[termIdx];
+  auto varIdx = modelCon.varIdxSet[termIdx];
   auto &localVar = localVarUtil.GetVar(varIdx);
   auto &modelVar = modelVarUtil->GetVar(varIdx);
   double delta =

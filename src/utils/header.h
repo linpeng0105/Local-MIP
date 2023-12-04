@@ -31,6 +31,13 @@ enum class VarType
     Integer,
     Fixed
 };
+enum class ConType
+{
+    E,
+    L,
+    G,
+    N
+};
 string itos(__int128_t v);
 std::chrono::_V2::system_clock::time_point TimeNow();
 double ElapsedTime(

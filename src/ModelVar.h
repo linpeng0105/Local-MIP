@@ -8,18 +8,19 @@ public:
   size_t idx;
   Integer upperBound;
   Integer lowerBound;
-  vector<size_t> conIdxs;
+  vector<size_t> conIdxSet;
   vector<size_t> posInCon;
   size_t termNum;
   VarType type;
+  bool inEquality;
 
   ModelVar(
       const string &_name,
       size_t _idx);
   ~ModelVar();
   bool InBound(
-      Integer value) const;
-  void SetType(VarType varType);
+      Integer _value) const;
+  void SetType(VarType _varType);
 };
 
 class ModelVarUtil
@@ -38,11 +39,11 @@ public:
   ModelVarUtil();
   ~ModelVarUtil();
   size_t MakeVar(
-      const string &name);
+      const string &_name);
   const ModelVar &GetVar(
-      size_t idx) const;
+      size_t _idx) const;
   ModelVar &GetVar(
-      size_t idx);
+      size_t _idx);
   ModelVar &GetVar(
-      const string &name);
+      const string &_name);
 };

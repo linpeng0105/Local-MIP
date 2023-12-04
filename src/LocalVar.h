@@ -25,16 +25,12 @@ public:
   vector<size_t> tempVarIdxs;
   vector<bool> scoreTable;
   unordered_set<size_t> affectedVar;
-  vector<size_t> tempTwoVarIdxs_1;
-  vector<Integer> tempTwoDeltas_1;
-  vector<size_t> tempTwoVarIdxs_2;
-  vector<Integer> tempTwoDeltas_2;
 
   LocalVarUtil();
   ~LocalVarUtil();
   void Allocate(
-      size_t varNum,
-      size_t varNumInObj);
+      size_t _varNum,
+      size_t _varNumInObj);
   LocalVar &GetVar(
-      size_t idx);
+      size_t _idx);
 };

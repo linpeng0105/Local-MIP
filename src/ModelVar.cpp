@@ -8,27 +8,26 @@ ModelVar::ModelVar(
       upperBound(DefaultUpperBound),
       lowerBound(DefaultLowerBound),
       termNum(-1),
-      type(VarType::Binary)
+      type(VarType::Binary),
+      inEquality(false)
 {
-  // con_idxs.reserve(5000);
-  // pos_in_con.reserve(5000);
 }
 
 ModelVar::~ModelVar()
 {
-  conIdxs.clear();
+  conIdxSet.clear();
   posInCon.clear();
 }
 
 bool ModelVar::InBound(
-    Integer value) const
+    Integer _value) const
 {
-  return lowerBound <= value && value <= upperBound;
+  return lowerBound <= _value && _value <= upperBound;
 }
 
-void ModelVar::SetType(VarType varType)
+void ModelVar::SetType(VarType _varType)
 {
-  type = varType;
+  type = _varType;
 }
 
 ModelVarUtil::ModelVarUtil()
@@ -38,7 +37,6 @@ ModelVarUtil::ModelVarUtil()
       isBin(true),
       varNum(-1)
 {
-  // name2idx.reserve(37709950);
 }
 ModelVarUtil::~ModelVarUtil()
 {
@@ -48,32 +46,32 @@ ModelVarUtil::~ModelVarUtil()
 }
 
 size_t ModelVarUtil::MakeVar(
-    const string &name)
+    const string &_name)
 {
-  auto iter = name2idx.find(name);
+  auto iter = name2idx.find(_name);
   if (iter != name2idx.end())
     return iter->second;
   size_t varIdx = varSet.size();
-  varSet.emplace_back(name, varIdx);
-  name2idx[name] = varIdx;
+  varSet.emplace_back(_name, varIdx);
+  name2idx[_name] = varIdx;
   return varIdx;
 }
 
 const ModelVar &ModelVarUtil::GetVar(
-    size_t idx) const
+    size_t _idx) const
 {
-  return varSet[idx];
+  return varSet[_idx];
 }
 
 ModelVar &ModelVarUtil::GetVar(
-    size_t idx)
+    size_t _idx)
 {
-  return varSet[idx];
+  return varSet[_idx];
 }
 
 ModelVar &ModelVarUtil::GetVar(
-    const string &name)
+    const string &_name)
 {
-  auto iter = name2idx.find(name);
-  return varSet[name2idx[name]];
+  auto iter = name2idx.find(_name);
+  return varSet[name2idx[_name]];
 }

@@ -12,16 +12,13 @@ ReaderMPS::~ReaderMPS()
 {
 }
 
-void ReaderMPS::Read(char *filename)
+bool ReaderMPS::Read(char *filename)
 {
-
   ifstream infile(filename);
   string modelName;
   string tempStr;
   char conType;
   string conName;
-  string inverseConName;
-  size_t inverseConIdx;
   size_t conIdx;
   string varName;
   Integer coefficient;
@@ -32,7 +29,7 @@ void ReaderMPS::Read(char *filename)
   if (!infile)
   {
     printf("o The input filename %s is invalid.\n", filename);
-    exit(-1);
+    return false;
   }
   while (getline(infile, readLine)) // NAME section
   {
@@ -48,8 +45,8 @@ void ReaderMPS::Read(char *filename)
       continue;
     printf("c Model name: %s\n", modelName.c_str());
   }
-  modelConUtil->conSet.emplace_back("", 0); // obj
-  while (getline(infile, readLine)) // ROWS section
+  modelConUtil->conSet.emplace_back("", 0, ConType::N); // obj
+  while (getline(infile, readLine))                     // ROWS section
   {
     if (readLine[0] == '*' ||
         readLine.length() < 1)
@@ -60,33 +57,15 @@ void ReaderMPS::Read(char *filename)
     if (!(iss >> conType >> conName))
       continue;
     if (conType == 'L')
-    {
-      conIdx = modelConUtil->MakeCon(conName);
-      modelConUtil->conSet[conIdx].isEqual = false;
-      modelConUtil->conSet[conIdx].isLess = true;
-    }
+      conIdx = modelConUtil->MakeCon(conName, ConType::L);
     else if (conType == 'E')
-    {
-      conIdx = modelConUtil->MakeCon(conName);
-      modelConUtil->conSet[conIdx].isEqual = true;
-      modelConUtil->conSet[conIdx].isLess = false;
-      inverseConName = conName + "!";
-      inverseConIdx = modelConUtil->MakeCon(inverseConName);
-      modelConUtil->conSet[inverseConIdx].isEqual = true;
-      modelConUtil->conSet[inverseConIdx].isLess = false;
-    }
+      conIdx = modelConUtil->MakeCon(conName, ConType::E);
     else if (conType == 'G')
-    {
-      conIdx = modelConUtil->MakeCon(conName);
-      modelConUtil->conSet[conIdx].isEqual = false;
-      modelConUtil->conSet[conIdx].isLess = false;
-    }
+      conIdx = modelConUtil->MakeCon(conName, ConType::G);
     else
     {
       assert(conType == 'N'); // type=='N',this con is obj
       modelConUtil->objName = conName;
-      modelConUtil->conSet[0].isEqual = false;
-      modelConUtil->conSet[0].isLess = false;
     }
   }
   while (getline(infile, readLine)) // COLUMNS section
@@ -115,16 +94,12 @@ void ReaderMPS::Read(char *filename)
     coefficient = tempVal * ZoomTimes;
     conIdx = modelConUtil->GetConIdx(conName);
     PushCoeffVarIdx(conIdx, coefficient, varName);
-    if (modelConUtil->conSet[conIdx].isEqual)
-      PushCoeffVarIdx(conIdx + 1, -coefficient, varName);
     if (iss >> conName)
     {
       iss >> tempVal;
       coefficient = tempVal * ZoomTimes;
       conIdx = modelConUtil->GetConIdx(conName);
       PushCoeffVarIdx(conIdx, coefficient, varName);
-      if (modelConUtil->conSet[conIdx].isEqual)
-        PushCoeffVarIdx(conIdx + 1, -coefficient, varName);
     }
   }
   while (getline(infile, readLine)) // RHS  section
@@ -144,8 +119,6 @@ void ReaderMPS::Read(char *filename)
     rhs = tempVal * ZoomTimes;
     conIdx = modelConUtil->GetConIdx(conName);
     modelConUtil->conSet[conIdx].rhs = rhs;
-    if (modelConUtil->conSet[conIdx].isEqual)
-      modelConUtil->conSet[conIdx + 1].rhs = -rhs;
 
     if (iss >> conName)
     {
@@ -153,8 +126,6 @@ void ReaderMPS::Read(char *filename)
       rhs = tempVal * ZoomTimes;
       conIdx = modelConUtil->GetConIdx(conName);
       modelConUtil->conSet[conIdx].rhs = rhs;
-      if (modelConUtil->conSet[conIdx].isEqual)
-        modelConUtil->conSet[conIdx + 1].rhs = -rhs;
     }
   }
   while (getline(infile, readLine)) // BOUNDS section
@@ -207,10 +178,9 @@ void ReaderMPS::Read(char *filename)
   for (conIdx = 1; conIdx < modelConUtil->conSet.size(); ++conIdx) // deal con_type =='G'
   {
     auto &con = modelConUtil->conSet[conIdx];
-    if (con.isLess == false &&
-        con.isEqual == false)
+    if (con.type == ConType::G)
     {
-      con.isLess = true;
+      con.SetType(ConType::L);
       for (Integer &inverseCoefficient : con.coeffSet)
         inverseCoefficient = -inverseCoefficient;
       con.rhs = -con.rhs;
@@ -218,6 +188,7 @@ void ReaderMPS::Read(char *filename)
   }
   modelConUtil->conNum = modelConUtil->conSet.size();
   modelVarUtil->varNum = modelVarUtil->varSet.size();
+  return true;
 }
 
 inline void ReaderMPS::IssSetup()
@@ -236,10 +207,12 @@ void ReaderMPS::PushCoeffVarIdx(
   size_t _varIdx = modelVarUtil->MakeVar(_varName);
   auto &var = modelVarUtil->GetVar(_varIdx);
 
-  var.conIdxs.push_back(_conIdx);
-  var.posInCon.push_back(con.varIdxs.size());
+  var.conIdxSet.push_back(_conIdx);
+  var.posInCon.push_back(con.varIdxSet.size());
 
   con.coeffSet.push_back(_coeff);
-  con.varIdxs.push_back(_varIdx);
-  con.posInVar.push_back(var.conIdxs.size() - 1);
+  con.varIdxSet.push_back(_varIdx);
+  con.posInVar.push_back(var.conIdxSet.size() - 1);
+  if (con.type == ConType::E)
+    var.inEquality = true;
 }

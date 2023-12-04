@@ -17,20 +17,16 @@ LocalVarUtil::LocalVarUtil()
 }
 
 void LocalVarUtil::Allocate(
-    size_t varNum,
-    size_t varNumInObj)
+    size_t _varNum,
+    size_t _varNumInObj)
 {
-  tempDeltas.reserve(varNum);
-  tempVarIdxs.reserve(varNum);
-  tempTwoVarIdxs_1.reserve(varNum);
-  tempTwoDeltas_1.reserve(varNum);
-  tempTwoVarIdxs_2.reserve(varNum);
-  tempTwoDeltas_2.reserve(varNum);
-  affectedVar.reserve(varNum);
-  varSet.resize(varNum);
-  scoreTable.resize(varNum, false);
-  lowerDeltaInLiftMove.resize(varNumInObj);
-  upperDeltaInLifiMove.resize(varNumInObj);
+  tempDeltas.reserve(_varNum);
+  tempVarIdxs.reserve(_varNum);
+  affectedVar.reserve(_varNum);
+  varSet.resize(_varNum);
+  scoreTable.resize(_varNum, false);
+  lowerDeltaInLiftMove.resize(_varNumInObj);
+  upperDeltaInLifiMove.resize(_varNumInObj);
 }
 
 LocalVarUtil::~LocalVarUtil()
@@ -39,17 +35,13 @@ LocalVarUtil::~LocalVarUtil()
   upperDeltaInLifiMove.clear();
   scoreTable.clear();
   affectedVar.clear();
-  tempTwoVarIdxs_1.clear();
-  tempTwoDeltas_1.clear();
-  tempTwoVarIdxs_2.clear();
-  tempTwoDeltas_2.clear();
   varSet.clear();
   tempDeltas.clear();
   tempVarIdxs.clear();
 }
 
 LocalVar &LocalVarUtil::GetVar(
-    size_t idx)
+    size_t _idx)
 {
-  return varSet[idx];
+  return varSet[_idx];
 }

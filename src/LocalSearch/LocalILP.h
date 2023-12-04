@@ -36,6 +36,7 @@ private:
   double rvd;
   size_t noMove;
 
+  bool SAT(ConType type, Integer gap);
   bool VerifySolution();
   void InitState();
   void UpdateBestSolution();

@@ -21,6 +21,6 @@ public:
       ModelConUtil *_modelConUtil,
       ModelVarUtil *_modelVarUtil);
   ~ReaderMPS();
-  void Read(
+  bool Read(
       char *fileName);
 };

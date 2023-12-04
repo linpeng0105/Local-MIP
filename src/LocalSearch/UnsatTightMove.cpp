@@ -34,7 +34,7 @@ bool LocalILP::UnsatTightMove()
     auto &modelCon = modelConUtil->conSet[neighborConIdxs->at(neighborIdx)];
     for (size_t termIdx = 0; termIdx < modelCon.termNum; ++termIdx)
     {
-      size_t varIdx = modelCon.varIdxs[termIdx];
+      size_t varIdx = modelCon.varIdxSet[termIdx];
       auto &localVar = localVarUtil.GetVar(varIdx);
       auto &modelVar = modelVarUtil->GetVar(varIdx);
       Integer delta;

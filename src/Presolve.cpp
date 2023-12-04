@@ -1,6 +1,6 @@
 #include "Presolve.h"
 
-Setup::Setup(
+Presolve::Presolve(
     ModelConUtil *_modelConUtil,
     ModelVarUtil *_modelVarUtil)
     : modelConUtil(_modelConUtil),
@@ -11,44 +11,54 @@ Setup::Setup(
 {
 }
 
-Setup::~Setup()
+Presolve::~Presolve()
 {
 }
 
-void Setup::Run()
+bool Presolve::Run()
 {
   TightenBound();
   if (!TightBoundGlobally())
   {
     printf("c model is infeasible.\n");
-    exit(-1);
+    return false;
   }
   SetVarType();
   SetVarIdx2ObjIdx();
+  return true;
 }
 
-void Setup::TightenBound()
+void Presolve::TightenBound()
 {
   for (size_t conIdx = 1; conIdx < modelConUtil->conNum; ++conIdx)
   {
     auto &modelCon = modelConUtil->conSet[conIdx];
-    if (modelCon.varIdxs.size() == 1)
+    if (modelCon.varIdxSet.size() == 1)
       TightenBoundVar(modelCon);
   }
 }
 
-void Setup::TightenBoundVar(ModelCon &modelCon)
+void Presolve::TightenBoundVar(ModelCon &modelCon)
 {
   Integer coeff = modelCon.coeffSet[0];
-  auto &modelvar = modelVarUtil->GetVar(modelCon.varIdxs[0]);
-  double bound = (double)(modelCon.rhs / ZoomTimes) / (coeff / ZoomTimes);
-  if (coeff > 0 && bound <= modelvar.upperBound) // x <= bound
-    modelvar.upperBound = floor(bound);
-  else if (coeff < 0 && modelvar.lowerBound <= bound) // x >= bound
-    modelvar.lowerBound = ceil(bound);
+  auto &modelvar = modelVarUtil->GetVar(modelCon.varIdxSet[0]);
+  if (modelCon.type == ConType::E)
+  {
+    Integer bound = modelCon.rhs / coeff;
+    modelvar.lowerBound = bound;
+    modelvar.upperBound = bound;
+  }
+  else
+  {
+    double bound = (double)(modelCon.rhs / ZoomTimes) / (coeff / ZoomTimes);
+    if (coeff > 0 && bound <= modelvar.upperBound) // x <= bound
+      modelvar.upperBound = floor(bound);
+    else if (coeff < 0 && modelvar.lowerBound <= bound) // x >= bound
+      modelvar.lowerBound = ceil(bound);
+  }
 }
 
-bool Setup::TightBoundGlobally()
+bool Presolve::TightBoundGlobally()
 {
   for (auto &modelVar : modelVarUtil->varSet)
     if (modelVar.lowerBound == modelVar.upperBound)
@@ -63,22 +73,22 @@ bool Setup::TightBoundGlobally()
     deleteVarNum++;
     ModelVar &removeVar = modelVarUtil->GetVar(removeVarIdx);
     Integer removeVarValue = removeVar.lowerBound;
-    for (int termIdx = 0; termIdx < removeVar.conIdxs.size(); termIdx++)
+    for (int termIdx = 0; termIdx < removeVar.conIdxSet.size(); termIdx++)
     {
-      size_t conIdx = removeVar.conIdxs[termIdx];
+      size_t conIdx = removeVar.conIdxSet[termIdx];
       size_t posInCon = removeVar.posInCon[termIdx];
       ModelCon &modelCon = modelConUtil->GetCon(conIdx);
       Integer coeff = modelCon.coeffSet[posInCon];
-      size_t movedVarIdx = modelCon.varIdxs.back();
+      size_t movedVarIdx = modelCon.varIdxSet.back();
       Integer movedCoeff = modelCon.coeffSet.back();
       size_t movedPosInVar = modelCon.posInVar.back();
-      modelCon.varIdxs[posInCon] = movedVarIdx;
+      modelCon.varIdxSet[posInCon] = movedVarIdx;
       modelCon.coeffSet[posInCon] = movedCoeff;
       modelCon.posInVar[posInCon] = movedPosInVar;
       ModelVar &movedVar = modelVarUtil->GetVar(movedVarIdx);
-      assert(movedVar.conIdxs[movedPosInVar] == conIdx);
+      assert(movedVar.conIdxSet[movedPosInVar] == conIdx);
       movedVar.posInCon[movedPosInVar] = posInCon;
-      modelCon.varIdxs.pop_back();
+      modelCon.varIdxSet.pop_back();
       modelCon.coeffSet.pop_back();
       modelCon.posInVar.pop_back();
       if (conIdx == 0)
@@ -86,10 +96,10 @@ bool Setup::TightBoundGlobally()
       else
       {
         modelCon.rhs -= coeff * removeVarValue;
-        if (modelCon.varIdxs.size() == 1)
+        if (modelCon.varIdxSet.size() == 1)
         {
           TightenBoundVar(modelCon);
-          ModelVar &relatedVar = modelVarUtil->GetVar(modelCon.varIdxs[0]);
+          ModelVar &relatedVar = modelVarUtil->GetVar(modelCon.varIdxSet[0]);
           if (relatedVar.type != VarType::Fixed &&
               relatedVar.lowerBound == relatedVar.upperBound)
           {
@@ -98,17 +108,18 @@ bool Setup::TightBoundGlobally()
             inferVarNum++;
           }
         }
-        else if (modelCon.varIdxs.size() == 0)
+        else if (modelCon.varIdxSet.size() == 0)
         {
           assert(modelCon.coeffSet.size() == 0 && modelCon.posInVar.size() == 0);
-          if (modelCon.rhs >= 0)
+          if (modelCon.type == ConType::L && modelCon.rhs >= 0 ||
+              modelCon.type == ConType::E && modelCon.rhs == 0)
           {
             modelCon.inferSAT = true;
             deleteConNum++;
           }
           else
           {
-            printf("c con.rhs %lf\n", modelCon.rhs);
+            printf("c con.type: %-10d con.rhs %d\n", modelCon.type, itos(modelCon.rhs));
             return false;
           }
         }
@@ -118,12 +129,12 @@ bool Setup::TightBoundGlobally()
   return true;
 }
 
-bool Setup::SetVarType()
+bool Presolve::SetVarType()
 {
   for (size_t varIdx = 0; varIdx < modelVarUtil->varNum; varIdx++)
   {
     auto &modelVar = modelVarUtil->GetVar(varIdx);
-    modelVar.termNum = modelVar.conIdxs.size();
+    modelVar.termNum = modelVar.conIdxSet.size();
     if (modelVar.lowerBound == modelVar.upperBound)
     {
       modelVarUtil->fixedNum++;
@@ -146,17 +157,17 @@ bool Setup::SetVarType()
   for (size_t conIdx = 0; conIdx < modelConUtil->conNum; conIdx++)
   {
     auto &modelCon = modelConUtil->GetCon(conIdx);
-    modelCon.termNum = modelCon.varIdxs.size();
+    modelCon.termNum = modelCon.varIdxSet.size();
     if (modelCon.inferSAT)
       assert(modelCon.termNum == 0);
   }
   return true;
 }
 
-void Setup::SetVarIdx2ObjIdx()
+void Presolve::SetVarIdx2ObjIdx()
 {
   modelVarUtil->varIdx2ObjIdx.resize(modelVarUtil->varNum, -1);
   const auto &modelObj = modelConUtil->conSet[0];
   for (size_t idx = 0; idx < modelObj.termNum; ++idx)
-    modelVarUtil->varIdx2ObjIdx[modelObj.varIdxs[idx]] = idx;
+    modelVarUtil->varIdx2ObjIdx[modelObj.varIdxSet[idx]] = idx;
 }
