@@ -1,10 +1,25 @@
+/*=====================================================================================
+
+    Filename:     LocalCon.cpp
+
+    Description:  
+        Version:  1.0
+
+    Author:       Peng Lin, penglincs@outlook.com
+    
+    Organization: Shaowei Cai Group,
+                  State Key Laboratory of Computer Science, 
+                  Institute of Software, Chinese Academy of Sciences, 
+                  Beijing, China
+
+=====================================================================================*/
 #include "LocalCon.h"
 
 LocalCon::LocalCon()
     : weight(1),
       rhs(0)
 {
-  // todo init key by ori_key
+
 }
 LocalCon::~LocalCon()
 {

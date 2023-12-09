@@ -1,3 +1,18 @@
+/*=====================================================================================
+
+    Filename:     ReaderMPS.h
+
+    Description:  
+        Version:  1.0
+
+    Author:       Peng Lin, penglincs@outlook.com
+    
+    Organization: Shaowei Cai Group,
+                  State Key Laboratory of Computer Science, 
+                  Institute of Software, Chinese Academy of Sciences, 
+                  Beijing, China
+
+=====================================================================================*/
 #pragma once
 #include "utils/paras.h"
 #include "ModelCon.h"
@@ -10,6 +25,15 @@ private:
   ModelVarUtil *modelVarUtil;
   istringstream iss;
   string readLine;
+  void TightenBound();
+  void TightenBoundVar(ModelCon &modelCon);
+  bool TightBoundGlobally();
+  bool SetVarType();
+  void SetVarIdx2ObjIdx();
+  vector<size_t> fixedIdxs;
+  size_t deleteConNum;
+  size_t deleteVarNum;
+  size_t inferVarNum;
   inline void IssSetup();
   void PushCoeffVarIdx(
       const size_t _conIdx,
@@ -21,6 +45,6 @@ public:
       ModelConUtil *_modelConUtil,
       ModelVarUtil *_modelVarUtil);
   ~ReaderMPS();
-  bool Read(
+  void Read(
       char *fileName);
 };

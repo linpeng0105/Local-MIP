@@ -1,3 +1,18 @@
+/*=====================================================================================
+
+    Filename:     ModelVar.cpp
+
+    Description:  
+        Version:  1.0
+
+    Author:       Peng Lin, penglincs@outlook.com
+    
+    Organization: Shaowei Cai Group,
+                  State Key Laboratory of Computer Science, 
+                  Institute of Software, Chinese Academy of Sciences, 
+                  Beijing, China
+
+=====================================================================================*/
 #include "ModelVar.h"
 
 ModelVar::ModelVar(
@@ -8,26 +23,26 @@ ModelVar::ModelVar(
       upperBound(DefaultUpperBound),
       lowerBound(DefaultLowerBound),
       termNum(-1),
-      type(VarType::Binary),
-      inEquality(false)
+      type(VarType::Binary)
 {
+
 }
 
 ModelVar::~ModelVar()
 {
-  conIdxSet.clear();
+  conIdxs.clear();
   posInCon.clear();
 }
 
 bool ModelVar::InBound(
-    Integer _value) const
+    Integer value) const
 {
-  return lowerBound <= _value && _value <= upperBound;
+  return lowerBound <= value && value <= upperBound;
 }
 
-void ModelVar::SetType(VarType _varType)
+void ModelVar::SetType(VarType varType)
 {
-  type = _varType;
+  type = varType;
 }
 
 ModelVarUtil::ModelVarUtil()
@@ -37,6 +52,7 @@ ModelVarUtil::ModelVarUtil()
       isBin(true),
       varNum(-1)
 {
+
 }
 ModelVarUtil::~ModelVarUtil()
 {
@@ -46,32 +62,32 @@ ModelVarUtil::~ModelVarUtil()
 }
 
 size_t ModelVarUtil::MakeVar(
-    const string &_name)
+    const string &name)
 {
-  auto iter = name2idx.find(_name);
+  auto iter = name2idx.find(name);
   if (iter != name2idx.end())
     return iter->second;
   size_t varIdx = varSet.size();
-  varSet.emplace_back(_name, varIdx);
-  name2idx[_name] = varIdx;
+  varSet.emplace_back(name, varIdx);
+  name2idx[name] = varIdx;
   return varIdx;
 }
 
 const ModelVar &ModelVarUtil::GetVar(
-    size_t _idx) const
+    size_t idx) const
 {
-  return varSet[_idx];
+  return varSet[idx];
 }
 
 ModelVar &ModelVarUtil::GetVar(
-    size_t _idx)
+    size_t idx)
 {
-  return varSet[_idx];
+  return varSet[idx];
 }
 
 ModelVar &ModelVarUtil::GetVar(
-    const string &_name)
+    const string &name)
 {
-  auto iter = name2idx.find(_name);
-  return varSet[name2idx[_name]];
+  auto iter = name2idx.find(name);
+  return varSet[name2idx[name]];
 }

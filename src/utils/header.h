@@ -1,3 +1,18 @@
+/*=====================================================================================
+
+    Filename:     header.h
+
+    Description:  
+        Version:  1.0
+
+    Author:       Peng Lin, penglincs@outlook.com
+    
+    Organization: Shaowei Cai Group,
+                  State Key Laboratory of Computer Science, 
+                  Institute of Software, Chinese Academy of Sciences, 
+                  Beijing, China
+
+=====================================================================================*/
 #pragma once
 
 #include <cassert>
@@ -30,13 +45,6 @@ enum class VarType
     Binary,
     Integer,
     Fixed
-};
-enum class ConType
-{
-    E,
-    L,
-    G,
-    N
 };
 string itos(__int128_t v);
 std::chrono::_V2::system_clock::time_point TimeNow();

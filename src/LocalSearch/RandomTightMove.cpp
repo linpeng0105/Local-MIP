@@ -1,3 +1,18 @@
+/*=====================================================================================
+
+    Filename:     RandomTightMove.cpp
+
+    Description:  
+        Version:  1.0
+
+    Author:       Peng Lin, penglincs@outlook.com
+    
+    Organization: Shaowei Cai Group,
+                  State Key Laboratory of Computer Science, 
+                  Institute of Software, Chinese Academy of Sciences, 
+                  Beijing, China
+
+=====================================================================================*/
 #include "LocalILP.h"
 
 void LocalILP::RandomTightMove()
@@ -15,7 +30,7 @@ void LocalILP::RandomTightMove()
   neighborDeltas.clear();
   for (size_t termIdx = 0; termIdx < modelCon.termNum; ++termIdx)
   {
-    size_t varIdx = modelCon.varIdxSet[termIdx];
+    size_t varIdx = modelCon.varIdxs[termIdx];
     auto &localVar = localVarUtil.GetVar(varIdx);
     auto &modelVar = modelVarUtil->GetVar(varIdx);
     Integer delta;
@@ -75,5 +90,4 @@ void LocalILP::RandomTightMove()
     ApplyMove(bestVarIdx, bestDelta);
     return;
   }
-  noMove++;
 }

@@ -1,3 +1,18 @@
+/*=====================================================================================
+
+    Filename:     TightOperator.cpp
+
+    Description:  
+        Version:  1.0
+
+    Author:       Peng Lin, penglincs@outlook.com
+    
+    Organization: Shaowei Cai Group,
+                  State Key Laboratory of Computer Science, 
+                  Institute of Software, Chinese Academy of Sciences, 
+                  Beijing, China
+
+=====================================================================================*/
 #include "LocalILP.h"
 
 long LocalILP::TightScore(
@@ -12,7 +27,7 @@ long LocalILP::TightScore(
   bool isNowSat;
   for (size_t termIdx = 0; termIdx < modelVar.termNum; ++termIdx)
   {
-    conIdx = modelVar.conIdxSet[termIdx];
+    conIdx = modelVar.conIdxs[termIdx];
     posInCon = modelVar.posInCon[termIdx];
     auto &localCon = localConUtil.conSet[conIdx];
     auto &modelCon = modelConUtil->conSet[conIdx];
@@ -32,14 +47,14 @@ long LocalILP::TightScore(
     {
       newGap =
           localCon.gap + modelCon.coeffSet[posInCon] * delta;
-      isPreSat = SAT(modelCon.type, localCon.gap);
-      isNowSat = SAT(modelCon.type, newGap);
+      isPreSat = localCon.gap <= 0;
+      isNowSat = newGap <= 0;
       if (!isPreSat && isNowSat)
         score += localCon.weight;
       else if (isPreSat && !isNowSat)
         score -= localCon.weight;
       else if (!isPreSat && !isNowSat)
-        if (abs(localCon.gap) > abs(newGap))
+        if (localCon.gap > newGap)
           score += localCon.weight * rvd;
         else
           score -= localCon.weight * rvd;
@@ -56,7 +71,7 @@ bool LocalILP::TightDelta(
     size_t termIdx,
     Integer &res)
 {
-  auto varIdx = modelCon.varIdxSet[termIdx];
+  auto varIdx = modelCon.varIdxs[termIdx];
   auto &localVar = localVarUtil.GetVar(varIdx);
   auto &modelVar = modelVarUtil->GetVar(varIdx);
   double delta =

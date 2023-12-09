@@ -1,32 +1,45 @@
+/*=====================================================================================
+
+    Filename:     ModelCon.cpp
+
+    Description:  
+        Version:  1.0
+
+    Author:       Peng Lin, penglincs@outlook.com
+    
+    Organization: Shaowei Cai Group,
+                  State Key Laboratory of Computer Science, 
+                  Institute of Software, Chinese Academy of Sciences, 
+                  Beijing, China
+
+=====================================================================================*/
 #include "ModelCon.h"
 
 ModelCon::ModelCon(
     const string &_name,
-    size_t _idx,
-    ConType _type)
+    size_t _idx)
     : name(_name),
+      isEqual(false),
+      isLess(false),
+      isLarge(false),
       idx(_idx),
       rhs(0),
       inferSAT(false),
-      termNum(-1),
-      type(_type)
+      termNum(-1)
 {
+
 }
 
 ModelCon::~ModelCon()
 {
   coeffSet.clear();
-  varIdxSet.clear();
+  varIdxs.clear();
   posInVar.clear();
-}
-
-void ModelCon::SetType(ConType _type)
-{
-  type = _type;
 }
 
 ModelConUtil::ModelConUtil()
 {
+
 }
 
 ModelConUtil::~ModelConUtil()
@@ -36,43 +49,42 @@ ModelConUtil::~ModelConUtil()
 }
 
 size_t ModelConUtil::MakeCon(
-    const string &_name,
-    ConType _type)
+    const string &name)
 {
-  auto iter = name2idx.find(_name);
+  auto iter = name2idx.find(name);
   if (iter != name2idx.end())
     return iter->second;
-  auto conIdx = conSet.size();
-  conSet.emplace_back(_name, conIdx, _type);
-  name2idx[_name] = conIdx;
+  int conIdx = conSet.size();
+  conSet.emplace_back(name, conIdx);
+  name2idx[name] = conIdx;
   return conIdx;
 }
 
 size_t ModelConUtil::GetConIdx(
-    const string &_name)
+    const string &name)
 {
-  if (_name == objName)
+  if (name == objName)
     return 0;
-  auto iter = name2idx.find(_name);
+  auto iter = name2idx.find(name);
   return iter->second;
 }
 
 const ModelCon &ModelConUtil::GetCon(
-    size_t _idx) const
+    size_t idx) const
 {
-  return conSet[_idx];
+  return conSet[idx];
 }
 
 ModelCon &ModelConUtil::GetCon(
-    size_t _idx)
+    size_t idx)
 {
-  return conSet[_idx];
+  return conSet[idx];
 }
 
 ModelCon &ModelConUtil::GetCon(
-    const string &_name)
+    const string &name)
 {
-  if (_name == objName)
+  if (name == objName)
     return conSet[0];
-  return conSet[name2idx[_name]];
+  return conSet[name2idx[name]];
 }

@@ -9,8 +9,7 @@
 //        name,               type,  short-name, must-need, default, low, high, comments
 #define PARAS \
     PARA( cutoff            ,   double   , '\0' ,  false , 7200   , 0  , 1e8    , "Cutoff time") \
-    PARA( randomSeed        ,   int      , '\0' ,  false , 2832   , 0  , 100000 , "randomSeed") \
-    PARA( PrintSol          ,   int      , '\0' ,  false , 0      , 0  , 1      , "Print best found solution or not")
+    PARA( PrintSol          ,   int      , '\0' ,  false , 1      , 0  , 1      , "Print best found solution or not")
 
 //            name,   short-name, must-need, default, comments
 #define STR_PARAS \

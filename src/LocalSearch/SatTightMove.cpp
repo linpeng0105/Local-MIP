@@ -1,3 +1,18 @@
+/*=====================================================================================
+
+    Filename:     SatTightMove.cpp
+
+    Description:  
+        Version:  1.0
+
+    Author:       Peng Lin, penglincs@outlook.com
+    
+    Organization: Shaowei Cai Group,
+                  State Key Laboratory of Computer Science, 
+                  Institute of Software, Chinese Academy of Sciences, 
+                  Beijing, China
+
+=====================================================================================*/
 #include "LocalILP.h"
 
 bool LocalILP::SatTightMove(
@@ -37,7 +52,7 @@ bool LocalILP::SatTightMove(
     auto &modelCon = modelConUtil->conSet[neighborConIdxs[neighborIdx]];
     for (size_t termIdx = 0; termIdx < modelCon.termNum; ++termIdx)
     {
-      size_t varIdx = modelCon.varIdxSet[termIdx];
+      size_t varIdx = modelCon.varIdxs[termIdx];
       auto &localVar = localVarUtil.GetVar(varIdx);
       auto &modelVar = modelVarUtil->GetVar(varIdx);
       Integer delta;
@@ -104,7 +119,7 @@ bool LocalILP::SatTightMove(
 
   if (bestScore > 0)
   {
-    ++tightStep;
+    ++tightStepSat;
     ApplyMove(bestVarIdx, bestDelta);
     return true;
   }

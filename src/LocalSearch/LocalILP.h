@@ -1,3 +1,18 @@
+/*=====================================================================================
+
+    Filename:     LocalILP.h
+
+    Description:  
+        Version:  1.0
+
+    Author:       Peng Lin, penglincs@outlook.com
+    
+    Organization: Shaowei Cai Group,
+                  State Key Laboratory of Computer Science, 
+                  Institute of Software, Chinese Academy of Sciences, 
+                  Beijing, China
+
+=====================================================================================*/
 #pragma once
 #include "utils/paras.h"
 #include "ModelCon.h"
@@ -19,7 +34,9 @@ private:
   int tabuVariation;
   bool isFoundFeasible;
   size_t liftStep;
-  size_t tightStep;
+  size_t breakStep;
+  size_t tightStepUnsat;
+  size_t tightStepSat;
   size_t randomStep;
   size_t weightUpperBound;
   size_t objWeightUpperBound;
@@ -34,9 +51,7 @@ private:
   size_t bmsRandom;
   size_t restartStep;
   double rvd;
-  size_t noMove;
 
-  bool SAT(ConType type, Integer gap);
   bool VerifySolution();
   void InitState();
   void UpdateBestSolution();

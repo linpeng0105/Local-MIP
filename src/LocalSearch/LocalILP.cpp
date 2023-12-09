@@ -1,3 +1,18 @@
+/*=====================================================================================
+
+    Filename:     LocalILP.cpp
+
+    Description:  
+        Version:  1.0
+
+    Author:       Peng Lin, penglincs@outlook.com
+    
+    Organization: Shaowei Cai Group,
+                  State Key Laboratory of Computer Science, 
+                  Institute of Software, Chinese Academy of Sciences, 
+                  Beijing, China
+
+=====================================================================================*/
 #include "LocalILP.h"
 
 int LocalILP::LocalSearch(
@@ -11,7 +26,6 @@ int LocalILP::LocalSearch(
   curStep = 0;
   while (true)
   {
-    // printf("c %-10d unsat: %-10d\n", curStep, localConUtil.unsatConIdxs.size());
     if (localConUtil.unsatConIdxs.empty())
     {
       if (!isFoundFeasible || localObj.gap <= 0)
@@ -117,9 +131,9 @@ void LocalILP::InitState()
     for (size_t termIdx = 0; termIdx < modelCon.termNum; ++termIdx)
       localCon.gap +=
           modelCon.coeffSet[termIdx] *
-          localVarUtil.GetVar(modelCon.varIdxSet[termIdx]).nowValue;
+          localVarUtil.GetVar(modelCon.varIdxs[termIdx]).nowValue;
     localCon.gap -= localCon.rhs;
-    if (SAT(modelCon.type, localCon.gap))
+    if (localCon.gap > 0)
       localConUtil.insertUnsat(conIdx);
   }
   auto &localObj = localConUtil.conSet[0];
@@ -129,7 +143,7 @@ void LocalILP::InitState()
   for (size_t termIdx = 0; termIdx < modelObj.termNum; ++termIdx)
     localObj.gap +=
         modelObj.coeffSet[termIdx] *
-        localVarUtil.GetVar(modelObj.varIdxSet[termIdx]).nowValue;
+        localVarUtil.GetVar(modelObj.varIdxs[termIdx]).nowValue;
   localObj.gap -= localObj.rhs;
 }
 
@@ -144,7 +158,7 @@ void LocalILP::UpdateBestSolution()
   for (size_t termIdx = 0; termIdx < modelObj.termNum; ++termIdx)
   {
     auto &localVar =
-        localVarUtil.GetVar(modelObj.varIdxSet[termIdx]);
+        localVarUtil.GetVar(modelObj.varIdxs[termIdx]);
     localObj.rhs +=
         localVar.nowValue * modelObj.coeffSet[termIdx];
   }
@@ -157,14 +171,13 @@ void LocalILP::ApplyMove(
     size_t varIdx,
     Integer delta)
 {
-  // printf("c %-10d varIdx: %-10d delta: %-10d\n", curStep, varIdx, delta);
   auto &localVar = localVarUtil.GetVar(varIdx);
   auto &modelVar = modelVarUtil->GetVar(varIdx);
   localVar.nowValue += delta;
 
   for (size_t termIdx = 0; termIdx < modelVar.termNum; ++termIdx)
   {
-    size_t conIdx = modelVar.conIdxSet[termIdx];
+    size_t conIdx = modelVar.conIdxs[termIdx];
     size_t posInCon = modelVar.posInCon[termIdx];
     auto &localCon = localConUtil.conSet[conIdx];
     auto &modelCon = modelConUtil->conSet[conIdx];
@@ -174,8 +187,8 @@ void LocalILP::ApplyMove(
       localCon.gap = newGap;
     else
     {
-      bool isPreSat = SAT(modelCon.type, localCon.gap);
-      bool isNowSat = SAT(modelCon.type, newGap);
+      bool isPreSat = localCon.gap <= 0;
+      bool isNowSat = newGap <= 0;
       if (isPreSat && !isNowSat)
         localConUtil.insertUnsat(conIdx);
       else if (!isPreSat && isNowSat)
@@ -231,10 +244,10 @@ void LocalILP::Restart()
     for (size_t termIdx = 0; termIdx < modelCon.termNum; ++termIdx)
       localCon.gap +=
           modelCon.coeffSet[termIdx] *
-          localVarUtil.GetVar(modelCon.varIdxSet[termIdx]).nowValue;
+          localVarUtil.GetVar(modelCon.varIdxs[termIdx]).nowValue;
 
     localCon.gap -= localCon.rhs;
-    if (SAT(modelCon.type, localCon.gap))
+    if (localCon.gap > 0)
       localConUtil.insertUnsat(conIdx);
     localCon.weight = 1;
   }
@@ -245,45 +258,34 @@ void LocalILP::Restart()
   for (size_t termIdx = 0; termIdx < modelObj.termNum; ++termIdx)
     localObj.gap +=
         modelObj.coeffSet[termIdx] *
-        localVarUtil.GetVar(modelObj.varIdxSet[termIdx]).nowValue;
+        localVarUtil.GetVar(modelObj.varIdxs[termIdx]).nowValue;
   localObj.gap -= localObj.rhs;
-}
-
-bool LocalILP::SAT(ConType type, Integer gap)
-{
-  return type == ConType::L && gap > 0 ||
-         type == ConType::E && gap != 0;
 }
 
 bool LocalILP::VerifySolution()
 {
-  for (size_t varIdx = 0; varIdx < modelVarUtil->varNum; varIdx++)
+  for (size_t var_idx = 0; var_idx < modelVarUtil->varNum; var_idx++)
   {
-    auto &localVar = localVarUtil.GetVar(varIdx);
-    auto &modelVar = modelVarUtil->GetVar(varIdx);
-    if (!modelVar.InBound(localVar.bestValue))
+    auto &var = localVarUtil.GetVar(var_idx);
+    auto &modelVar = modelVarUtil->GetVar(var_idx);
+    if (!modelVar.InBound(var.bestValue))
       return false;
   }
 
-  for (size_t conIdx = 1; conIdx < modelConUtil->conNum; ++conIdx)
+  for (size_t con_idx = 1; con_idx < modelConUtil->conNum; ++con_idx)
   {
-    auto &localCon = localConUtil.conSet[conIdx];
-    auto &modelCon = modelConUtil->conSet[conIdx];
+    auto &con = localConUtil.conSet[con_idx];
+    auto &modelCon = modelConUtil->conSet[con_idx];
     // calculate gap
-    Integer gap = 0;
-    for (size_t idx = 0; idx < modelCon.termNum; ++idx)
-      gap +=
-          modelCon.coeffSet[idx] *
-          localVarUtil.GetVar(modelCon.varIdxSet[idx]).bestValue;
+    Integer con_gap = 0;
+    for (size_t i = 0; i < modelCon.termNum; ++i)
+      con_gap += modelCon.coeffSet[i] * localVarUtil.GetVar(modelCon.varIdxs[i]).bestValue;
     // setup unsat_con_idxs and total_weight
-    gap -= modelCon.rhs;
-    if (SAT(modelCon.type, gap))
-    {
-      printf(
-          "c type: %-2d lhs: %-30s rhs: %-30s\n",
-          modelCon.type, itos(gap).c_str(), itos(modelCon.rhs).c_str());
+    if (con_gap > modelCon.rhs)
+      cout << "con_gap:\t" << (double)con_gap << endl
+           << "modelCon.ori_key:\t" << (double)modelCon.rhs << endl;
+    if (con_gap > con.rhs)
       return false;
-    }
   }
 
   // Obj
@@ -291,7 +293,7 @@ bool LocalILP::VerifySolution()
   auto &modelObj = modelConUtil->conSet[0];
   Integer objGap = 0;
   for (size_t i = 0; i < modelObj.termNum; ++i)
-    objGap += modelObj.coeffSet[i] * localVarUtil.GetVar(modelObj.varIdxSet[i]).bestValue;
+    objGap += modelObj.coeffSet[i] * localVarUtil.GetVar(modelObj.varIdxs[i]).bestValue;
   objGap -= localObj.rhs;
   return objGap == 1;
 }
@@ -311,7 +313,7 @@ void LocalILP::Allocate()
 {
   localVarUtil.Allocate(
       modelVarUtil->varNum,
-      modelConUtil->conSet[0].varIdxSet.size());
+      modelConUtil->conSet[0].varIdxs.size());
   localConUtil.Allocate(modelConUtil->conNum);
   for (size_t conIdx = 1; conIdx < modelConUtil->conNum; conIdx++)
     localConUtil.conSet[conIdx].rhs = modelConUtil->conSet[conIdx].rhs;
@@ -333,15 +335,17 @@ LocalILP::LocalILP(
   tabuVariation = 10;
   isFoundFeasible = false;
   liftStep = 0;
-  tightStep = 0;
+  breakStep = 0;
+  tightStepUnsat = 0;
+  tightStepSat = 0;
   randomStep = 0;
+  restartTimes = 0;
   weightUpperBound = 1000;
   objWeightUpperBound = 100;
   if (weightUpperBound < modelConUtil->conNum)
     weightUpperBound = modelConUtil->conNum;
   objWeightUpperBound = weightUpperBound / 10;
   lastImproveStep = 0;
-  restartTimes = 0;
   isBin = modelVarUtil->isBin;
   isKeepFeas = false;
   sampleUnsat = 3;
@@ -351,9 +355,7 @@ LocalILP::LocalILP(
   bmsRandom = 150;
   restartStep = 1500000;
   rvd = 0.5;
-  if (OPT(randomSeed) != 0)
-    mt.seed(OPT(randomSeed));
-  noMove = 0;
+  mt.seed(2832);
 }
 
 LocalILP::~LocalILP()
