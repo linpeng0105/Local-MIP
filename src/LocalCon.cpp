@@ -2,14 +2,14 @@
 
     Filename:     LocalCon.cpp
 
-    Description:  
+    Description:
         Version:  1.0
 
     Author:       Peng Lin, penglincs@outlook.com
-    
+
     Organization: Shaowei Cai Group,
-                  State Key Laboratory of Computer Science, 
-                  Institute of Software, Chinese Academy of Sciences, 
+                  State Key Laboratory of Computer Science,
+                  Institute of Software, Chinese Academy of Sciences,
                   Beijing, China
 
 =====================================================================================*/
@@ -17,12 +17,24 @@
 
 LocalCon::LocalCon()
     : weight(1),
-      rhs(0)
+      RHS(0),
+      LHS(0),
+      calTimes(0)
 {
-
 }
+
 LocalCon::~LocalCon()
 {
+}
+
+bool LocalCon::SAT()
+{
+  return LHS < RHS + FeasibilityTol;
+}
+
+bool LocalCon::UNSAT()
+{
+  return LHS >= RHS + FeasibilityTol;
 }
 
 LocalConUtil::LocalConUtil()
@@ -30,41 +42,37 @@ LocalConUtil::LocalConUtil()
 }
 
 void LocalConUtil::Allocate(
-    size_t conNum)
+    size_t _conNum)
 {
-  unsatConIdxs.reserve(conNum);
-  tempSatConIdxs.reserve(conNum);
-  tempUnsatConIdxs.reserve(conNum);
-  newConGap.resize(conNum);
-  isNewConGap.resize(conNum, false);
-  conSet.resize(conNum);
+  unsatConIdxs.reserve(_conNum);
+  tempSatConIdxs.reserve(_conNum);
+  tempUnsatConIdxs.reserve(_conNum);
+  conSet.resize(_conNum);
 }
 
 LocalConUtil::~LocalConUtil()
 {
   tempSatConIdxs.clear();
   tempUnsatConIdxs.clear();
-  newConGap.clear();
-  isNewConGap.clear();
   conSet.clear();
   unsatConIdxs.clear();
 }
 
 LocalCon &LocalConUtil::GetCon(
-    size_t idx)
+    size_t _idx)
 {
-  return conSet[idx];
+  return conSet[_idx];
 }
 
 void LocalConUtil::insertUnsat(
-    size_t conIdx)
+    size_t _conIdx)
 {
-  conSet[conIdx].posInUnsatConIdxs = unsatConIdxs.size();
-  unsatConIdxs.push_back(conIdx);
+  conSet[_conIdx].posInUnsatConIdxs = unsatConIdxs.size();
+  unsatConIdxs.push_back(_conIdx);
 }
 
 void LocalConUtil::RemoveUnsat(
-    size_t conIdx)
+    size_t _conIdx)
 {
   assert(unsatConIdxs.size() > 0);
   if (unsatConIdxs.size() == 1)
@@ -72,7 +80,7 @@ void LocalConUtil::RemoveUnsat(
     unsatConIdxs.pop_back();
     return;
   }
-  size_t pos = conSet[conIdx].posInUnsatConIdxs;
+  size_t pos = conSet[_conIdx].posInUnsatConIdxs;
   unsatConIdxs[pos] = *unsatConIdxs.rbegin();
   unsatConIdxs.pop_back();
   conSet[unsatConIdxs[pos]].posInUnsatConIdxs = pos;

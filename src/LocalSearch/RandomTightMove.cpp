@@ -15,25 +15,25 @@
 =====================================================================================*/
 #include "LocalILP.h"
 
-void LocalILP::RandomTightMove()
+void LocalMIP::RandomTightMove()
 {
   long bestScore = -100000000000;
   size_t bestLastMoveStep = std::numeric_limits<size_t>::max();
   size_t bestVarIdx = -1;
-  Integer bestDelta = 0;
+  Value bestDelta = 0;
   size_t conIdx = localConUtil.unsatConIdxs[mt() % localConUtil.unsatConIdxs.size()];
   auto &localCon = localConUtil.conSet[conIdx];
   auto &modelCon = modelConUtil->conSet[conIdx];
   vector<size_t> &neighborVarIdxs = localVarUtil.tempVarIdxs;
-  vector<Integer> &neighborDeltas = localVarUtil.tempDeltas;
+  vector<Value> &neighborDeltas = localVarUtil.tempDeltas;
   neighborVarIdxs.clear();
   neighborDeltas.clear();
   for (size_t termIdx = 0; termIdx < modelCon.termNum; ++termIdx)
   {
-    size_t varIdx = modelCon.varIdxs[termIdx];
+    size_t varIdx = modelCon.varIdxSet[termIdx];
     auto &localVar = localVarUtil.GetVar(varIdx);
     auto &modelVar = modelVarUtil->GetVar(varIdx);
-    Integer delta;
+    Value delta;
     if (!TightDelta(localCon, modelCon, termIdx, delta))
     {
       if (modelCon.coeffSet[termIdx] > 0)
@@ -45,7 +45,7 @@ void LocalILP::RandomTightMove()
         (delta < 0 && curStep == localVar.lastIncStep + 1 ||
          delta > 0 && curStep == localVar.lastDecStep + 1))
       continue;
-    if (delta == 0)
+    if (fabs(delta) < FeasibilityTol)
       continue;
     neighborVarIdxs.push_back(varIdx);
     neighborDeltas.push_back(delta);
@@ -58,7 +58,7 @@ void LocalILP::RandomTightMove()
     {
       size_t randomIdx = (mt() % (neighborVarIdxs.size() - bmsIdx)) + bmsIdx;
       size_t varIdx = neighborVarIdxs[randomIdx];
-      Integer delta = neighborDeltas[randomIdx];
+      Value delta = neighborDeltas[randomIdx];
       neighborVarIdxs[randomIdx] = neighborVarIdxs[bmsIdx];
       neighborDeltas[randomIdx] = neighborDeltas[bmsIdx];
       neighborVarIdxs[bmsIdx] = varIdx;
@@ -68,7 +68,7 @@ void LocalILP::RandomTightMove()
   for (size_t idx = 0; idx < scoreSize; ++idx)
   {
     size_t varIdx = neighborVarIdxs[idx];
-    Integer delta = neighborDeltas[idx];
+    Value delta = neighborDeltas[idx];
     auto &localVar = localVarUtil.GetVar(varIdx);
     auto &modelVar = modelVarUtil->GetVar(varIdx);
     long score = TightScore(modelVar, delta);

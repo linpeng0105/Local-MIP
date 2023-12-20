@@ -24,15 +24,14 @@ class Solver
 {
 private:
   char *fileName;
-  Integer optimalObj;
+  Value optimalObj;
   void ParseObj();
-  bool SkipInstance();
 
 public:
   ReaderMPS *readerMPS;
   ModelConUtil *modelConUtil;
   ModelVarUtil *modelVarUtil;
-  LocalILP *localILP;
+  LocalMIP *localMIP;
   chrono::_V2::system_clock::time_point clkStart =
       chrono::high_resolution_clock::now();
   Solver();

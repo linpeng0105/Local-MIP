@@ -1,23 +1,23 @@
 /*=====================================================================================
 
-    Filename:     LocalILP.cpp
+    Filename:     LocalMIP.cpp
 
-    Description:  
+    Description:
         Version:  1.0
 
     Author:       Peng Lin, penglincs@outlook.com
-    
+
     Organization: Shaowei Cai Group,
-                  State Key Laboratory of Computer Science, 
-                  Institute of Software, Chinese Academy of Sciences, 
+                  State Key Laboratory of Computer Science,
+                  Institute of Software, Chinese Academy of Sciences,
                   Beijing, China
 
 =====================================================================================*/
 #include "LocalILP.h"
 
-int LocalILP::LocalSearch(
-    Integer optimalObj,
-    chrono::_V2::system_clock::time_point clkStart)
+int LocalMIP::LocalSearch(
+    Value _optimalObj,
+    chrono::_V2::system_clock::time_point _clkStart)
 {
   Allocate();
   InitSolution();
@@ -28,21 +28,21 @@ int LocalILP::LocalSearch(
   {
     if (localConUtil.unsatConIdxs.empty())
     {
-      if (!isFoundFeasible || localObj.gap <= 0)
+      if (!isFoundFeasible || localObj.LHS < localObj.RHS)
       {
         UpdateBestSolution();
-        LogObj(clkStart);
+        LogObj(_clkStart);
         isFoundFeasible = true;
       }
       LiftMove();
-      if (GetObjValue() == optimalObj)
+      if (GetObjValue() <= _optimalObj)
         return 1;
       ++curStep;
-      if (Timeout(clkStart))
+      if (Timeout(_clkStart))
         break;
       continue;
     }
-    if (Timeout(clkStart))
+    if (Timeout(_clkStart))
       break;
     if (curStep - lastImproveStep > restartStep)
     {
@@ -63,28 +63,28 @@ int LocalILP::LocalSearch(
   return 0;
 }
 
-bool LocalILP::Timeout(
-    chrono::_V2::system_clock::time_point &clkStart)
+bool LocalMIP::Timeout(
+    chrono::_V2::system_clock::time_point &_clkStart)
 {
   auto clk_now = chrono::high_resolution_clock::now();
   auto solve_time =
-      chrono::duration_cast<chrono::seconds>(clk_now - clkStart).count();
+      chrono::duration_cast<chrono::seconds>(clk_now - _clkStart).count();
   if (solve_time >= OPT(cutoff))
     return true;
   return false;
 }
 
-void LocalILP::LogObj(
-    chrono::_V2::system_clock::time_point &clkStart)
+void LocalMIP::LogObj(
+    chrono::_V2::system_clock::time_point &_clkStart)
 {
   auto clk = TimeNow();
   printf(
-      "n %-20s %lf\n",
-      itos(GetObjValue()).c_str(),
-      ElapsedTime(clk, clkStart));
+      "n %-20f %lf\n",
+      (GetObjValue()),
+      ElapsedTime(clk, _clkStart));
 }
 
-void LocalILP::InitSolution()
+void LocalMIP::InitSolution()
 {
   for (size_t varIdx = 0; varIdx < modelVarUtil->varNum; varIdx++)
   {
@@ -96,24 +96,18 @@ void LocalILP::InitSolution()
       localVar.nowValue = modelVar.upperBound;
     else
       localVar.nowValue = 0;
-    if (!modelVar.InBound(localVar.nowValue))
-      localVar.nowValue =
-          (Integer)(modelVar.lowerBound / 2.0 + modelVar.upperBound / 2.0);
+    assert(modelVar.InBound(localVar.nowValue));
   }
 }
 
-void LocalILP::PrintResult()
+void LocalMIP::PrintResult()
 {
   if (!isFoundFeasible)
     printf("o no feasible solution found.\n");
   else if (VerifySolution())
   {
-    cout << "o Best objective: "
-         << itos(GetObjValue()).c_str()
-         << endl;
-    cout << "B 1 "
-         << itos(GetObjValue()).c_str()
-         << endl;
+    printf("o Best objective: %lf\n", GetObjValue());
+    printf("B 1 %lf\n", GetObjValue());
     if (OPT(PrintSol))
       PrintSol();
   }
@@ -121,82 +115,86 @@ void LocalILP::PrintResult()
     cout << "solution verify failed." << endl;
 }
 
-void LocalILP::InitState()
+void LocalMIP::InitState()
 {
   for (size_t conIdx = 1; conIdx < modelConUtil->conNum; ++conIdx)
   {
     auto &localCon = localConUtil.conSet[conIdx];
     auto &modelCon = modelConUtil->conSet[conIdx];
-    localCon.gap = 0;
+    localCon.LHS = 0;
     for (size_t termIdx = 0; termIdx < modelCon.termNum; ++termIdx)
-      localCon.gap +=
+      localCon.LHS +=
           modelCon.coeffSet[termIdx] *
-          localVarUtil.GetVar(modelCon.varIdxs[termIdx]).nowValue;
-    localCon.gap -= localCon.rhs;
-    if (localCon.gap > 0)
+          localVarUtil.GetVar(modelCon.varIdxSet[termIdx]).nowValue;
+    if (localCon.UNSAT())
       localConUtil.insertUnsat(conIdx);
+    localCon.calTimes = modelCon.termNum;
   }
   auto &localObj = localConUtil.conSet[0];
   auto &modelObj = modelConUtil->conSet[0];
-  localObj.rhs = 1e38;
-  localObj.gap = 0;
+  localObj.RHS = Infinity;
+  localObj.LHS = 0;
   for (size_t termIdx = 0; termIdx < modelObj.termNum; ++termIdx)
-    localObj.gap +=
+    localObj.LHS +=
         modelObj.coeffSet[termIdx] *
-        localVarUtil.GetVar(modelObj.varIdxs[termIdx]).nowValue;
-  localObj.gap -= localObj.rhs;
+        localVarUtil.GetVar(modelObj.varIdxSet[termIdx]).nowValue;
+  localObj.calTimes = modelObj.termNum;
 }
 
-void LocalILP::UpdateBestSolution()
+void LocalMIP::UpdateBestSolution()
 {
   lastImproveStep = curStep;
   for (auto &localVar : localVarUtil.varSet)
     localVar.bestValue = localVar.nowValue;
   auto &localObj = localConUtil.conSet[0];
   auto &modelObj = modelConUtil->conSet[0];
-  localObj.rhs = 0;
-  for (size_t termIdx = 0; termIdx < modelObj.termNum; ++termIdx)
-  {
-    auto &localVar =
-        localVarUtil.GetVar(modelObj.varIdxs[termIdx]);
-    localObj.rhs +=
-        localVar.nowValue * modelObj.coeffSet[termIdx];
-  }
-
-  localObj.rhs -= 1;
-  localObj.gap = 1;
+  bestOBJ = localObj.LHS;
+  localObj.RHS = bestOBJ - OptimalTol;
 }
 
-void LocalILP::ApplyMove(
-    size_t varIdx,
-    Integer delta)
+void LocalMIP::ApplyMove(
+    size_t _varIdx,
+    Value _delta)
 {
-  auto &localVar = localVarUtil.GetVar(varIdx);
-  auto &modelVar = modelVarUtil->GetVar(varIdx);
-  localVar.nowValue += delta;
+  auto &localVar = localVarUtil.GetVar(_varIdx);
+  auto &modelVar = modelVarUtil->GetVar(_varIdx);
+  localVar.nowValue += _delta;
 
   for (size_t termIdx = 0; termIdx < modelVar.termNum; ++termIdx)
   {
-    size_t conIdx = modelVar.conIdxs[termIdx];
+    size_t conIdx = modelVar.conIdxSet[termIdx];
     size_t posInCon = modelVar.posInCon[termIdx];
     auto &localCon = localConUtil.conSet[conIdx];
     auto &modelCon = modelConUtil->conSet[conIdx];
-    Integer newGap =
-        localCon.gap + modelCon.coeffSet[posInCon] * delta;
+    Value newLHS = 0;
+    // if (localCon.calTimes < reCal && conIdx != 0)
+    // {
+    //   newLHS = localCon.LHS + modelCon.coeffSet[posInCon] * _delta;
+    //   localCon.calTimes++;
+    // }
+    // else
+    // {
+    for (size_t termIdx = 0; termIdx < modelCon.termNum; ++termIdx)
+      newLHS +=
+          modelCon.coeffSet[termIdx] *
+          localVarUtil.GetVar(modelCon.varIdxSet[termIdx]).nowValue;
+    localCon.calTimes = modelCon.termNum;
+    // }
+    // Value newGap = newLHS - localCon.RHS;
     if (conIdx == 0)
-      localCon.gap = newGap;
+      localCon.LHS = newLHS;
     else
     {
-      bool isPreSat = localCon.gap <= 0;
-      bool isNowSat = newGap <= 0;
+      bool isPreSat = localCon.SAT();
+      bool isNowSat = newLHS < localCon.RHS + FeasibilityTol;
       if (isPreSat && !isNowSat)
         localConUtil.insertUnsat(conIdx);
       else if (!isPreSat && isNowSat)
         localConUtil.RemoveUnsat(conIdx);
-      localCon.gap = newGap;
+      localCon.LHS = newLHS;
     }
   }
-  if (delta > 0)
+  if (_delta > 0)
   {
     localVar.lastIncStep = curStep;
     localVar.allowDecStep =
@@ -210,7 +208,7 @@ void LocalILP::ApplyMove(
   }
 }
 
-void LocalILP::Restart()
+void LocalMIP::Restart()
 {
   lastImproveStep = curStep;
   ++restartTimes;
@@ -220,15 +218,28 @@ void LocalILP::Restart()
   {
     auto &localVar = localVarUtil.GetVar(varIdx);
     auto &modelVar = modelVarUtil->GetVar(varIdx);
-    if (modelVar.upperBound + 1 == modelVar.lowerBound)
-      localVar.nowValue =
-          (Integer)(modelVar.lowerBound / 2.0 + modelVar.upperBound / 2.0);
+    if (modelVar.type == VarType::Binary)
+      localVar.nowValue = mt() % 2;
+    else if (modelVar.type == VarType::Integer &&
+             modelVar.lowerBound > -1e15 &&
+             modelVar.upperBound < 1e15)
+    {
+      long long lowerBound = (long long)modelVar.lowerBound;
+      long long upperBound = (long long)modelVar.upperBound;
+      localVar.nowValue = modelVar.lowerBound + (mt() % (upperBound + 1 - lowerBound));
+      // printf("c %lf; %lf; %lld; %lf; %lld\n",
+      //        localVar.nowValue, modelVar.lowerBound, lowerBound, modelVar.upperBound, upperBound);
+    }
     else
-      localVar.nowValue =
-          modelVar.lowerBound + mt() % (modelVar.upperBound + 1 - modelVar.lowerBound);
-    if (!modelVar.InBound(localVar.nowValue))
-      localVar.nowValue =
-          (Integer)(modelVar.lowerBound / 2.0 + modelVar.upperBound / 2.0);
+    {
+      if (modelVar.lowerBound > 0)
+        localVar.nowValue = modelVar.lowerBound;
+      else if (modelVar.upperBound < 0)
+        localVar.nowValue = modelVar.upperBound;
+      else
+        localVar.nowValue = 0;
+    }
+    assert(modelVar.InBound(localVar.nowValue));
     if (isFoundFeasible && mt() % 100 > 50)
       localVar.nowValue = localVar.bestValue;
     localVar.lastDecStep = curStep;
@@ -240,29 +251,26 @@ void LocalILP::Restart()
   {
     auto &localCon = localConUtil.conSet[conIdx];
     auto &modelCon = modelConUtil->conSet[conIdx];
-    localCon.gap = 0;
+    localCon.LHS = 0;
     for (size_t termIdx = 0; termIdx < modelCon.termNum; ++termIdx)
-      localCon.gap +=
+      localCon.LHS +=
           modelCon.coeffSet[termIdx] *
-          localVarUtil.GetVar(modelCon.varIdxs[termIdx]).nowValue;
-
-    localCon.gap -= localCon.rhs;
-    if (localCon.gap > 0)
+          localVarUtil.GetVar(modelCon.varIdxSet[termIdx]).nowValue;
+    if (localCon.UNSAT())
       localConUtil.insertUnsat(conIdx);
     localCon.weight = 1;
   }
   auto &localObj = localConUtil.conSet[0];
   auto &modelObj = modelConUtil->conSet[0];
-  localObj.gap = 0;
+  localObj.LHS = 0;
   localObj.weight = 1;
   for (size_t termIdx = 0; termIdx < modelObj.termNum; ++termIdx)
-    localObj.gap +=
+    localObj.LHS +=
         modelObj.coeffSet[termIdx] *
-        localVarUtil.GetVar(modelObj.varIdxs[termIdx]).nowValue;
-  localObj.gap -= localObj.rhs;
+        localVarUtil.GetVar(modelObj.varIdxSet[termIdx]).nowValue;
 }
 
-bool LocalILP::VerifySolution()
+bool LocalMIP::VerifySolution()
 {
   for (size_t var_idx = 0; var_idx < modelVarUtil->varNum; var_idx++)
   {
@@ -272,59 +280,60 @@ bool LocalILP::VerifySolution()
       return false;
   }
 
-  for (size_t con_idx = 1; con_idx < modelConUtil->conNum; ++con_idx)
+  for (size_t conIdx = 1; conIdx < modelConUtil->conNum; ++conIdx)
   {
-    auto &con = localConUtil.conSet[con_idx];
-    auto &modelCon = modelConUtil->conSet[con_idx];
-    // calculate gap
-    Integer con_gap = 0;
-    for (size_t i = 0; i < modelCon.termNum; ++i)
-      con_gap += modelCon.coeffSet[i] * localVarUtil.GetVar(modelCon.varIdxs[i]).bestValue;
-    // setup unsat_con_idxs and total_weight
-    if (con_gap > modelCon.rhs)
-      cout << "con_gap:\t" << (double)con_gap << endl
-           << "modelCon.ori_key:\t" << (double)modelCon.rhs << endl;
-    if (con_gap > con.rhs)
+    auto &con = localConUtil.conSet[conIdx];
+    auto &modelCon = modelConUtil->conSet[conIdx];
+    Value lhs = 0;
+    for (size_t termIdx = 0; termIdx < modelCon.termNum; ++termIdx)
+      lhs +=
+          modelCon.coeffSet[termIdx] *
+          localVarUtil.GetVar(modelCon.varIdxSet[termIdx]).bestValue;
+    if (lhs > modelCon.RHS + FeasibilityTol)
+    {
+      printf("c lhs: %lf; rhs: %lf\n", lhs, modelCon.RHS);
       return false;
+    }
   }
-
   // Obj
   auto &localObj = localConUtil.conSet[0];
   auto &modelObj = modelConUtil->conSet[0];
-  Integer objGap = 0;
-  for (size_t i = 0; i < modelObj.termNum; ++i)
-    objGap += modelObj.coeffSet[i] * localVarUtil.GetVar(modelObj.varIdxs[i]).bestValue;
-  objGap -= localObj.rhs;
-  return objGap == 1;
+  Value objValue = 0;
+  for (size_t termIdx = 0; termIdx < modelObj.termNum; ++termIdx)
+    objValue +=
+        modelObj.coeffSet[termIdx] *
+        localVarUtil.GetVar(modelObj.varIdxSet[termIdx]).bestValue;
+  // printf("c %lf; %lf\n", objValue, bestOBJ);
+  return fabs(objValue - bestOBJ) < 1e-3;
 }
 
-void LocalILP::PrintSol()
+void LocalMIP::PrintSol()
 {
-  for (int i = 0; i < modelVarUtil->varNum; i++)
+  for (size_t varIdx = 0; varIdx < modelVarUtil->varNum; varIdx++)
   {
-    const auto &var = localVarUtil.GetVar(i);
-    const auto &modelVar = modelVarUtil->GetVar(i);
+    const auto &var = localVarUtil.GetVar(varIdx);
+    const auto &modelVar = modelVarUtil->GetVar(varIdx);
     if (var.bestValue)
-      printf("%-30s        %lld\n", modelVar.name.c_str(), (long long)var.bestValue);
+      printf("%-50s        %lf\n", modelVar.name.c_str(), var.bestValue);
   }
 }
 
-void LocalILP::Allocate()
+void LocalMIP::Allocate()
 {
   localVarUtil.Allocate(
       modelVarUtil->varNum,
-      modelConUtil->conSet[0].varIdxs.size());
+      modelConUtil->conSet[0].varIdxSet.size());
   localConUtil.Allocate(modelConUtil->conNum);
   for (size_t conIdx = 1; conIdx < modelConUtil->conNum; conIdx++)
-    localConUtil.conSet[conIdx].rhs = modelConUtil->conSet[conIdx].rhs;
+    localConUtil.conSet[conIdx].RHS = modelConUtil->conSet[conIdx].RHS;
 }
 
-Integer LocalILP::GetObjValue()
+Value LocalMIP::GetObjValue()
 {
-  return localConUtil.conSet[0].rhs + 1 + modelVarUtil->objBias;
+  return bestOBJ + modelVarUtil->objBias;
 }
 
-LocalILP::LocalILP(
+LocalMIP::LocalMIP(
     const ModelConUtil *_modelConUtil,
     const ModelVarUtil *_modelVarUtil)
     : modelConUtil(_modelConUtil),
@@ -344,20 +353,20 @@ LocalILP::LocalILP(
   objWeightUpperBound = 100;
   if (weightUpperBound < modelConUtil->conNum)
     weightUpperBound = modelConUtil->conNum;
-  objWeightUpperBound = weightUpperBound / 10;
+  objWeightUpperBound = weightUpperBound / OPT(wf);
   lastImproveStep = 0;
   isBin = modelVarUtil->isBin;
   isKeepFeas = false;
-  sampleUnsat = 3;
-  bmsUnsat = 2000;
-  sampleSat = 30;
-  bmsSat = 350;
-  bmsRandom = 150;
-  restartStep = 1500000;
-  rvd = 0.5;
+  sampleUnsat = OPT(sampleUnsat);
+  bmsUnsat = OPT(bmsUnsat);
+  sampleSat = OPT(sampleSat);
+  bmsSat = OPT(bmsSat);
+  bmsRandom = OPT(bmsRandom);
+  restartStep = OPT(restartStep);
+  bestOBJ = Infinity;
   mt.seed(2832);
 }
 
-LocalILP::~LocalILP()
+LocalMIP::~LocalMIP()
 {
 }

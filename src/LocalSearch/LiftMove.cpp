@@ -2,44 +2,44 @@
 
     Filename:     LiftMove.cpp
 
-    Description:  
+    Description:
         Version:  1.0
 
     Author:       Peng Lin, penglincs@outlook.com
-    
+
     Organization: Shaowei Cai Group,
-                  State Key Laboratory of Computer Science, 
-                  Institute of Software, Chinese Academy of Sciences, 
+                  State Key Laboratory of Computer Science,
+                  Institute of Software, Chinese Academy of Sciences,
                   Beijing, China
 
 =====================================================================================*/
 #include "LocalILP.h"
 
-void LocalILP::LiftMove()
+void LocalMIP::LiftMove()
 {
   auto &localObj = localConUtil.conSet[0];
   auto &modelObj = modelConUtil->conSet[0];
-  vector<Integer> &lowerDelta = localVarUtil.lowerDeltaInLiftMove;
-  vector<Integer> &upperDelta = localVarUtil.upperDeltaInLifiMove;
+  vector<Value> &lowerDelta = localVarUtil.lowerDeltaInLiftMove;
+  vector<Value> &upperDelta = localVarUtil.upperDeltaInLifiMove;
   if (!isKeepFeas)
   {
     for (size_t termIdx = 0; termIdx < modelObj.termNum; ++termIdx)
     {
-      size_t varIdx = modelObj.varIdxs[termIdx];
+      size_t varIdx = modelObj.varIdxSet[termIdx];
       auto &localVar = localVarUtil.GetVar(varIdx);
       auto &modelVar = modelVarUtil->GetVar(varIdx);
       lowerDelta[termIdx] = modelVar.lowerBound - localVar.nowValue;
       upperDelta[termIdx] = modelVar.upperBound - localVar.nowValue;
-      for (size_t j = 0; j < modelVar.termNum; ++j)
+      for (size_t termIdx = 0; termIdx < modelVar.termNum; ++termIdx)
       {
-        size_t conIdx = modelVar.conIdxs[j];
+        size_t conIdx = modelVar.conIdxSet[termIdx];
         auto &localCon = localConUtil.conSet[conIdx];
         auto &modelCon = modelConUtil->conSet[conIdx];
-        size_t posInCon = modelVar.posInCon[j];
-        Integer coeff = modelCon.coeffSet[posInCon];
+        size_t posInCon = modelVar.posInCon[termIdx];
+        Value coeff = modelCon.coeffSet[posInCon];
         if (conIdx == 0)
           continue;
-        Integer delta;
+        Value delta;
         if (!TightDelta(localCon, modelCon, posInCon, delta))
           continue;
         else
@@ -60,19 +60,22 @@ void LocalILP::LiftMove()
       }
     }
   }
-  Integer bestObjDelta = 0;
+  Value bestObjDelta = 0;
   size_t bestVarIdx = -1;
-  Integer bestVarDelta = 0;
-  Integer varDelta;
-  Integer objDelta;
-  Integer objDelta_l;
-  Integer objDelta_u;
+  Value bestVarDelta = 0;
+  Value varDelta;
+  Value objDelta;
+  Value objDelta_l;
+  Value objDelta_u;
+  vector<size_t> betterIdx;
+  vector<Value> betterDelta;
+  size_t bestLastMoveStep = std::numeric_limits<size_t>::max();
   for (size_t termIdx = 0; termIdx < modelObj.termNum; ++termIdx)
   {
-    size_t varIdx = modelObj.varIdxs[termIdx];
-    Integer coeff = modelObj.coeffSet[termIdx];
-    Integer l_d = lowerDelta[termIdx];
-    Integer u_d = upperDelta[termIdx];
+    size_t varIdx = modelObj.varIdxSet[termIdx];
+    Value coeff = modelObj.coeffSet[termIdx];
+    Value l_d = lowerDelta[termIdx];
+    Value u_d = upperDelta[termIdx];
     if (l_d == u_d)
       continue;
     auto &localVar = localVarUtil.GetVar(varIdx);
@@ -83,42 +86,55 @@ void LocalILP::LiftMove()
       upperDelta[termIdx] = u_d = 0;
     // assert(modelVar.InBound(localVar.nowValue + l_d) &&
     //        modelVar.InBound(localVar.nowValue + u_d));
-    objDelta_l = coeff * l_d;
-    objDelta_u = coeff * u_d;
-    if (objDelta_l < objDelta_u)
+    if (coeff > 0)
     {
-      objDelta = objDelta_l;
+      objDelta = coeff * l_d;
       varDelta = l_d;
     }
     else
     {
-      objDelta = objDelta_u;
+      objDelta = coeff * u_d;
       varDelta = u_d;
     }
-    if (objDelta < bestObjDelta)
+    size_t lastMoveStep =
+        varDelta < 0 ? localVar.lastDecStep : localVar.lastIncStep;
+    if (objDelta < bestObjDelta ||
+        objDelta < bestObjDelta + OptimalTol && lastMoveStep < bestLastMoveStep)
     {
       bestObjDelta = objDelta;
       bestVarIdx = varIdx;
       bestVarDelta = varDelta;
+      bestLastMoveStep = lastMoveStep;
     }
+    // if (objDelta < 0)
+    // {
+    //   betterIdx.push_back(varIdx);
+    //   betterDelta.push_back(varDelta);
+    // }
   }
 
   if (bestVarIdx != -1 && bestVarDelta != 0)
   {
     ++liftStep;
+    // if (bestVarDelta + localObj.LHS < bestOBJ)
     ApplyMove(bestVarIdx, bestVarDelta);
+    // else
+    // {
+    //   size_t ranIdx = mt() % betterIdx.size();
+    //   ApplyMove(betterIdx[ranIdx], betterDelta[ranIdx]);
+    // }
     isKeepFeas = true;
     unordered_set<size_t> &affectedVar = localVarUtil.affectedVar;
     affectedVar.clear();
     auto &bestLocalVar = localVarUtil.GetVar(bestVarIdx);
     auto &bestModelVar = modelVarUtil->GetVar(bestVarIdx);
-    for (auto conIdx : bestModelVar.conIdxs)
+    for (auto conIdx : bestModelVar.conIdxSet)
     {
       if (conIdx == 0)
         continue;
       auto &localCon = localConUtil.GetCon(conIdx);
       auto &modelCon = modelConUtil->GetCon(conIdx);
-      for (auto varIdx : modelCon.varIdxs)
+      for (auto varIdx : modelCon.varIdxSet)
         affectedVar.insert(varIdx);
     }
     for (auto varIdx : affectedVar)
@@ -132,14 +148,14 @@ void LocalILP::LiftMove()
       upperDelta[idxInObj] = modelVar.upperBound - localVar.nowValue;
       for (size_t termIdx = 0; termIdx < modelVar.termNum; ++termIdx)
       {
-        size_t conIdx = modelVar.conIdxs[termIdx];
+        size_t conIdx = modelVar.conIdxSet[termIdx];
         auto &localCon = localConUtil.conSet[conIdx];
         auto &modelCon = modelConUtil->conSet[conIdx];
         size_t posInCon = modelVar.posInCon[termIdx];
-        Integer coeff = modelCon.coeffSet[posInCon];
+        Value coeff = modelCon.coeffSet[posInCon];
         if (conIdx == 0)
           continue;
-        Integer delta;
+        Value delta;
         if (!TightDelta(localCon, modelCon, posInCon, delta))
           continue;
         else
@@ -166,15 +182,39 @@ void LocalILP::LiftMove()
     for (size_t termIdx = 0; termIdx < modelObj.termNum; ++termIdx)
     {
       size_t randomIdx = mt() % (modelObj.termNum);
-      size_t varIdx = modelObj.varIdxs[randomIdx];
-      Integer coeff = modelObj.coeffSet[randomIdx];
+      size_t varIdx = modelObj.varIdxSet[randomIdx];
+      Value coeff = modelObj.coeffSet[randomIdx];
       auto &localVar = localVarUtil.GetVar(varIdx);
       auto &modelVar = modelVarUtil->GetVar(varIdx);
-      Integer varDelta;
-      if (coeff > 0)
-        varDelta = -1;
+      Value varDelta = 0;
+      if (modelVar.type == VarType::Real)
+      {
+        if (coeff > 0 && modelVar.lowerBound > -1e19)
+          varDelta = modelVar.lowerBound - localVar.nowValue;
+        else if (coeff < 0 && modelVar.upperBound < 1e19)
+          varDelta = modelVar.upperBound - localVar.nowValue;
+        else
+          continue;
+      }
+      else if (modelVar.type == VarType::Integer)
+      {
+        long long nowValue = localVar.nowValue;
+        long long lowerBound = modelVar.lowerBound;
+        long long upperBound = modelVar.upperBound;
+        if (coeff > 0 && nowValue != lowerBound && modelVar.lowerBound > -1e19)
+          varDelta = -(mt() % (long)(nowValue - lowerBound)) - 1.0;
+        else if (coeff < 0 && nowValue != upperBound && modelVar.upperBound < 1e19)
+          varDelta = mt() % (long)(upperBound - nowValue) + 1.0;
+        else
+          continue;
+      }
       else
-        varDelta = 1;
+      {
+        if (coeff > 0)
+          varDelta = -1;
+        else
+          varDelta = 1;
+      }
       if (!modelVar.InBound(varDelta + localVar.nowValue))
         continue;
       else

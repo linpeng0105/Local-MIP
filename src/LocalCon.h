@@ -2,14 +2,14 @@
 
     Filename:     LocalCon.h
 
-    Description:  
+    Description:
         Version:  1.0
 
     Author:       Peng Lin, penglincs@outlook.com
-    
+
     Organization: Shaowei Cai Group,
-                  State Key Laboratory of Computer Science, 
-                  Institute of Software, Chinese Academy of Sciences, 
+                  State Key Laboratory of Computer Science,
+                  Institute of Software, Chinese Academy of Sciences,
                   Beijing, China
 
 =====================================================================================*/
@@ -20,12 +20,15 @@ class LocalCon
 {
 public:
   size_t weight;
-  Integer gap;
   size_t posInUnsatConIdxs;
-  Integer rhs;
+  Value RHS;
+  Value LHS;
+  size_t calTimes;
 
   LocalCon();
   ~LocalCon();
+  bool SAT();
+  bool UNSAT();
 };
 
 class LocalConUtil
@@ -35,17 +38,15 @@ public:
   vector<size_t> unsatConIdxs;
   vector<size_t> tempUnsatConIdxs;
   vector<size_t> tempSatConIdxs;
-  vector<Integer> newConGap;
-  vector<bool> isNewConGap;
 
   LocalConUtil();
   ~LocalConUtil();
   void Allocate(
-      size_t conNum);
+      size_t _conNum);
   LocalCon &GetCon(
-      size_t idx);
+      size_t _idx);
   void insertUnsat(
-      size_t con_idx);
+      size_t _conIdx);
   void RemoveUnsat(
-      size_t con_idx);
+      size_t _conIdx);
 };

@@ -2,42 +2,43 @@
 
     Filename:     TightOperator.cpp
 
-    Description:  
+    Description:
         Version:  1.0
 
     Author:       Peng Lin, penglincs@outlook.com
-    
+
     Organization: Shaowei Cai Group,
-                  State Key Laboratory of Computer Science, 
-                  Institute of Software, Chinese Academy of Sciences, 
+                  State Key Laboratory of Computer Science,
+                  Institute of Software, Chinese Academy of Sciences,
                   Beijing, China
 
 =====================================================================================*/
 #include "LocalILP.h"
 
-long LocalILP::TightScore(
-    const ModelVar &modelVar,
-    Integer delta)
+long LocalMIP::TightScore(
+    const ModelVar &_modelVar,
+    Value _delta)
 {
   long score = 0;
   size_t conIdx;
   size_t posInCon;
-  Integer newGap;
+  Value newLHS;
+  Value newOBJ;
   bool isPreSat;
   bool isNowSat;
-  for (size_t termIdx = 0; termIdx < modelVar.termNum; ++termIdx)
+  for (size_t termIdx = 0; termIdx < _modelVar.termNum; ++termIdx)
   {
-    conIdx = modelVar.conIdxs[termIdx];
-    posInCon = modelVar.posInCon[termIdx];
+    conIdx = _modelVar.conIdxSet[termIdx];
+    posInCon = _modelVar.posInCon[termIdx];
     auto &localCon = localConUtil.conSet[conIdx];
     auto &modelCon = modelConUtil->conSet[conIdx];
     if (conIdx == 0)
     {
       if (isFoundFeasible)
       {
-        newGap =
-            localCon.gap + modelCon.coeffSet[posInCon] * delta;
-        if (1 > newGap)
+        newOBJ =
+            localCon.LHS + modelCon.coeffSet[posInCon] * _delta;
+        if (newOBJ < localCon.RHS)
           score += localCon.weight;
         else
           score -= localCon.weight;
@@ -45,19 +46,19 @@ long LocalILP::TightScore(
     }
     else
     {
-      newGap =
-          localCon.gap + modelCon.coeffSet[posInCon] * delta;
-      isPreSat = localCon.gap <= 0;
-      isNowSat = newGap <= 0;
+      newLHS =
+          localCon.LHS + modelCon.coeffSet[posInCon] * _delta;
+      isPreSat = localCon.SAT();
+      isNowSat = newLHS < localCon.RHS + FeasibilityTol;
       if (!isPreSat && isNowSat)
         score += localCon.weight;
       else if (isPreSat && !isNowSat)
         score -= localCon.weight;
       else if (!isPreSat && !isNowSat)
-        if (localCon.gap > newGap)
-          score += localCon.weight * rvd;
+        if (localCon.LHS > newLHS)
+          score += localCon.weight >> 2;
         else
-          score -= localCon.weight * rvd;
+          score -= localCon.weight >> 2;
     }
   }
   return score;
@@ -65,28 +66,39 @@ long LocalILP::TightScore(
 
 // return delta_x
 // a * delta_x + gap <= 0
-bool LocalILP::TightDelta(
-    LocalCon &con,
-    const ModelCon &modelCon,
-    size_t termIdx,
-    Integer &res)
+bool LocalMIP::TightDelta(
+    LocalCon &_localCon,
+    const ModelCon &_modelCon,
+    size_t _termIdx,
+    Value &_res)
 {
-  auto varIdx = modelCon.varIdxs[termIdx];
+  auto varIdx = _modelCon.varIdxSet[_termIdx];
   auto &localVar = localVarUtil.GetVar(varIdx);
   auto &modelVar = modelVarUtil->GetVar(varIdx);
-  double delta =
-      -((double)con.gap / modelCon.coeffSet[termIdx]);
-  if (modelCon.coeffSet[termIdx] > 0)
-    res = floor(delta);
+  Value delta =
+      -((_localCon.LHS - _localCon.RHS) / _modelCon.coeffSet[_termIdx]);
+  if (_modelCon.coeffSet[_termIdx] > 0)
+  {
+    if (modelVar.type == VarType::Real)
+      _res = delta;
+    else
+      _res = floor(delta);
+  }
   else
-    res = ceil(delta);
-  if (modelVar.InBound(localVar.nowValue + res))
+  {
+    if (modelVar.type == VarType::Real)
+      _res = delta;
+    else
+      _res = ceil(delta);
+  }
+
+  if (modelVar.InBound(localVar.nowValue + _res))
     return true;
   else
     return false;
 }
 
-void LocalILP::UpdateWeight()
+void LocalMIP::UpdateWeight()
 {
   for (size_t conIdx : localConUtil.unsatConIdxs)
   {
@@ -96,15 +108,15 @@ void LocalILP::UpdateWeight()
   }
   auto &localObj = localConUtil.conSet[0];
   if (isFoundFeasible &&
-      localObj.gap > 0 &&
+      localObj.UNSAT() &&
       localObj.weight <= objWeightUpperBound)
     ++localObj.weight;
 }
 
-void LocalILP::SmoothWeight()
+void LocalMIP::SmoothWeight()
 {
   for (auto &localCon : localConUtil.conSet)
-    if (localCon.gap <= 0 &&
+    if (localCon.SAT() &&
         localCon.weight > 0)
       --localCon.weight;
 }

@@ -64,6 +64,8 @@
     "streambuf": "cpp",
     "thread": "cpp",
     "cinttypes": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "strstream": "cpp",
+    "cfenv": "cpp"
   }
 }

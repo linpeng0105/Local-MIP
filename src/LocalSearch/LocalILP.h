@@ -1,6 +1,6 @@
 /*=====================================================================================
 
-    Filename:     LocalILP.h
+    Filename:     LocalMIP.h
 
     Description:  
         Version:  1.0
@@ -20,7 +20,7 @@
 #include "LocalCon.h"
 #include "LocalVar.h"
 
-class LocalILP
+class LocalMIP
 {
 private:
   const ModelConUtil *modelConUtil;
@@ -29,9 +29,9 @@ private:
   LocalConUtil localConUtil;
   long curStep;
   std::mt19937 mt;
-  int smoothProbability;
-  int tabuBase;
-  int tabuVariation;
+  size_t smoothProbability;
+  size_t tabuBase;
+  size_t tabuVariation;
   bool isFoundFeasible;
   size_t liftStep;
   size_t breakStep;
@@ -50,7 +50,7 @@ private:
   size_t bmsSat;
   size_t bmsRandom;
   size_t restartStep;
-  double rvd;
+  Value bestOBJ;
 
   bool VerifySolution();
   void InitState();
@@ -60,37 +60,37 @@ private:
   void RandomTightMove();
   void LiftMove();
   bool SatTightMove(
-      vector<bool> &score_table,
-      vector<size_t> &score_idx);
+      vector<bool> &_scoreTable,
+      vector<size_t> &_scoreIdx);
   void UpdateWeight();
   void SmoothWeight();
   void ApplyMove(
-      size_t var_idx,
-      Integer delta);
+      size_t _varIdx,
+      Value _delta);
   long TightScore(
-      const ModelVar &var,
-      Integer delta);
+      const ModelVar &_var,
+      Value _delta);
   bool TightDelta(
-      LocalCon &con,
-      const ModelCon &modelCon,
-      size_t i,
-      Integer &res);
+      LocalCon &_con,
+      const ModelCon &_modelCon,
+      size_t _i,
+      Value &_res);
   void InitSolution();
   bool Timeout(
-      chrono::_V2::system_clock::time_point &clkStart);
+      chrono::_V2::system_clock::time_point &_clkStart);
   void LogObj(
-      chrono::_V2::system_clock::time_point &clkStart);
+      chrono::_V2::system_clock::time_point &_clkStart);
 
 public:
-  LocalILP(
-      const ModelConUtil *modelConUtil,
-      const ModelVarUtil *modelVarUtil);
-  ~LocalILP();
+  LocalMIP(
+      const ModelConUtil *_modelConUtil,
+      const ModelVarUtil *_modelVarUtil);
+  ~LocalMIP();
   int LocalSearch(
-      Integer optimalObj,
-      chrono::_V2::system_clock::time_point clkStart);
+      Value _optimalObj,
+      chrono::_V2::system_clock::time_point _clkStart);
   void PrintResult();
   void PrintSol();
   void Allocate();
-  Integer GetObjValue();
+  Value GetObjValue();
 };

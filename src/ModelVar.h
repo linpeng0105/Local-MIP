@@ -2,14 +2,14 @@
 
     Filename:     ModelVar.h
 
-    Description:  
+    Description:
         Version:  1.0
 
     Author:       Peng Lin, penglincs@outlook.com
-    
+
     Organization: Shaowei Cai Group,
-                  State Key Laboratory of Computer Science, 
-                  Institute of Software, Chinese Academy of Sciences, 
+                  State Key Laboratory of Computer Science,
+                  Institute of Software, Chinese Academy of Sciences,
                   Beijing, China
 
 =====================================================================================*/
@@ -21,20 +21,25 @@ class ModelVar
 public:
   string name;
   size_t idx;
-  Integer upperBound;
-  Integer lowerBound;
-  vector<size_t> conIdxs;
+  Value upperBound;
+  Value lowerBound;
+  vector<size_t> conIdxSet;
   vector<size_t> posInCon;
   size_t termNum;
   VarType type;
 
   ModelVar(
       const string &_name,
-      size_t _idx);
+      size_t _idx,
+      bool _integrality);
   ~ModelVar();
   bool InBound(
-      Integer value) const;
-  void SetType(VarType varType);
+      Value _value) const;
+  void SetType(VarType _varType);
+  void SetUpperBound(Value _upperBound);
+  void SetLowerBound(Value _lowerBound);
+  bool IsFixed();
+  bool IsBinary();
 };
 
 class ModelVarUtil
@@ -48,16 +53,18 @@ public:
   size_t integerNum;
   size_t binaryNum;
   size_t fixedNum;
-  Integer objBias;
+  size_t realNum;
+  Value objBias;
 
   ModelVarUtil();
   ~ModelVarUtil();
   size_t MakeVar(
-      const string &name);
+      const string &_name,
+      bool _integrality);
   const ModelVar &GetVar(
-      size_t idx) const;
+      size_t _idx) const;
   ModelVar &GetVar(
-      size_t idx);
+      size_t _idx);
   ModelVar &GetVar(
-      const string &name);
+      const string &_name);
 };

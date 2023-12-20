@@ -19,8 +19,8 @@
 class LocalVar
 {
 public:
-  Integer nowValue;
-  Integer bestValue;
+  Value nowValue;
+  Value bestValue;
   size_t allowIncStep;
   size_t allowDecStep;
   size_t lastIncStep;
@@ -34,22 +34,22 @@ class LocalVarUtil
 {
 public:
   vector<LocalVar> varSet;
-  vector<Integer> lowerDeltaInLiftMove;
-  vector<Integer> upperDeltaInLifiMove;
-  vector<Integer> tempDeltas;
+  vector<Value> lowerDeltaInLiftMove;
+  vector<Value> upperDeltaInLifiMove;
+  vector<Value> tempDeltas;
   vector<size_t> tempVarIdxs;
   vector<bool> scoreTable;
   unordered_set<size_t> affectedVar;
   vector<size_t> tempTwoVarIdxs_1;
-  vector<Integer> tempTwoDeltas_1;
+  vector<Value> tempTwoDeltas_1;
   vector<size_t> tempTwoVarIdxs_2;
-  vector<Integer> tempTwoDeltas_2;
+  vector<Value> tempTwoDeltas_2;
 
   LocalVarUtil();
   ~LocalVarUtil();
   void Allocate(
-      size_t varNum,
-      size_t varNumInObj);
+      size_t _varNum,
+      size_t _varNumInObj);
   LocalVar &GetVar(
-      size_t idx);
+      size_t _idx);
 };

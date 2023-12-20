@@ -22,12 +22,11 @@ public:
   string name;
   size_t idx;
   bool isEqual;
-  bool isLess;
   bool isLarge;
-  vector<Integer> coeffSet;
-  vector<size_t> varIdxs;
+  vector<Value> coeffSet;
+  vector<size_t> varIdxSet;
   vector<size_t> posInVar;
-  Integer rhs;
+  Value RHS;
   bool inferSAT;
   size_t termNum;
 
@@ -48,13 +47,13 @@ public:
   ModelConUtil();
   ~ModelConUtil();
   size_t MakeCon(
-      const string &name);
+      const string &_name);
   size_t GetConIdx(
-      const string &name);
+      const string &_name);
   const ModelCon &GetCon(
-      size_t idx) const;
+      size_t _idx) const;
   ModelCon &GetCon(
-      size_t idx);
+      size_t _idx);
   ModelCon &GetCon(
-      const string &name);
+      const string &_name);
 };

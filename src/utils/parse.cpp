@@ -3,7 +3,7 @@
 #include "header.h"
 #include "paras.h"
 
-Integer paras::identify_opt(const char *file)
+Value paras::identify_opt(const char *file)
 {
     char name[strlen(file) + 1], p = -1, l = strlen(file);
     for (int i = l - 1; i >= 0; i--)
@@ -16,5 +16,5 @@ Integer paras::identify_opt(const char *file)
     name[l - p - 1] = '\0';
     printf("c File name (with path): %s\n", file);
     printf("c File name: %s\n", name);
-    return MinValue;
+    return NegativeInfinity;
 }

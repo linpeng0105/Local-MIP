@@ -20,10 +20,9 @@ ModelCon::ModelCon(
     size_t _idx)
     : name(_name),
       isEqual(false),
-      isLess(false),
       isLarge(false),
       idx(_idx),
-      rhs(0),
+      RHS(0),
       inferSAT(false),
       termNum(-1)
 {
@@ -33,7 +32,7 @@ ModelCon::ModelCon(
 ModelCon::~ModelCon()
 {
   coeffSet.clear();
-  varIdxs.clear();
+  varIdxSet.clear();
   posInVar.clear();
 }
 
@@ -49,42 +48,42 @@ ModelConUtil::~ModelConUtil()
 }
 
 size_t ModelConUtil::MakeCon(
-    const string &name)
+    const string &_name)
 {
-  auto iter = name2idx.find(name);
+  auto iter = name2idx.find(_name);
   if (iter != name2idx.end())
     return iter->second;
-  int conIdx = conSet.size();
-  conSet.emplace_back(name, conIdx);
-  name2idx[name] = conIdx;
+  size_t conIdx = conSet.size();
+  conSet.emplace_back(_name, conIdx);
+  name2idx[_name] = conIdx;
   return conIdx;
 }
 
 size_t ModelConUtil::GetConIdx(
-    const string &name)
+    const string &_name)
 {
-  if (name == objName)
+  if (_name == objName)
     return 0;
-  auto iter = name2idx.find(name);
+  auto iter = name2idx.find(_name);
   return iter->second;
 }
 
 const ModelCon &ModelConUtil::GetCon(
-    size_t idx) const
+    size_t _idx) const
 {
-  return conSet[idx];
+  return conSet[_idx];
 }
 
 ModelCon &ModelConUtil::GetCon(
-    size_t idx)
+    size_t _idx)
 {
-  return conSet[idx];
+  return conSet[_idx];
 }
 
 ModelCon &ModelConUtil::GetCon(
-    const string &name)
+    const string &_name)
 {
-  if (name == objName)
+  if (_name == objName)
     return conSet[0];
-  return conSet[name2idx[name]];
+  return conSet[name2idx[_name]];
 }
