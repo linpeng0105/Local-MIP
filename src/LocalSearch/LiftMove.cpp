@@ -30,17 +30,25 @@ void LocalMIP::LiftMove()
       auto &modelVar = modelVarUtil->GetVar(varIdx);
       lowerDelta[termIdx] = modelVar.lowerBound - localVar.nowValue;
       upperDelta[termIdx] = modelVar.upperBound - localVar.nowValue;
-      for (size_t termIdx = 0; termIdx < modelVar.termNum; ++termIdx)
+      for (size_t j = 0; j < modelVar.termNum; ++j)
       {
-        size_t conIdx = modelVar.conIdxSet[termIdx];
+        size_t conIdx = modelVar.conIdxSet[j];
         auto &localCon = localConUtil.conSet[conIdx];
         auto &modelCon = modelConUtil->conSet[conIdx];
-        size_t posInCon = modelVar.posInCon[termIdx];
+        size_t posInCon = modelVar.posInCon[j];
         Value coeff = modelCon.coeffSet[posInCon];
         if (conIdx == 0)
           continue;
         Value delta;
-        if (!TightDelta(localCon, modelCon, posInCon, delta))
+        Value gap = localCon.LHS - localCon.RHS;
+        if (fabs(gap) < FeasibilityTol)
+        {
+          if (coeff > 0)
+            upperDelta[termIdx] = 0;
+          else
+            lowerDelta[termIdx] = 0;
+        }
+        else if (!TightDelta(localCon, modelCon, posInCon, delta))
           continue;
         else
         {
@@ -156,7 +164,15 @@ void LocalMIP::LiftMove()
         if (conIdx == 0)
           continue;
         Value delta;
-        if (!TightDelta(localCon, modelCon, posInCon, delta))
+        Value gap = localCon.LHS - localCon.RHS;
+        if (fabs(gap) < FeasibilityTol)
+        {
+          if (coeff > 0)
+            upperDelta[idxInObj] = 0;
+          else
+            lowerDelta[idxInObj] = 0;
+        }
+        else if (!TightDelta(localCon, modelCon, posInCon, delta))
           continue;
         else
         {
@@ -215,6 +231,9 @@ void LocalMIP::LiftMove()
         else
           varDelta = 1;
       }
+      // if (varDelta < 0 && curStep < localVar.allowDecStep ||
+      //     varDelta > 0 && curStep < localVar.allowIncStep)
+      //   continue;
       if (!modelVar.InBound(varDelta + localVar.nowValue))
         continue;
       else

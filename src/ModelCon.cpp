@@ -2,14 +2,14 @@
 
     Filename:     ModelCon.cpp
 
-    Description:  
+    Description:
         Version:  1.0
 
     Author:       Peng Lin, penglincs@outlook.com
-    
+
     Organization: Shaowei Cai Group,
-                  State Key Laboratory of Computer Science, 
-                  Institute of Software, Chinese Academy of Sciences, 
+                  State Key Laboratory of Computer Science,
+                  Institute of Software, Chinese Academy of Sciences,
                   Beijing, China
 
 =====================================================================================*/
@@ -17,7 +17,7 @@
 
 ModelCon::ModelCon(
     const string &_name,
-    size_t _idx)
+    const size_t _idx)
     : name(_name),
       isEqual(false),
       isLarge(false),
@@ -26,7 +26,6 @@ ModelCon::ModelCon(
       inferSAT(false),
       termNum(-1)
 {
-
 }
 
 ModelCon::~ModelCon()
@@ -37,8 +36,8 @@ ModelCon::~ModelCon()
 }
 
 ModelConUtil::ModelConUtil()
+    : conNum(-1)
 {
-
 }
 
 ModelConUtil::~ModelConUtil()
@@ -69,13 +68,13 @@ size_t ModelConUtil::GetConIdx(
 }
 
 const ModelCon &ModelConUtil::GetCon(
-    size_t _idx) const
+    const size_t _idx) const
 {
   return conSet[_idx];
 }
 
 ModelCon &ModelConUtil::GetCon(
-    size_t _idx)
+    const size_t _idx)
 {
   return conSet[_idx];
 }

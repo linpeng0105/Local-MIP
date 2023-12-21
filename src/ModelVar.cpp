@@ -43,16 +43,18 @@ ModelVar::~ModelVar()
 bool ModelVar::InBound(
     Value value) const
 {
-  return lowerBound - FeasibilityTol <= value &&
-         value <= upperBound + FeasibilityTol;
+  return lowerBound - FeasibilityTol < value &&
+         value < upperBound + FeasibilityTol;
 }
 
-void ModelVar::SetType(VarType varType)
+void ModelVar::SetType(
+    VarType _varType)
 {
-  type = varType;
+  type = _varType;
 }
 
-void ModelVar::SetLowerBound(Value _lowerBound)
+void ModelVar::SetLowerBound(
+    Value _lowerBound)
 {
   if (type == VarType::Real)
     lowerBound = _lowerBound;
@@ -60,7 +62,8 @@ void ModelVar::SetLowerBound(Value _lowerBound)
     lowerBound = ceil(_lowerBound);
 }
 
-void ModelVar::SetUpperBound(Value _upperBound)
+void ModelVar::SetUpperBound(
+    Value _upperBound)
 {
   if (type == VarType::Real)
     upperBound = _upperBound;
@@ -100,7 +103,7 @@ ModelVarUtil::~ModelVarUtil()
 
 size_t ModelVarUtil::MakeVar(
     const string &_name,
-    bool _integrality)
+    const bool _integrality)
 {
   auto iter = name2idx.find(_name);
   if (iter != name2idx.end())
@@ -113,13 +116,14 @@ size_t ModelVarUtil::MakeVar(
 }
 
 const ModelVar &ModelVarUtil::GetVar(
-    size_t _idx) const
+    const size_t _idx) const
 {
+  assert(_idx < varSet.size());
   return varSet[_idx];
 }
 
 ModelVar &ModelVarUtil::GetVar(
-    size_t _idx)
+    const size_t _idx)
 {
   return varSet[_idx];
 }

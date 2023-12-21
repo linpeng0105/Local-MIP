@@ -45,12 +45,14 @@ private:
   bool isBin;
   bool isKeepFeas;
   size_t sampleUnsat;
-  size_t bmsUnsat;
+  size_t bmsUnsatInfeas;
+  size_t bmsUnsatFeas;
   size_t sampleSat;
   size_t bmsSat;
   size_t bmsRandom;
   size_t restartStep;
   Value bestOBJ;
+  bool DEBUG;
 
   bool VerifySolution();
   void InitState();

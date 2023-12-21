@@ -23,7 +23,6 @@ public:
   size_t posInUnsatConIdxs;
   Value RHS;
   Value LHS;
-  size_t calTimes;
 
   LocalCon();
   ~LocalCon();
@@ -42,11 +41,11 @@ public:
   LocalConUtil();
   ~LocalConUtil();
   void Allocate(
-      size_t _conNum);
+      const size_t _conNum);
   LocalCon &GetCon(
-      size_t _idx);
+      const size_t _idx);
   void insertUnsat(
-      size_t _conIdx);
+      const size_t _conIdx);
   void RemoveUnsat(
-      size_t _conIdx);
+      const size_t _conIdx);
 };

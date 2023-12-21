@@ -2,14 +2,14 @@
 
     Filename:     ModelCon.h
 
-    Description:  
+    Description:
         Version:  1.0
 
     Author:       Peng Lin, penglincs@outlook.com
-    
+
     Organization: Shaowei Cai Group,
-                  State Key Laboratory of Computer Science, 
-                  Institute of Software, Chinese Academy of Sciences, 
+                  State Key Laboratory of Computer Science,
+                  Institute of Software, Chinese Academy of Sciences,
                   Beijing, China
 
 =====================================================================================*/
@@ -32,7 +32,7 @@ public:
 
   ModelCon(
       const string &_name,
-      size_t _idx);
+      const size_t _idx);
   ~ModelCon();
 };
 
@@ -51,9 +51,9 @@ public:
   size_t GetConIdx(
       const string &_name);
   const ModelCon &GetCon(
-      size_t _idx) const;
+      const size_t _idx) const;
   ModelCon &GetCon(
-      size_t _idx);
+      const size_t _idx);
   ModelCon &GetCon(
       const string &_name);
 };

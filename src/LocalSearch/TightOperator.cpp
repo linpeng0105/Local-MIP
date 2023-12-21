@@ -72,11 +72,12 @@ bool LocalMIP::TightDelta(
     size_t _termIdx,
     Value &_res)
 {
+  Value gap = _localCon.LHS - _localCon.RHS;
   auto varIdx = _modelCon.varIdxSet[_termIdx];
   auto &localVar = localVarUtil.GetVar(varIdx);
   auto &modelVar = modelVarUtil->GetVar(varIdx);
   Value delta =
-      -((_localCon.LHS - _localCon.RHS) / _modelCon.coeffSet[_termIdx]);
+      -(gap / _modelCon.coeffSet[_termIdx]);
   if (_modelCon.coeffSet[_termIdx] > 0)
   {
     if (modelVar.type == VarType::Real)

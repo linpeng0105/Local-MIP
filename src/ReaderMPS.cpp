@@ -78,9 +78,7 @@ void ReaderMPS::Read(
       else
         continue;
     if (conType == 'L')
-    {
       conIdx = modelConUtil->MakeCon(conName);
-    }
     else if (conType == 'E')
     {
       conIdx = modelConUtil->MakeCon(conName);
@@ -237,11 +235,14 @@ void ReaderMPS::Read(
   modelVarUtil->objBias = -modelConUtil->conSet[0].RHS;
   modelConUtil->conNum = modelConUtil->conSet.size();
   modelVarUtil->varNum = modelVarUtil->varSet.size();
-  TightenBound();
-  if (!TightBoundGlobally())
+  if (OPT(presolve))
   {
-    printf("c model is infeasible.\n");
-    exit(-1);
+    TightenBound();
+    if (!TightBoundGlobally())
+    {
+      printf("c model is infeasible.\n");
+      exit(-1);
+    }
   }
   SetVarType();
   SetVarIdx2ObjIdx();
@@ -372,7 +373,9 @@ bool ReaderMPS::SetVarType()
     modelVar.termNum = modelVar.conIdxSet.size();
     if (modelVar.lowerBound >= modelVar.upperBound + FeasibilityTol)
     {
-      printf("c %s LB: %lf; UB: %lf\n", modelVar.name.c_str(), modelVar.lowerBound, modelVar.upperBound);
+      printf(
+          "c %s LB: %lf; UB: %lf\n",
+          modelVar.name.c_str(), modelVar.lowerBound, modelVar.upperBound);
       exit(-1);
     }
     if (modelVar.IsFixed())

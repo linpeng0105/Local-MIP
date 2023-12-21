@@ -91,7 +91,7 @@ bool LocalMIP::SatTightMove(
     Value delta = neighborDeltas[idx];
     auto &localVar = localVarUtil.GetVar(varIdx);
     auto &modelVar = modelVarUtil->GetVar(varIdx);
-    if (isBin)
+    if (modelVar.type == VarType::Binary)
     {
       if (score_table[varIdx])
         continue;
@@ -113,10 +113,10 @@ bool LocalMIP::SatTightMove(
       bestLastMoveStep = lastMoveStep;
     }
   }
-  if (isBin)
-    for (auto idx : score_idx)
-      score_table[idx] = false;
-
+  for (auto idx : score_idx)
+    score_table[idx] = false;
+  if (DEBUG)
+    printf("c SAT bestScore: %ld\n", bestScore);
   if (bestScore > 0)
   {
     ++tightStepSat;

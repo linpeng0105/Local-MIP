@@ -40,10 +40,6 @@ public:
   vector<size_t> tempVarIdxs;
   vector<bool> scoreTable;
   unordered_set<size_t> affectedVar;
-  vector<size_t> tempTwoVarIdxs_1;
-  vector<Value> tempTwoDeltas_1;
-  vector<size_t> tempTwoVarIdxs_2;
-  vector<Value> tempTwoDeltas_2;
 
   LocalVarUtil();
   ~LocalVarUtil();

@@ -26,6 +26,8 @@ int LocalMIP::LocalSearch(
   curStep = 0;
   while (true)
   {
+    if (DEBUG)
+      printf("c UNSAT Size: %ld\n", localConUtil.unsatConIdxs.size());
     if (localConUtil.unsatConIdxs.empty())
     {
       if (!isFoundFeasible || localObj.LHS < localObj.RHS)
@@ -128,7 +130,6 @@ void LocalMIP::InitState()
           localVarUtil.GetVar(modelCon.varIdxSet[termIdx]).nowValue;
     if (localCon.UNSAT())
       localConUtil.insertUnsat(conIdx);
-    localCon.calTimes = modelCon.termNum;
   }
   auto &localObj = localConUtil.conSet[0];
   auto &modelObj = modelConUtil->conSet[0];
@@ -138,7 +139,6 @@ void LocalMIP::InitState()
     localObj.LHS +=
         modelObj.coeffSet[termIdx] *
         localVarUtil.GetVar(modelObj.varIdxSet[termIdx]).nowValue;
-  localObj.calTimes = modelObj.termNum;
 }
 
 void LocalMIP::UpdateBestSolution()
@@ -159,7 +159,8 @@ void LocalMIP::ApplyMove(
   auto &localVar = localVarUtil.GetVar(_varIdx);
   auto &modelVar = modelVarUtil->GetVar(_varIdx);
   localVar.nowValue += _delta;
-
+  if (DEBUG)
+    printf("c _varIdx: %ld; _delta: %lf\n", _varIdx, _delta);
   for (size_t termIdx = 0; termIdx < modelVar.termNum; ++termIdx)
   {
     size_t conIdx = modelVar.conIdxSet[termIdx];
@@ -167,20 +168,10 @@ void LocalMIP::ApplyMove(
     auto &localCon = localConUtil.conSet[conIdx];
     auto &modelCon = modelConUtil->conSet[conIdx];
     Value newLHS = 0;
-    // if (localCon.calTimes < reCal && conIdx != 0)
-    // {
-    //   newLHS = localCon.LHS + modelCon.coeffSet[posInCon] * _delta;
-    //   localCon.calTimes++;
-    // }
-    // else
-    // {
     for (size_t termIdx = 0; termIdx < modelCon.termNum; ++termIdx)
       newLHS +=
           modelCon.coeffSet[termIdx] *
           localVarUtil.GetVar(modelCon.varIdxSet[termIdx]).nowValue;
-    localCon.calTimes = modelCon.termNum;
-    // }
-    // Value newGap = newLHS - localCon.RHS;
     if (conIdx == 0)
       localCon.LHS = newLHS;
     else
@@ -358,13 +349,15 @@ LocalMIP::LocalMIP(
   isBin = modelVarUtil->isBin;
   isKeepFeas = false;
   sampleUnsat = OPT(sampleUnsat);
-  bmsUnsat = OPT(bmsUnsat);
+  bmsUnsatInfeas = OPT(bmsUnsatInfeas);
+  bmsUnsatFeas = OPT(bmsUnsatFeas);
   sampleSat = OPT(sampleSat);
   bmsSat = OPT(bmsSat);
   bmsRandom = OPT(bmsRandom);
   restartStep = OPT(restartStep);
   bestOBJ = Infinity;
   mt.seed(2832);
+  DEBUG = false;
 }
 
 LocalMIP::~LocalMIP()

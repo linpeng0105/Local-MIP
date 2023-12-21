@@ -18,8 +18,7 @@
 LocalCon::LocalCon()
     : weight(1),
       RHS(0),
-      LHS(0),
-      calTimes(0)
+      LHS(0)
 {
 }
 
@@ -42,7 +41,7 @@ LocalConUtil::LocalConUtil()
 }
 
 void LocalConUtil::Allocate(
-    size_t _conNum)
+    const size_t _conNum)
 {
   unsatConIdxs.reserve(_conNum);
   tempSatConIdxs.reserve(_conNum);
@@ -59,20 +58,20 @@ LocalConUtil::~LocalConUtil()
 }
 
 LocalCon &LocalConUtil::GetCon(
-    size_t _idx)
+    const size_t _idx)
 {
   return conSet[_idx];
 }
 
 void LocalConUtil::insertUnsat(
-    size_t _conIdx)
+    const size_t _conIdx)
 {
   conSet[_conIdx].posInUnsatConIdxs = unsatConIdxs.size();
   unsatConIdxs.push_back(_conIdx);
 }
 
 void LocalConUtil::RemoveUnsat(
-    size_t _conIdx)
+    const size_t _conIdx)
 {
   assert(unsatConIdxs.size() > 0);
   if (unsatConIdxs.size() == 1)

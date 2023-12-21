@@ -2,14 +2,14 @@
 
     Filename:     RandomTightMove.cpp
 
-    Description:  
+    Description:
         Version:  1.0
 
     Author:       Peng Lin, penglincs@outlook.com
-    
+
     Organization: Shaowei Cai Group,
-                  State Key Laboratory of Computer Science, 
-                  Institute of Software, Chinese Academy of Sciences, 
+                  State Key Laboratory of Computer Science,
+                  Institute of Software, Chinese Academy of Sciences,
                   Beijing, China
 
 =====================================================================================*/
@@ -45,6 +45,9 @@ void LocalMIP::RandomTightMove()
         (delta < 0 && curStep == localVar.lastIncStep + 1 ||
          delta > 0 && curStep == localVar.lastDecStep + 1))
       continue;
+    // if (delta < 0 && curStep < localVar.allowDecStep ||
+    //     delta > 0 && curStep < localVar.allowIncStep)
+    //   continue;
     if (fabs(delta) < FeasibilityTol)
       continue;
     neighborVarIdxs.push_back(varIdx);
@@ -83,7 +86,8 @@ void LocalMIP::RandomTightMove()
       bestLastMoveStep = lastMoveStep;
     }
   }
-
+  if (DEBUG)
+    printf("c Radom bestScore: %ld\n", bestScore);
   if (bestVarIdx != -1 && bestDelta != 0)
   {
     ++randomStep;

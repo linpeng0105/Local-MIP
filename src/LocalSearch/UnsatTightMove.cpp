@@ -69,10 +69,14 @@ bool LocalMIP::UnsatTightMove()
     }
   }
   size_t scoreSize = neighborVarIdxs.size();
-  if (!isFoundFeasible && scoreSize > bmsUnsat)
+  if (!isFoundFeasible && scoreSize > bmsUnsatInfeas ||
+      isFoundFeasible && scoreSize > bmsUnsatFeas)
   {
-    scoreSize = bmsUnsat;
-    for (size_t bmsIdx = 0; bmsIdx < bmsUnsat; ++bmsIdx)
+    if (!isFoundFeasible)
+      scoreSize = bmsUnsatInfeas;
+    else
+      scoreSize = bmsUnsatFeas;
+    for (size_t bmsIdx = 0; bmsIdx < scoreSize; ++bmsIdx)
     {
       size_t randomIdx = (mt() % (neighborVarIdxs.size() - bmsIdx)) + bmsIdx;
       size_t varIdx = neighborVarIdxs[randomIdx];
@@ -89,7 +93,7 @@ bool LocalMIP::UnsatTightMove()
     Value delta = neighborDeltas[idx];
     auto &localVar = localVarUtil.GetVar(varIdx);
     auto &modelVar = modelVarUtil->GetVar(varIdx);
-    if (isBin)
+    if (modelVar.type == VarType::Binary)
     {
       if (scoreTable[varIdx])
         continue;
@@ -111,13 +115,14 @@ bool LocalMIP::UnsatTightMove()
       bestLastMoveStep = lastMoveStep;
     }
   }
+  if (DEBUG)
+    printf("c UNSAT bestScore: %ld\n", bestScore);
   if (bestScore > 0)
   {
     ++tightStepUnsat;
     ApplyMove(bestVarIdx, bestDelta);
-    if (isBin)
-      for (auto idx : scoreIdxs)
-        scoreTable[idx] = false;
+    for (auto idx : scoreIdxs)
+      scoreTable[idx] = false;
     return true;
   }
   else
@@ -125,8 +130,7 @@ bool LocalMIP::UnsatTightMove()
     if (isFoundFeasible)
       return SatTightMove(scoreTable, scoreIdxs);
   }
-  if (isBin)
-    for (auto idx : scoreIdxs)
-      scoreTable[idx] = false;
+  for (auto idx : scoreIdxs)
+    scoreTable[idx] = false;
   return false;
 }
