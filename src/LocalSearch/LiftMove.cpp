@@ -203,38 +203,41 @@ void LocalMIP::LiftMove()
       auto &localVar = localVarUtil.GetVar(varIdx);
       auto &modelVar = modelVarUtil->GetVar(varIdx);
       Value varDelta = 0;
-      if (modelVar.type == VarType::Real)
-      {
-        if (coeff > 0 && modelVar.lowerBound > -1e19)
-          varDelta = modelVar.lowerBound - localVar.nowValue;
-        else if (coeff < 0 && modelVar.upperBound < 1e19)
-          varDelta = modelVar.upperBound - localVar.nowValue;
-        else
-          continue;
-      }
-      else if (modelVar.type == VarType::Integer)
-      {
-        long long nowValue = localVar.nowValue;
-        long long lowerBound = modelVar.lowerBound;
-        long long upperBound = modelVar.upperBound;
-        if (coeff > 0 && nowValue != lowerBound && modelVar.lowerBound > -1e19)
-          varDelta = -(mt() % (long)(nowValue - lowerBound)) - 1.0;
-        else if (coeff < 0 && nowValue != upperBound && modelVar.upperBound < 1e19)
-          varDelta = mt() % (long)(upperBound - nowValue) + 1.0;
-        else
-          continue;
-      }
+      if (coeff > 0 && modelVar.lowerBound < -1e19)
+        varDelta = -1;
+      else if (coeff < 0 && modelVar.upperBound > 1e19)
+        varDelta = 1;
       else
       {
-        if (coeff > 0)
-          varDelta = -1;
-        else
-          varDelta = 1;
+        if (modelVar.type == VarType::Real)
+        {
+          if (coeff > 0)
+            varDelta = modelVar.lowerBound - localVar.nowValue;
+          else if (coeff < 0)
+            varDelta = modelVar.upperBound - localVar.nowValue;
+        }
+        else if (modelVar.type == VarType::Integer)
+        {
+          long long nowValue = localVar.nowValue;
+          long long lowerBound = modelVar.lowerBound;
+          long long upperBound = modelVar.upperBound;
+          if (coeff > 0 && nowValue != lowerBound)
+            varDelta = -(mt() % (long)(nowValue - lowerBound)) - 1.0;
+          else if (coeff < 0 && nowValue != upperBound)
+            varDelta = mt() % (long)(upperBound - nowValue) + 1.0;
+        }
+        else // modelVar.type == VarType::Binary
+        {
+          if (coeff > 0)
+            varDelta = -1;
+          else
+            varDelta = 1;
+        }
       }
       // if (varDelta < 0 && curStep < localVar.allowDecStep ||
       //     varDelta > 0 && curStep < localVar.allowIncStep)
       //   continue;
-      if (!modelVar.InBound(varDelta + localVar.nowValue))
+      if (varDelta != 0 && !modelVar.InBound(varDelta + localVar.nowValue))
         continue;
       else
       {

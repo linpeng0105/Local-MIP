@@ -115,10 +115,10 @@ bool LocalMIP::UnsatTightMove()
       bestLastMoveStep = lastMoveStep;
     }
   }
-  if (DEBUG)
-    printf("c UNSAT bestScore: %ld\n", bestScore);
   if (bestScore > 0)
   {
+    if (DEBUG)
+      printf("UNSAT bestScore: %-10ld; ", bestScore);
     ++tightStepUnsat;
     ApplyMove(bestVarIdx, bestDelta);
     for (auto idx : scoreIdxs)

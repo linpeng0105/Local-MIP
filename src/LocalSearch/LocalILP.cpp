@@ -27,7 +27,7 @@ int LocalMIP::LocalSearch(
   while (true)
   {
     if (DEBUG)
-      printf("c UNSAT Size: %ld\n", localConUtil.unsatConIdxs.size());
+      printf("\nc UNSAT Size: %-10ld; ", localConUtil.unsatConIdxs.size());
     if (localConUtil.unsatConIdxs.empty())
     {
       if (!isFoundFeasible || localObj.LHS < localObj.RHS)
@@ -160,7 +160,8 @@ void LocalMIP::ApplyMove(
   auto &modelVar = modelVarUtil->GetVar(_varIdx);
   localVar.nowValue += _delta;
   if (DEBUG)
-    printf("c _varIdx: %ld; _delta: %lf\n", _varIdx, _delta);
+    printf("varType: %d; varIdx: %-10ld; delta: %-10lf; ",
+           modelVar.type, _varIdx, _delta);
   for (size_t termIdx = 0; termIdx < modelVar.termNum; ++termIdx)
   {
     size_t conIdx = modelVar.conIdxSet[termIdx];
@@ -330,9 +331,9 @@ LocalMIP::LocalMIP(
     : modelConUtil(_modelConUtil),
       modelVarUtil(_modelVarUtil)
 {
-  smoothProbability = 3;
-  tabuBase = 3;
-  tabuVariation = 10;
+  smoothProbability = OPT(sp);
+  tabuBase = OPT(tabuBase);
+  tabuVariation = OPT(tabuVariation);
   isFoundFeasible = false;
   liftStep = 0;
   breakStep = 0;
@@ -357,7 +358,7 @@ LocalMIP::LocalMIP(
   restartStep = OPT(restartStep);
   bestOBJ = Infinity;
   mt.seed(2832);
-  DEBUG = false;
+  DEBUG = OPT(DEBUG);
 }
 
 LocalMIP::~LocalMIP()

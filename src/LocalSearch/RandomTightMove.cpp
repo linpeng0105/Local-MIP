@@ -86,10 +86,10 @@ void LocalMIP::RandomTightMove()
       bestLastMoveStep = lastMoveStep;
     }
   }
-  if (DEBUG)
-    printf("c Radom bestScore: %ld\n", bestScore);
   if (bestVarIdx != -1 && bestDelta != 0)
   {
+    if (DEBUG)
+      printf("Radom bestScore: %-10ld; ", bestScore);
     ++randomStep;
     ApplyMove(bestVarIdx, bestDelta);
     return;

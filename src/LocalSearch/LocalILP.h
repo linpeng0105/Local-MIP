@@ -2,14 +2,14 @@
 
     Filename:     LocalMIP.h
 
-    Description:  
+    Description:
         Version:  1.0
 
     Author:       Peng Lin, penglincs@outlook.com
-    
+
     Organization: Shaowei Cai Group,
-                  State Key Laboratory of Computer Science, 
-                  Institute of Software, Chinese Academy of Sciences, 
+                  State Key Laboratory of Computer Science,
+                  Institute of Software, Chinese Academy of Sciences,
                   Beijing, China
 
 =====================================================================================*/
@@ -27,7 +27,7 @@ private:
   const ModelVarUtil *modelVarUtil;
   LocalVarUtil localVarUtil;
   LocalConUtil localConUtil;
-  long curStep;
+  size_t curStep;
   std::mt19937 mt;
   size_t smoothProbability;
   size_t tabuBase;
@@ -59,6 +59,7 @@ private:
   void UpdateBestSolution();
   void Restart();
   bool UnsatTightMove();
+  bool FlipMove();
   void RandomTightMove();
   void LiftMove();
   bool SatTightMove(

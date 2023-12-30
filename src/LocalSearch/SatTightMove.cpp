@@ -115,10 +115,10 @@ bool LocalMIP::SatTightMove(
   }
   for (auto idx : score_idx)
     score_table[idx] = false;
-  if (DEBUG)
-    printf("c SAT bestScore: %ld\n", bestScore);
   if (bestScore > 0)
   {
+    if (DEBUG)
+      printf("SAT bestScore: %-12ld; ", bestScore);
     ++tightStepSat;
     ApplyMove(bestVarIdx, bestDelta);
     return true;
