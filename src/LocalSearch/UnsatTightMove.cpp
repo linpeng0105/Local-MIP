@@ -20,7 +20,7 @@ bool LocalMIP::UnsatTightMove()
   vector<bool> &scoreTable = localVarUtil.scoreTable;
   vector<size_t> scoreIdxs;
   long bestScore = 0;
-  size_t bestLastMoveStep = std::numeric_limits<size_t>::max();
+  long bestSubscore = -std::numeric_limits<long>::max();
   size_t bestVarIdx = -1;
   Value bestDelta = 0;
   vector<size_t> &neighborVarIdxs = localVarUtil.tempVarIdxs;
@@ -104,21 +104,19 @@ bool LocalMIP::UnsatTightMove()
       }
     }
     long score = TightScore(modelVar, delta);
-    size_t lastMoveStep =
-        delta < 0 ? localVar.lastDecStep : localVar.lastIncStep;
     if (bestScore < score ||
-        bestScore == score && lastMoveStep < bestLastMoveStep)
+        bestScore == score && bestSubscore < subscore)
     {
       bestScore = score;
       bestVarIdx = varIdx;
       bestDelta = delta;
-      bestLastMoveStep = lastMoveStep;
+      bestSubscore = subscore;
     }
   }
   if (bestScore > 0)
   {
     if (DEBUG)
-      printf("UNSAT bestScore: %-10ld; ", bestScore);
+      printf("UNSAT: %-10ld; ", bestScore);
     ++tightStepUnsat;
     ApplyMove(bestVarIdx, bestDelta);
     for (auto idx : scoreIdxs)
@@ -127,10 +125,13 @@ bool LocalMIP::UnsatTightMove()
   }
   else
   {
+    bool resFurtherMove = false;
     if (isFoundFeasible)
-      return SatTightMove(scoreTable, scoreIdxs);
+      resFurtherMove = SatTightMove(scoreTable, scoreIdxs);
+    if (!resFurtherMove)
+      resFurtherMove = FlipMove(scoreTable, scoreIdxs);
+    for (auto idx : scoreIdxs)
+      scoreTable[idx] = false;
+    return resFurtherMove;
   }
-  for (auto idx : scoreIdxs)
-    scoreTable[idx] = false;
-  return false;
 }

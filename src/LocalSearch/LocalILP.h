@@ -37,6 +37,7 @@ private:
   size_t breakStep;
   size_t tightStepUnsat;
   size_t tightStepSat;
+  size_t flipStep;
   size_t randomStep;
   size_t weightUpperBound;
   size_t objWeightUpperBound;
@@ -49,17 +50,21 @@ private:
   size_t bmsUnsatFeas;
   size_t sampleSat;
   size_t bmsSat;
+  size_t bmsFlip;
   size_t bmsRandom;
   size_t restartStep;
   Value bestOBJ;
   bool DEBUG;
+  long subscore;
 
   bool VerifySolution();
   void InitState();
   void UpdateBestSolution();
   void Restart();
   bool UnsatTightMove();
-  bool FlipMove();
+  bool FlipMove(
+      vector<bool> &_scoreTable,
+      vector<size_t> &_scoreIdx);
   void RandomTightMove();
   void LiftMove();
   bool SatTightMove(

@@ -26,6 +26,9 @@ long LocalMIP::TightScore(
   Value newOBJ;
   bool isPreSat;
   bool isNowSat;
+  bool isPreStable;
+  bool isNowStable;
+  subscore = 0;
   for (size_t termIdx = 0; termIdx < _modelVar.termNum; ++termIdx)
   {
     conIdx = _modelVar.conIdxSet[termIdx];
@@ -38,10 +41,12 @@ long LocalMIP::TightScore(
       {
         newOBJ =
             localCon.LHS + modelCon.coeffSet[posInCon] * _delta;
-        if (newOBJ < localCon.RHS)
+        if (newOBJ < localCon.LHS)
           score += localCon.weight;
         else
           score -= localCon.weight;
+        if (newOBJ < localCon.RHS)
+          subscore += localCon.weight;
       }
     }
     else
@@ -56,11 +61,22 @@ long LocalMIP::TightScore(
         score -= localCon.weight;
       else if (!isPreSat && !isNowSat)
         if (localCon.LHS > newLHS)
-          score += localCon.weight >> 2;
+          score += localCon.weight >> 1;
         else
-          score -= localCon.weight >> 2;
+          score -= localCon.weight >> 1;
+      isPreStable = localCon.LHS < localCon.RHS - FeasibilityTol;
+      isNowStable = newLHS < localCon.RHS - FeasibilityTol;
+      if (!isPreStable && isNowStable)
+        subscore += localCon.weight;
+      else if (isPreStable && !isNowStable)
+        subscore -= localCon.weight;
     }
   }
+  auto &localObj = localConUtil.conSet[0];
+  if (isFoundFeasible &&
+      modelVarUtil->varIdx2ObjIdx[_modelVar.idx] == -1 &&
+      localObj.LHS < localObj.RHS)
+    subscore += localObj.weight;
   return score;
 }
 

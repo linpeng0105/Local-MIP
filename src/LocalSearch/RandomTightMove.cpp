@@ -18,7 +18,7 @@
 void LocalMIP::RandomTightMove()
 {
   long bestScore = -100000000000;
-  size_t bestLastMoveStep = std::numeric_limits<size_t>::max();
+  long bestSubscore = -std::numeric_limits<long>::max();
   size_t bestVarIdx = -1;
   Value bestDelta = 0;
   size_t conIdx = localConUtil.unsatConIdxs[mt() % localConUtil.unsatConIdxs.size()];
@@ -75,21 +75,19 @@ void LocalMIP::RandomTightMove()
     auto &localVar = localVarUtil.GetVar(varIdx);
     auto &modelVar = modelVarUtil->GetVar(varIdx);
     long score = TightScore(modelVar, delta);
-    size_t lastMoveStep =
-        delta < 0 ? localVar.lastDecStep : localVar.lastIncStep;
     if (bestScore < score ||
-        bestScore == score && lastMoveStep < bestLastMoveStep)
+        bestScore == score && bestSubscore < subscore)
     {
       bestScore = score;
       bestVarIdx = varIdx;
       bestDelta = delta;
-      bestLastMoveStep = lastMoveStep;
+      bestSubscore = subscore;
     }
   }
   if (bestVarIdx != -1 && bestDelta != 0)
   {
     if (DEBUG)
-      printf("Radom bestScore: %-10ld; ", bestScore);
+      printf("Radom: %-10ld; ", bestScore);
     ++randomStep;
     ApplyMove(bestVarIdx, bestDelta);
     return;

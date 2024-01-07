@@ -20,7 +20,7 @@ bool LocalMIP::SatTightMove(
     vector<size_t> &score_idx)
 {
   long bestScore = 0;
-  size_t bestLastMoveStep = std::numeric_limits<size_t>::max();
+  long bestSubscore = -std::numeric_limits<long>::max();
   size_t bestVarIdx = -1;
   Value bestDelta = 0;
   vector<size_t> &neighborVarIdxs = localVarUtil.tempVarIdxs;
@@ -29,23 +29,19 @@ bool LocalMIP::SatTightMove(
   neighborDeltas.clear();
   auto &neighborConIdxs = localConUtil.tempSatConIdxs;
   neighborConIdxs.clear();
-  for (size_t conIdx = 1; conIdx < modelConUtil->conNum; ++conIdx)
+  localConUtil.sampleSet.clear();
+  for (size_t time = 0; time < sampleSat; time++)
   {
-    if (localConUtil.conSet[conIdx].SAT() && !modelConUtil->conSet[conIdx].inferSAT)
-      neighborConIdxs.push_back(conIdx);
-  }
-  size_t neighborSize = neighborConIdxs.size();
-  if (sampleSat < neighborSize)
-  {
-    neighborSize = sampleSat;
-    for (size_t sampleIdx = 0; sampleIdx < sampleSat; ++sampleIdx)
+    size_t conIdx = mt() % (modelConUtil->conNum - 1) + 1;
+    if (localConUtil.sampleSet.find(conIdx) == localConUtil.sampleSet.end() &&
+        localConUtil.conSet[conIdx].SAT() &&
+        !modelConUtil->conSet[conIdx].inferSAT)
     {
-      size_t randomIdx = mt() % (neighborConIdxs.size() - sampleIdx);
-      size_t temp = neighborConIdxs[sampleIdx];
-      neighborConIdxs[sampleIdx] = neighborConIdxs[randomIdx + sampleIdx];
-      neighborConIdxs[randomIdx + sampleIdx] = temp;
+      localConUtil.sampleSet.insert(conIdx);
+      neighborConIdxs.push_back(conIdx);
     }
   }
+  size_t neighborSize = neighborConIdxs.size();
   for (size_t neighborIdx = 0; neighborIdx < neighborSize; ++neighborIdx)
   {
     auto &localCon = localConUtil.conSet[neighborConIdxs[neighborIdx]];
@@ -102,23 +98,19 @@ bool LocalMIP::SatTightMove(
       }
     }
     long score = TightScore(modelVar, delta);
-    size_t lastMoveStep =
-        delta < 0 ? localVar.lastDecStep : localVar.lastIncStep;
     if (bestScore < score ||
-        bestScore == score && lastMoveStep < bestLastMoveStep)
+        bestScore == score && bestSubscore < subscore)
     {
       bestScore = score;
       bestVarIdx = varIdx;
       bestDelta = delta;
-      bestLastMoveStep = lastMoveStep;
+      bestSubscore = subscore;
     }
   }
-  for (auto idx : score_idx)
-    score_table[idx] = false;
   if (bestScore > 0)
   {
     if (DEBUG)
-      printf("SAT bestScore: %-12ld; ", bestScore);
+      printf("SAT: %-12ld; ", bestScore);
     ++tightStepSat;
     ApplyMove(bestVarIdx, bestDelta);
     return true;

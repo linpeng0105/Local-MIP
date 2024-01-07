@@ -318,6 +318,12 @@ void LocalMIP::Allocate()
   localConUtil.Allocate(modelConUtil->conNum);
   for (size_t conIdx = 1; conIdx < modelConUtil->conNum; conIdx++)
     localConUtil.conSet[conIdx].RHS = modelConUtil->conSet[conIdx].RHS;
+  for (size_t varIdx = 0; varIdx < modelVarUtil->varNum; varIdx++)
+  {
+    auto &modelVar = modelVarUtil->GetVar(varIdx);
+    if (modelVar.type == VarType::Binary)
+      localVarUtil.binaryIdx.push_back(varIdx);
+  }
 }
 
 Value LocalMIP::GetObjValue()
@@ -339,6 +345,7 @@ LocalMIP::LocalMIP(
   breakStep = 0;
   tightStepUnsat = 0;
   tightStepSat = 0;
+  flipStep = 0;
   randomStep = 0;
   restartTimes = 0;
   weightUpperBound = 1000;
@@ -354,6 +361,7 @@ LocalMIP::LocalMIP(
   bmsUnsatFeas = OPT(bmsUnsatFeas);
   sampleSat = OPT(sampleSat);
   bmsSat = OPT(bmsSat);
+  bmsFlip = OPT(bmsFlip);
   bmsRandom = OPT(bmsRandom);
   restartStep = OPT(restartStep);
   bestOBJ = Infinity;

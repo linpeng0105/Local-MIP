@@ -37,6 +37,7 @@ public:
   vector<size_t> unsatConIdxs;
   vector<size_t> tempUnsatConIdxs;
   vector<size_t> tempSatConIdxs;
+  unordered_set<size_t> sampleSet;
 
   LocalConUtil();
   ~LocalConUtil();
