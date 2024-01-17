@@ -10,13 +10,13 @@
 #define PARAS \
     PARA( cutoff        , double, '\0' , false , 7200       , 0  , 1e8      , "Cutoff time") \
     PARA( PrintSol      , int   , '\0' , false , 0          , 0  , 1        , "Print best found solution or not")\
-    PARA( sampleUnsat   , int   , '\0' , false , 5          , 0  , 10000000 , "")\
+    PARA( sampleUnsat   , int   , '\0' , false , 10         , 0  , 10000000 , "")\
     PARA( bmsUnsatInfeas, int   , '\0' , false , 1300       , 0  , 10000000 , "")\
-    PARA( bmsUnsatFeas  , int   , '\0' , false , 125        , 0  , 10000000 , "")\
+    PARA( bmsUnsatFeas  , int   , '\0' , false , 950        , 0  , 10000000 , "")\
     PARA( sampleSat     , int   , '\0' , false , 40         , 0  , 10000000 , "")\
     PARA( bmsSat        , int   , '\0' , false , 60         , 0  , 10000000 , "")\
     PARA( bmsFlip       , int   , '\0' , false , 20         , 0  , 10000000 , "")\
-    PARA( bmsRandom     , int   , '\0' , false , 25         , 0  , 10000000 , "")\
+    PARA( bmsRandom     , int   , '\0' , false , 50         , 0  , 10000000 , "")\
     PARA( restartStep   , int   , '\0' , false , 3000000    , 0  , 10000000 , "")\
     PARA( wf            , double, '\0' , false , 2          , 0.1, 20       , "")\
     PARA( presolve      , int   , '\0' , false , 1          , 0  , 1        , "")\

@@ -20,4 +20,4 @@ add_executable(${PROJECT_NAME} ${SOURCES})
 # 添加头文件
 include_directories(${INCLUDES})
 
-target_link_libraries(Local-MIP pthread -lpthread z -lz boost_thread boost_date_time boost_system)
+target_link_libraries(Local-MIP pthread -lpthread -lquadmath z -lz boost_thread boost_date_time boost_system)

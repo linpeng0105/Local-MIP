@@ -153,125 +153,173 @@ src/LocalCon.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalCon.cpp.s
 .PHONY : src/LocalCon.cpp.s
 
-src/LocalMIP.o: src/LocalMIP.cpp.o
-.PHONY : src/LocalMIP.o
+src/LocalSearch/FlipMove.o: src/LocalSearch/FlipMove.cpp.o
+.PHONY : src/LocalSearch/FlipMove.o
 
 # target to build an object file
-src/LocalMIP.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.o
-.PHONY : src/LocalMIP.cpp.o
+src/LocalSearch/FlipMove.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.o
+.PHONY : src/LocalSearch/FlipMove.cpp.o
 
-src/LocalMIP.i: src/LocalMIP.cpp.i
-.PHONY : src/LocalMIP.i
+src/LocalSearch/FlipMove.i: src/LocalSearch/FlipMove.cpp.i
+.PHONY : src/LocalSearch/FlipMove.i
 
 # target to preprocess a source file
-src/LocalMIP.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.i
-.PHONY : src/LocalMIP.cpp.i
+src/LocalSearch/FlipMove.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.i
+.PHONY : src/LocalSearch/FlipMove.cpp.i
 
-src/LocalMIP.s: src/LocalMIP.cpp.s
-.PHONY : src/LocalMIP.s
+src/LocalSearch/FlipMove.s: src/LocalSearch/FlipMove.cpp.s
+.PHONY : src/LocalSearch/FlipMove.s
 
 # target to generate assembly for a file
-src/LocalMIP.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.s
-.PHONY : src/LocalMIP.cpp.s
+src/LocalSearch/FlipMove.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.s
+.PHONY : src/LocalSearch/FlipMove.cpp.s
 
-src/LocalMoveLift.o: src/LocalMoveLift.cpp.o
-.PHONY : src/LocalMoveLift.o
+src/LocalSearch/LiftMove.o: src/LocalSearch/LiftMove.cpp.o
+.PHONY : src/LocalSearch/LiftMove.o
 
 # target to build an object file
-src/LocalMoveLift.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.o
-.PHONY : src/LocalMoveLift.cpp.o
+src/LocalSearch/LiftMove.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.o
+.PHONY : src/LocalSearch/LiftMove.cpp.o
 
-src/LocalMoveLift.i: src/LocalMoveLift.cpp.i
-.PHONY : src/LocalMoveLift.i
+src/LocalSearch/LiftMove.i: src/LocalSearch/LiftMove.cpp.i
+.PHONY : src/LocalSearch/LiftMove.i
 
 # target to preprocess a source file
-src/LocalMoveLift.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.i
-.PHONY : src/LocalMoveLift.cpp.i
+src/LocalSearch/LiftMove.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.i
+.PHONY : src/LocalSearch/LiftMove.cpp.i
 
-src/LocalMoveLift.s: src/LocalMoveLift.cpp.s
-.PHONY : src/LocalMoveLift.s
+src/LocalSearch/LiftMove.s: src/LocalSearch/LiftMove.cpp.s
+.PHONY : src/LocalSearch/LiftMove.s
 
 # target to generate assembly for a file
-src/LocalMoveLift.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.s
-.PHONY : src/LocalMoveLift.cpp.s
+src/LocalSearch/LiftMove.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.s
+.PHONY : src/LocalSearch/LiftMove.cpp.s
 
-src/LocalMovePair.o: src/LocalMovePair.cpp.o
-.PHONY : src/LocalMovePair.o
+src/LocalSearch/LocalILP.o: src/LocalSearch/LocalILP.cpp.o
+.PHONY : src/LocalSearch/LocalILP.o
 
 # target to build an object file
-src/LocalMovePair.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.o
-.PHONY : src/LocalMovePair.cpp.o
+src/LocalSearch/LocalILP.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.o
+.PHONY : src/LocalSearch/LocalILP.cpp.o
 
-src/LocalMovePair.i: src/LocalMovePair.cpp.i
-.PHONY : src/LocalMovePair.i
+src/LocalSearch/LocalILP.i: src/LocalSearch/LocalILP.cpp.i
+.PHONY : src/LocalSearch/LocalILP.i
 
 # target to preprocess a source file
-src/LocalMovePair.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.i
-.PHONY : src/LocalMovePair.cpp.i
+src/LocalSearch/LocalILP.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.i
+.PHONY : src/LocalSearch/LocalILP.cpp.i
 
-src/LocalMovePair.s: src/LocalMovePair.cpp.s
-.PHONY : src/LocalMovePair.s
+src/LocalSearch/LocalILP.s: src/LocalSearch/LocalILP.cpp.s
+.PHONY : src/LocalSearch/LocalILP.s
 
 # target to generate assembly for a file
-src/LocalMovePair.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.s
-.PHONY : src/LocalMovePair.cpp.s
+src/LocalSearch/LocalILP.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.s
+.PHONY : src/LocalSearch/LocalILP.cpp.s
 
-src/LocalMoveRandom.o: src/LocalMoveRandom.cpp.o
-.PHONY : src/LocalMoveRandom.o
+src/LocalSearch/RandomTightMove.o: src/LocalSearch/RandomTightMove.cpp.o
+.PHONY : src/LocalSearch/RandomTightMove.o
 
 # target to build an object file
-src/LocalMoveRandom.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.o
-.PHONY : src/LocalMoveRandom.cpp.o
+src/LocalSearch/RandomTightMove.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.o
+.PHONY : src/LocalSearch/RandomTightMove.cpp.o
 
-src/LocalMoveRandom.i: src/LocalMoveRandom.cpp.i
-.PHONY : src/LocalMoveRandom.i
+src/LocalSearch/RandomTightMove.i: src/LocalSearch/RandomTightMove.cpp.i
+.PHONY : src/LocalSearch/RandomTightMove.i
 
 # target to preprocess a source file
-src/LocalMoveRandom.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.i
-.PHONY : src/LocalMoveRandom.cpp.i
+src/LocalSearch/RandomTightMove.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.i
+.PHONY : src/LocalSearch/RandomTightMove.cpp.i
 
-src/LocalMoveRandom.s: src/LocalMoveRandom.cpp.s
-.PHONY : src/LocalMoveRandom.s
+src/LocalSearch/RandomTightMove.s: src/LocalSearch/RandomTightMove.cpp.s
+.PHONY : src/LocalSearch/RandomTightMove.s
 
 # target to generate assembly for a file
-src/LocalMoveRandom.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.s
-.PHONY : src/LocalMoveRandom.cpp.s
+src/LocalSearch/RandomTightMove.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.s
+.PHONY : src/LocalSearch/RandomTightMove.cpp.s
 
-src/LocalMoveTight.o: src/LocalMoveTight.cpp.o
-.PHONY : src/LocalMoveTight.o
+src/LocalSearch/SatTightMove.o: src/LocalSearch/SatTightMove.cpp.o
+.PHONY : src/LocalSearch/SatTightMove.o
 
 # target to build an object file
-src/LocalMoveTight.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.o
-.PHONY : src/LocalMoveTight.cpp.o
+src/LocalSearch/SatTightMove.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.o
+.PHONY : src/LocalSearch/SatTightMove.cpp.o
 
-src/LocalMoveTight.i: src/LocalMoveTight.cpp.i
-.PHONY : src/LocalMoveTight.i
+src/LocalSearch/SatTightMove.i: src/LocalSearch/SatTightMove.cpp.i
+.PHONY : src/LocalSearch/SatTightMove.i
 
 # target to preprocess a source file
-src/LocalMoveTight.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.i
-.PHONY : src/LocalMoveTight.cpp.i
+src/LocalSearch/SatTightMove.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.i
+.PHONY : src/LocalSearch/SatTightMove.cpp.i
 
-src/LocalMoveTight.s: src/LocalMoveTight.cpp.s
-.PHONY : src/LocalMoveTight.s
+src/LocalSearch/SatTightMove.s: src/LocalSearch/SatTightMove.cpp.s
+.PHONY : src/LocalSearch/SatTightMove.s
 
 # target to generate assembly for a file
-src/LocalMoveTight.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.s
-.PHONY : src/LocalMoveTight.cpp.s
+src/LocalSearch/SatTightMove.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.s
+.PHONY : src/LocalSearch/SatTightMove.cpp.s
+
+src/LocalSearch/TightOperator.o: src/LocalSearch/TightOperator.cpp.o
+.PHONY : src/LocalSearch/TightOperator.o
+
+# target to build an object file
+src/LocalSearch/TightOperator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.o
+.PHONY : src/LocalSearch/TightOperator.cpp.o
+
+src/LocalSearch/TightOperator.i: src/LocalSearch/TightOperator.cpp.i
+.PHONY : src/LocalSearch/TightOperator.i
+
+# target to preprocess a source file
+src/LocalSearch/TightOperator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.i
+.PHONY : src/LocalSearch/TightOperator.cpp.i
+
+src/LocalSearch/TightOperator.s: src/LocalSearch/TightOperator.cpp.s
+.PHONY : src/LocalSearch/TightOperator.s
+
+# target to generate assembly for a file
+src/LocalSearch/TightOperator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.s
+.PHONY : src/LocalSearch/TightOperator.cpp.s
+
+src/LocalSearch/UnsatTightMove.o: src/LocalSearch/UnsatTightMove.cpp.o
+.PHONY : src/LocalSearch/UnsatTightMove.o
+
+# target to build an object file
+src/LocalSearch/UnsatTightMove.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.o
+.PHONY : src/LocalSearch/UnsatTightMove.cpp.o
+
+src/LocalSearch/UnsatTightMove.i: src/LocalSearch/UnsatTightMove.cpp.i
+.PHONY : src/LocalSearch/UnsatTightMove.i
+
+# target to preprocess a source file
+src/LocalSearch/UnsatTightMove.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.i
+.PHONY : src/LocalSearch/UnsatTightMove.cpp.i
+
+src/LocalSearch/UnsatTightMove.s: src/LocalSearch/UnsatTightMove.cpp.s
+.PHONY : src/LocalSearch/UnsatTightMove.s
+
+# target to generate assembly for a file
+src/LocalSearch/UnsatTightMove.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.s
+.PHONY : src/LocalSearch/UnsatTightMove.cpp.s
 
 src/LocalVar.o: src/LocalVar.cpp.o
 .PHONY : src/LocalVar.o
@@ -344,30 +392,6 @@ src/ModelVar.s: src/ModelVar.cpp.s
 src/ModelVar.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/ModelVar.cpp.s
 .PHONY : src/ModelVar.cpp.s
-
-src/Presolve.o: src/Presolve.cpp.o
-.PHONY : src/Presolve.o
-
-# target to build an object file
-src/Presolve.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/Presolve.cpp.o
-.PHONY : src/Presolve.cpp.o
-
-src/Presolve.i: src/Presolve.cpp.i
-.PHONY : src/Presolve.i
-
-# target to preprocess a source file
-src/Presolve.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/Presolve.cpp.i
-.PHONY : src/Presolve.cpp.i
-
-src/Presolve.s: src/Presolve.cpp.s
-.PHONY : src/Presolve.s
-
-# target to generate assembly for a file
-src/Presolve.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/Presolve.cpp.s
-.PHONY : src/Presolve.cpp.s
 
 src/ReaderMPS.o: src/ReaderMPS.cpp.o
 .PHONY : src/ReaderMPS.o
@@ -489,6 +513,30 @@ src/utils/parse.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.s
 .PHONY : src/utils/parse.cpp.s
 
+src/utils/utils.o: src/utils/utils.cpp.o
+.PHONY : src/utils/utils.o
+
+# target to build an object file
+src/utils/utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.o
+.PHONY : src/utils/utils.cpp.o
+
+src/utils/utils.i: src/utils/utils.cpp.i
+.PHONY : src/utils/utils.i
+
+# target to preprocess a source file
+src/utils/utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.i
+.PHONY : src/utils/utils.cpp.i
+
+src/utils/utils.s: src/utils/utils.cpp.s
+.PHONY : src/utils/utils.s
+
+# target to generate assembly for a file
+src/utils/utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Local-MIP.dir/build.make CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.s
+.PHONY : src/utils/utils.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -501,21 +549,27 @@ help:
 	@echo "... src/LocalCon.o"
 	@echo "... src/LocalCon.i"
 	@echo "... src/LocalCon.s"
-	@echo "... src/LocalMIP.o"
-	@echo "... src/LocalMIP.i"
-	@echo "... src/LocalMIP.s"
-	@echo "... src/LocalMoveLift.o"
-	@echo "... src/LocalMoveLift.i"
-	@echo "... src/LocalMoveLift.s"
-	@echo "... src/LocalMovePair.o"
-	@echo "... src/LocalMovePair.i"
-	@echo "... src/LocalMovePair.s"
-	@echo "... src/LocalMoveRandom.o"
-	@echo "... src/LocalMoveRandom.i"
-	@echo "... src/LocalMoveRandom.s"
-	@echo "... src/LocalMoveTight.o"
-	@echo "... src/LocalMoveTight.i"
-	@echo "... src/LocalMoveTight.s"
+	@echo "... src/LocalSearch/FlipMove.o"
+	@echo "... src/LocalSearch/FlipMove.i"
+	@echo "... src/LocalSearch/FlipMove.s"
+	@echo "... src/LocalSearch/LiftMove.o"
+	@echo "... src/LocalSearch/LiftMove.i"
+	@echo "... src/LocalSearch/LiftMove.s"
+	@echo "... src/LocalSearch/LocalILP.o"
+	@echo "... src/LocalSearch/LocalILP.i"
+	@echo "... src/LocalSearch/LocalILP.s"
+	@echo "... src/LocalSearch/RandomTightMove.o"
+	@echo "... src/LocalSearch/RandomTightMove.i"
+	@echo "... src/LocalSearch/RandomTightMove.s"
+	@echo "... src/LocalSearch/SatTightMove.o"
+	@echo "... src/LocalSearch/SatTightMove.i"
+	@echo "... src/LocalSearch/SatTightMove.s"
+	@echo "... src/LocalSearch/TightOperator.o"
+	@echo "... src/LocalSearch/TightOperator.i"
+	@echo "... src/LocalSearch/TightOperator.s"
+	@echo "... src/LocalSearch/UnsatTightMove.o"
+	@echo "... src/LocalSearch/UnsatTightMove.i"
+	@echo "... src/LocalSearch/UnsatTightMove.s"
 	@echo "... src/LocalVar.o"
 	@echo "... src/LocalVar.i"
 	@echo "... src/LocalVar.s"
@@ -525,9 +579,6 @@ help:
 	@echo "... src/ModelVar.o"
 	@echo "... src/ModelVar.i"
 	@echo "... src/ModelVar.s"
-	@echo "... src/Presolve.o"
-	@echo "... src/Presolve.i"
-	@echo "... src/Presolve.s"
 	@echo "... src/ReaderMPS.o"
 	@echo "... src/ReaderMPS.i"
 	@echo "... src/ReaderMPS.s"
@@ -543,6 +594,9 @@ help:
 	@echo "... src/utils/parse.o"
 	@echo "... src/utils/parse.i"
 	@echo "... src/utils/parse.s"
+	@echo "... src/utils/utils.o"
+	@echo "... src/utils/utils.i"
+	@echo "... src/utils/utils.s"
 .PHONY : help
 
 

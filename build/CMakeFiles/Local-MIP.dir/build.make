@@ -83,80 +83,108 @@ CMakeFiles/Local-MIP.dir/src/LocalCon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/LocalCon.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/LocalCon.cpp -o CMakeFiles/Local-MIP.dir/src/LocalCon.cpp.s
 
-CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
-CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMIP.cpp
-CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.o -MF CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMIP.cpp
+CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
+CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/FlipMove.cpp
+CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.o -MF CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/FlipMove.cpp
 
-CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMIP.cpp > CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.i
+CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/FlipMove.cpp > CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.i
 
-CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMIP.cpp -o CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.s
+CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/FlipMove.cpp -o CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.s
 
-CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
-CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMoveLift.cpp
-CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.o -MF CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMoveLift.cpp
+CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
+CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/LiftMove.cpp
+CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.o -MF CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/LiftMove.cpp
 
-CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMoveLift.cpp > CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.i
+CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/LiftMove.cpp > CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.i
 
-CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMoveLift.cpp -o CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.s
+CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/LiftMove.cpp -o CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.s
 
-CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
-CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMovePair.cpp
-CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.o -MF CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMovePair.cpp
+CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
+CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/LocalILP.cpp
+CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.o -MF CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/LocalILP.cpp
 
-CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMovePair.cpp > CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.i
+CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/LocalILP.cpp > CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.i
 
-CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMovePair.cpp -o CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.s
+CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/LocalILP.cpp -o CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.s
 
-CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
-CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMoveRandom.cpp
-CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.o -MF CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMoveRandom.cpp
+CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
+CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/RandomTightMove.cpp
+CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.o -MF CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/RandomTightMove.cpp
 
-CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMoveRandom.cpp > CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.i
+CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/RandomTightMove.cpp > CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.i
 
-CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMoveRandom.cpp -o CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.s
+CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/RandomTightMove.cpp -o CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.s
 
-CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
-CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMoveTight.cpp
-CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.o -MF CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMoveTight.cpp
+CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
+CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/SatTightMove.cpp
+CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.o -MF CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/SatTightMove.cpp
 
-CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMoveTight.cpp > CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.i
+CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/SatTightMove.cpp > CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.i
 
-CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/LocalMoveTight.cpp -o CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.s
+CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/SatTightMove.cpp -o CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.s
+
+CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
+CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/TightOperator.cpp
+CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.o -MF CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/TightOperator.cpp
+
+CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/TightOperator.cpp > CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.i
+
+CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/TightOperator.cpp -o CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.s
+
+CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
+CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/UnsatTightMove.cpp
+CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.o -MF CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/UnsatTightMove.cpp
+
+CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/UnsatTightMove.cpp > CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.i
+
+CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/LocalSearch/UnsatTightMove.cpp -o CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.s
 
 CMakeFiles/Local-MIP.dir/src/LocalVar.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
 CMakeFiles/Local-MIP.dir/src/LocalVar.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/LocalVar.cpp
 CMakeFiles/Local-MIP.dir/src/LocalVar.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Local-MIP.dir/src/LocalVar.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Local-MIP.dir/src/LocalVar.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/LocalVar.cpp.o -MF CMakeFiles/Local-MIP.dir/src/LocalVar.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/LocalVar.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/LocalVar.cpp
 
 CMakeFiles/Local-MIP.dir/src/LocalVar.cpp.i: cmake_force
@@ -170,7 +198,7 @@ CMakeFiles/Local-MIP.dir/src/LocalVar.cpp.s: cmake_force
 CMakeFiles/Local-MIP.dir/src/ModelCon.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
 CMakeFiles/Local-MIP.dir/src/ModelCon.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/ModelCon.cpp
 CMakeFiles/Local-MIP.dir/src/ModelCon.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Local-MIP.dir/src/ModelCon.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Local-MIP.dir/src/ModelCon.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/ModelCon.cpp.o -MF CMakeFiles/Local-MIP.dir/src/ModelCon.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/ModelCon.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/ModelCon.cpp
 
 CMakeFiles/Local-MIP.dir/src/ModelCon.cpp.i: cmake_force
@@ -184,7 +212,7 @@ CMakeFiles/Local-MIP.dir/src/ModelCon.cpp.s: cmake_force
 CMakeFiles/Local-MIP.dir/src/ModelVar.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
 CMakeFiles/Local-MIP.dir/src/ModelVar.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/ModelVar.cpp
 CMakeFiles/Local-MIP.dir/src/ModelVar.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Local-MIP.dir/src/ModelVar.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Local-MIP.dir/src/ModelVar.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/ModelVar.cpp.o -MF CMakeFiles/Local-MIP.dir/src/ModelVar.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/ModelVar.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/ModelVar.cpp
 
 CMakeFiles/Local-MIP.dir/src/ModelVar.cpp.i: cmake_force
@@ -195,24 +223,10 @@ CMakeFiles/Local-MIP.dir/src/ModelVar.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/ModelVar.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/ModelVar.cpp -o CMakeFiles/Local-MIP.dir/src/ModelVar.cpp.s
 
-CMakeFiles/Local-MIP.dir/src/Presolve.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
-CMakeFiles/Local-MIP.dir/src/Presolve.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/Presolve.cpp
-CMakeFiles/Local-MIP.dir/src/Presolve.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Local-MIP.dir/src/Presolve.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/Presolve.cpp.o -MF CMakeFiles/Local-MIP.dir/src/Presolve.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/Presolve.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/Presolve.cpp
-
-CMakeFiles/Local-MIP.dir/src/Presolve.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Local-MIP.dir/src/Presolve.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /pub/netdisk1/linpeng/Local-MIP/code/src/Presolve.cpp > CMakeFiles/Local-MIP.dir/src/Presolve.cpp.i
-
-CMakeFiles/Local-MIP.dir/src/Presolve.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/Presolve.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/Presolve.cpp -o CMakeFiles/Local-MIP.dir/src/Presolve.cpp.s
-
 CMakeFiles/Local-MIP.dir/src/ReaderMPS.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
 CMakeFiles/Local-MIP.dir/src/ReaderMPS.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/ReaderMPS.cpp
 CMakeFiles/Local-MIP.dir/src/ReaderMPS.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/Local-MIP.dir/src/ReaderMPS.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Local-MIP.dir/src/ReaderMPS.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/ReaderMPS.cpp.o -MF CMakeFiles/Local-MIP.dir/src/ReaderMPS.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/ReaderMPS.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/ReaderMPS.cpp
 
 CMakeFiles/Local-MIP.dir/src/ReaderMPS.cpp.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/Local-MIP.dir/src/ReaderMPS.cpp.s: cmake_force
 CMakeFiles/Local-MIP.dir/src/Solver.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
 CMakeFiles/Local-MIP.dir/src/Solver.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/Solver.cpp
 CMakeFiles/Local-MIP.dir/src/Solver.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/Local-MIP.dir/src/Solver.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Local-MIP.dir/src/Solver.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/Solver.cpp.o -MF CMakeFiles/Local-MIP.dir/src/Solver.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/Solver.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/Solver.cpp
 
 CMakeFiles/Local-MIP.dir/src/Solver.cpp.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/Local-MIP.dir/src/Solver.cpp.s: cmake_force
 CMakeFiles/Local-MIP.dir/src/utils/main.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
 CMakeFiles/Local-MIP.dir/src/utils/main.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/utils/main.cpp
 CMakeFiles/Local-MIP.dir/src/utils/main.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/Local-MIP.dir/src/utils/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Local-MIP.dir/src/utils/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/utils/main.cpp.o -MF CMakeFiles/Local-MIP.dir/src/utils/main.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/utils/main.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/utils/main.cpp
 
 CMakeFiles/Local-MIP.dir/src/utils/main.cpp.i: cmake_force
@@ -254,7 +268,7 @@ CMakeFiles/Local-MIP.dir/src/utils/main.cpp.s: cmake_force
 CMakeFiles/Local-MIP.dir/src/utils/paras.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
 CMakeFiles/Local-MIP.dir/src/utils/paras.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/utils/paras.cpp
 CMakeFiles/Local-MIP.dir/src/utils/paras.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/Local-MIP.dir/src/utils/paras.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Local-MIP.dir/src/utils/paras.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/utils/paras.cpp.o -MF CMakeFiles/Local-MIP.dir/src/utils/paras.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/utils/paras.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/utils/paras.cpp
 
 CMakeFiles/Local-MIP.dir/src/utils/paras.cpp.i: cmake_force
@@ -268,7 +282,7 @@ CMakeFiles/Local-MIP.dir/src/utils/paras.cpp.s: cmake_force
 CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
 CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/utils/parse.cpp
 CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.o -MF CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/utils/parse.cpp
 
 CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.i: cmake_force
@@ -279,45 +293,63 @@ CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/utils/parse.cpp -o CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.s
 
+CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.o: CMakeFiles/Local-MIP.dir/flags.make
+CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.o: /pub/netdisk1/linpeng/Local-MIP/code/src/utils/utils.cpp
+CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.o: CMakeFiles/Local-MIP.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.o -MF CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.o.d -o CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.o -c /pub/netdisk1/linpeng/Local-MIP/code/src/utils/utils.cpp
+
+CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /pub/netdisk1/linpeng/Local-MIP/code/src/utils/utils.cpp > CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.i
+
+CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /pub/netdisk1/linpeng/Local-MIP/code/src/utils/utils.cpp -o CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.s
+
 # Object files for target Local-MIP
 Local__MIP_OBJECTS = \
 "CMakeFiles/Local-MIP.dir/src/LocalCon.cpp.o" \
-"CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.o" \
-"CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.o" \
-"CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.o" \
-"CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.o" \
-"CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.o" \
+"CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.o" \
+"CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.o" \
+"CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.o" \
+"CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.o" \
+"CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.o" \
+"CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.o" \
+"CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.o" \
 "CMakeFiles/Local-MIP.dir/src/LocalVar.cpp.o" \
 "CMakeFiles/Local-MIP.dir/src/ModelCon.cpp.o" \
 "CMakeFiles/Local-MIP.dir/src/ModelVar.cpp.o" \
-"CMakeFiles/Local-MIP.dir/src/Presolve.cpp.o" \
 "CMakeFiles/Local-MIP.dir/src/ReaderMPS.cpp.o" \
 "CMakeFiles/Local-MIP.dir/src/Solver.cpp.o" \
 "CMakeFiles/Local-MIP.dir/src/utils/main.cpp.o" \
 "CMakeFiles/Local-MIP.dir/src/utils/paras.cpp.o" \
-"CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.o"
+"CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.o" \
+"CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.o"
 
 # External object files for target Local-MIP
 Local__MIP_EXTERNAL_OBJECTS =
 
 Local-MIP: CMakeFiles/Local-MIP.dir/src/LocalCon.cpp.o
-Local-MIP: CMakeFiles/Local-MIP.dir/src/LocalMIP.cpp.o
-Local-MIP: CMakeFiles/Local-MIP.dir/src/LocalMoveLift.cpp.o
-Local-MIP: CMakeFiles/Local-MIP.dir/src/LocalMovePair.cpp.o
-Local-MIP: CMakeFiles/Local-MIP.dir/src/LocalMoveRandom.cpp.o
-Local-MIP: CMakeFiles/Local-MIP.dir/src/LocalMoveTight.cpp.o
+Local-MIP: CMakeFiles/Local-MIP.dir/src/LocalSearch/FlipMove.cpp.o
+Local-MIP: CMakeFiles/Local-MIP.dir/src/LocalSearch/LiftMove.cpp.o
+Local-MIP: CMakeFiles/Local-MIP.dir/src/LocalSearch/LocalILP.cpp.o
+Local-MIP: CMakeFiles/Local-MIP.dir/src/LocalSearch/RandomTightMove.cpp.o
+Local-MIP: CMakeFiles/Local-MIP.dir/src/LocalSearch/SatTightMove.cpp.o
+Local-MIP: CMakeFiles/Local-MIP.dir/src/LocalSearch/TightOperator.cpp.o
+Local-MIP: CMakeFiles/Local-MIP.dir/src/LocalSearch/UnsatTightMove.cpp.o
 Local-MIP: CMakeFiles/Local-MIP.dir/src/LocalVar.cpp.o
 Local-MIP: CMakeFiles/Local-MIP.dir/src/ModelCon.cpp.o
 Local-MIP: CMakeFiles/Local-MIP.dir/src/ModelVar.cpp.o
-Local-MIP: CMakeFiles/Local-MIP.dir/src/Presolve.cpp.o
 Local-MIP: CMakeFiles/Local-MIP.dir/src/ReaderMPS.cpp.o
 Local-MIP: CMakeFiles/Local-MIP.dir/src/Solver.cpp.o
 Local-MIP: CMakeFiles/Local-MIP.dir/src/utils/main.cpp.o
 Local-MIP: CMakeFiles/Local-MIP.dir/src/utils/paras.cpp.o
 Local-MIP: CMakeFiles/Local-MIP.dir/src/utils/parse.cpp.o
+Local-MIP: CMakeFiles/Local-MIP.dir/src/utils/utils.cpp.o
 Local-MIP: CMakeFiles/Local-MIP.dir/build.make
 Local-MIP: CMakeFiles/Local-MIP.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Linking CXX executable Local-MIP"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/pub/netdisk1/linpeng/Local-MIP/code/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX executable Local-MIP"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Local-MIP.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

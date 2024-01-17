@@ -53,6 +53,28 @@ void LocalMIP::RandomTightMove()
     neighborVarIdxs.push_back(varIdx);
     neighborDeltas.push_back(delta);
   }
+  auto &localObj = localConUtil.conSet[0];
+  auto &modelObj = modelConUtil->conSet[0];
+  if (isFoundFeasible && localObj.UNSAT())
+    for (size_t termIdx = 0; termIdx < modelObj.termNum; ++termIdx)
+    {
+      size_t varIdx = modelObj.varIdxSet[termIdx];
+      auto &localVar = localVarUtil.GetVar(varIdx);
+      auto &modelVar = modelVarUtil->GetVar(varIdx);
+      Value delta;
+      if (!TightDelta(localObj, modelObj, termIdx, delta))
+        if (modelObj.coeffSet[termIdx] > 0)
+          delta = modelVar.lowerBound - localVar.nowValue;
+        else
+          delta = modelVar.upperBound - localVar.nowValue;
+      if (delta < 0 && curStep < localVar.allowDecStep ||
+          delta > 0 && curStep < localVar.allowIncStep)
+        continue;
+      if (fabs(delta) < FeasibilityTol)
+        continue;
+      neighborVarIdxs.push_back(varIdx);
+      neighborDeltas.push_back(delta);
+    }
   size_t scoreSize = neighborVarIdxs.size();
   if (neighborVarIdxs.size() > bmsRandom)
   {
