@@ -36,22 +36,17 @@ int LocalMIP::LocalSearch(
         LogObj(_clkStart);
         isFoundFeasible = true;
       }
-      LiftMove();
+      bool res = LiftMoveWithoutBreak();
       if (GetObjValue() <= _optimalObj)
         return 1;
       ++curStep;
       if (Timeout(_clkStart))
         break;
-      continue;
+      if (res)
+        continue;
     }
     if (Timeout(_clkStart))
       break;
-    if (curStep - lastImproveStep > restartStep)
-    {
-      Restart();
-      continue;
-    }
-
     if (!UnsatTightMove())
     {
       if (mt() % 10000 > smoothProbability)
@@ -348,11 +343,8 @@ LocalMIP::LocalMIP(
   flipStep = 0;
   randomStep = 0;
   restartTimes = 0;
-  weightUpperBound = 1000;
-  objWeightUpperBound = 100;
-  if (weightUpperBound < modelConUtil->conNum)
-    weightUpperBound = modelConUtil->conNum;
-  objWeightUpperBound = weightUpperBound / OPT(wf);
+  weightUpperBound = 10000000;
+  objWeightUpperBound = 10000000;
   lastImproveStep = 0;
   isBin = modelVarUtil->isBin;
   isKeepFeas = false;
@@ -363,9 +355,8 @@ LocalMIP::LocalMIP(
   bmsSat = OPT(bmsSat);
   bmsFlip = OPT(bmsFlip);
   bmsRandom = OPT(bmsRandom);
-  restartStep = OPT(restartStep);
   bestOBJ = Infinity;
-  mt.seed(2832);
+  mt.seed(OPT(Seed));
   DEBUG = OPT(DEBUG);
 }
 

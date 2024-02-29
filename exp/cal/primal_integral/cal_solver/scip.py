@@ -1,13 +1,13 @@
 import os
 import re
 
-readfolder = "/pub/netdisk1/linpeng/Local-MIP/result/scip/log"
-result_file = "/pub/netdisk1/linpeng/Local-MIP/result/scip/time"
-dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/open_hard-shuffle.txt"
+readfolder = "/pub/netdisk1/linpeng/Local-MIP/result-new/scip/log"
+result_file = "/pub/netdisk1/linpeng/Local-MIP/result-new/scip/time"
+dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt"
 
 
 def record():
-    for cutoff in ["10", "60", "300", "3600"]:
+    for cutoff in ["10", "60", "300"]:
         for instance in open(dataset):
             instance = instance.strip()
             out_file = open(f"{result_file}/{cutoff}/{instance}", "w")
@@ -35,7 +35,7 @@ def record():
                             time=line1[0][1:-1]
                 if best_obj != "      --      " and best_line != "":
                     out_file.write(f"{best_obj} {time}\n")
-                    # print(f"{instance} {best_obj} {time}")
+                    print(f"{instance} {best_obj} {time}")
             out_file.close()
 
 

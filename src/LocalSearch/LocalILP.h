@@ -67,6 +67,7 @@ private:
       vector<size_t> &_scoreIdx);
   void RandomTightMove();
   void LiftMove();
+  bool LiftMoveWithoutBreak();
   bool SatTightMove(
       vector<bool> &_scoreTable,
       vector<size_t> &_scoreIdx);

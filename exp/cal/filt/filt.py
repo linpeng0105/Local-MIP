@@ -1,13 +1,14 @@
 import os
 import re
 
-dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/open_hard.txt"
+dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt"
 
 
 def record():
-    for solver in ["gurobi-c", "gurobi-h", "highs1.6", "highs1.5", "scip"]:
-        readfolder = f"/pub/netdisk1/linpeng/Local-MIP/result/{solver}/time"
-        result_file = f"/pub/netdisk1/linpeng/Local-MIP/result/{solver}/result"
+    # for solver in ["gurobi-c", "gurobi-h", "highs1.6", "scip"]:
+    for solver in ["FJ-16", "FJ-192"]:
+        readfolder = f"/pub/netdisk1/linpeng/Local-MIP/result-new/{solver}/time"
+        result_file = f"/pub/netdisk1/linpeng/Local-MIP/result-new/{solver}/result"
         for cutoff in [10, 60, 300]:
             for instance in open(dataset):
                 instance = instance.strip()

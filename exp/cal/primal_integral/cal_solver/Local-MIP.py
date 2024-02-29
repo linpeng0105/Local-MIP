@@ -1,9 +1,9 @@
 import os
 import re
 
-readfolder = "/pub/netdisk1/linpeng/Local-MIP/result/Local-MIP/v4/try/6_2000_2000_40_60_30_50_3000000/log"
-result_file = "/pub/netdisk1/linpeng/Local-MIP/result/Local-MIP/v4/try/6_2000_2000_40_60_30_50_3000000/time"
-dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/open_hard.txt"
+readfolder = "/pub/netdisk1/linpeng/Local-MIP/result/Local-MIP/v4/try/12_3000_4000_70_35_20_50_3000000/log"
+result_file = "/pub/netdisk1/linpeng/Local-MIP/result/Local-MIP/v4/try/12_3000_4000_70_35_20_50_3000000/time"
+dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt"
 
 
 def record():

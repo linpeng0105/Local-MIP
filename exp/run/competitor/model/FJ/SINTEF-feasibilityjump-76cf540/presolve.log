@@ -1,0 +1,336 @@
+FICO Xpress v9.2.2, Community, solve started 15:26:36, Nov 1, 2023
+Heap usage: 130KB (peak 130KB, 219KB system)
+Maximizing MILP test using up to 56 threads and up to 299GB memory, with these control settings:
+LPITERLIMIT = 0
+Original problem has:
+         2 rows            2 cols            4 elements         2 entities
+Presolved problem has:
+         0 rows            0 cols            0 elements         0 entities
+LP relaxation tightened
+Presolve finished in 0 seconds
+Heap usage: 135KB (peak 156KB, 232KB system)
+Will try to keep branch and bound tree memory usage below 284.0GB
+Starting concurrent solve with dual (1 thread)
+
+ Concurrent-Solve,   0s
+            Dual        
+----- interrupted ------
+Concurrent statistics:
+      Dual: 0 simplex iterations, 0.00s
+Maximum number of iterations reached
+ *** Search unfinished ***    Time:     0.00 Nodes:          0
+  Solution time / primaldual integral :      0.00s/ 100.000000%
+  Number of solutions found / nodes   :         0 /         0
+FICO Xpress v9.2.2, Community, solve started 9:34:07, Nov 2, 2023
+Heap usage: 153KB (peak 153KB, 177KB system)
+Minimizing MILP pb-market-split8-70-4 using up to 128 threads and up to 1007GB memory, with these control settings:
+LPITERLIMIT = 0
+Original problem has:
+        17 rows           71 cols         1113 elements        71 entities
+Presolved problem has:
+         8 rows           70 cols          556 elements        70 entities
+Presolve finished in 0 seconds
+Heap usage: 205KB (peak 250KB, 178KB system)
+
+Coefficient range                    original                 solved        
+  Coefficients   [min,max] : [ 1.00e+00,  9.90e+01] / [ 1.56e-02,  1.55e+00]
+  RHS and bounds [min,max] : [ 1.00e+00,  1.88e+03] / [ 1.00e+00,  2.94e+01]
+  Objective      [min,max] : [ 1.00e+00,  1.00e+00] / [      0.0,       0.0]
+Autoscaling applied standard scaling
+
+Will try to keep branch and bound tree memory usage below 957.3GB
+STOPPING - LPITERLIMIT limit reached (LPITERLIMIT=0  simplexiter=0).
+ *** Search unfinished ***    Time:     0.06 Nodes:          0
+  Solution time / primaldual integral :      0.06s/ 100.000000%
+  Number of solutions found / nodes   :         0 /         0
+FICO Xpress v9.2.2, Community, solve started 9:34:28, Nov 2, 2023
+Heap usage: 153KB (peak 153KB, 177KB system)
+Minimizing MILP pb-market-split8-70-4 using up to 128 threads and up to 1007GB memory, with these control settings:
+LPITERLIMIT = 0
+Original problem has:
+        17 rows           71 cols         1113 elements        71 entities
+Presolved problem has:
+         8 rows           70 cols          556 elements        70 entities
+Presolve finished in 0 seconds
+Heap usage: 205KB (peak 250KB, 178KB system)
+
+Coefficient range                    original                 solved        
+  Coefficients   [min,max] : [ 1.00e+00,  9.90e+01] / [ 1.56e-02,  1.55e+00]
+  RHS and bounds [min,max] : [ 1.00e+00,  1.88e+03] / [ 1.00e+00,  2.94e+01]
+  Objective      [min,max] : [ 1.00e+00,  1.00e+00] / [      0.0,       0.0]
+Autoscaling applied standard scaling
+
+Will try to keep branch and bound tree memory usage below 957.3GB
+STOPPING - LPITERLIMIT limit reached (LPITERLIMIT=0  simplexiter=0).
+ *** Search unfinished ***    Time:     0.01 Nodes:          0
+  Solution time / primaldual integral :      0.01s/ 100.000000%
+  Number of solutions found / nodes   :         0 /         0
+FICO Xpress v9.2.2, Community, solve started 9:36:16, Nov 2, 2023
+Heap usage: 153KB (peak 153KB, 177KB system)
+Minimizing MILP pb-market-split8-70-4 using up to 128 threads and up to 1007GB memory, with these control settings:
+LPITERLIMIT = 0
+Original problem has:
+        17 rows           71 cols         1113 elements        71 entities
+Presolved problem has:
+         8 rows           70 cols          556 elements        70 entities
+Presolve finished in 0 seconds
+Heap usage: 205KB (peak 250KB, 178KB system)
+
+Coefficient range                    original                 solved        
+  Coefficients   [min,max] : [ 1.00e+00,  9.90e+01] / [ 1.56e-02,  1.55e+00]
+  RHS and bounds [min,max] : [ 1.00e+00,  1.88e+03] / [ 1.00e+00,  2.94e+01]
+  Objective      [min,max] : [ 1.00e+00,  1.00e+00] / [      0.0,       0.0]
+Autoscaling applied standard scaling
+
+Will try to keep branch and bound tree memory usage below 957.3GB
+STOPPING - LPITERLIMIT limit reached (LPITERLIMIT=0  simplexiter=0).
+ *** Search unfinished ***    Time:     0.00 Nodes:          0
+  Solution time / primaldual integral :      0.00s/ 100.000000%
+  Number of solutions found / nodes   :         0 /         0
+FICO Xpress v9.2.2, Community, solve started 9:37:40, Nov 2, 2023
+Heap usage: 153KB (peak 153KB, 177KB system)
+Minimizing MILP pb-market-split8-70-4 using up to 128 threads and up to 1007GB memory, with these control settings:
+LPITERLIMIT = 0
+Original problem has:
+        17 rows           71 cols         1113 elements        71 entities
+Presolved problem has:
+         8 rows           70 cols          556 elements        70 entities
+Presolve finished in 0 seconds
+Heap usage: 205KB (peak 250KB, 178KB system)
+
+Coefficient range                    original                 solved        
+  Coefficients   [min,max] : [ 1.00e+00,  9.90e+01] / [ 1.56e-02,  1.55e+00]
+  RHS and bounds [min,max] : [ 1.00e+00,  1.88e+03] / [ 1.00e+00,  2.94e+01]
+  Objective      [min,max] : [ 1.00e+00,  1.00e+00] / [      0.0,       0.0]
+Autoscaling applied standard scaling
+
+Will try to keep branch and bound tree memory usage below 957.3GB
+STOPPING - LPITERLIMIT limit reached (LPITERLIMIT=0  simplexiter=0).
+ *** Search unfinished ***    Time:     0.00 Nodes:          0
+  Solution time / primaldual integral :      0.00s/ 100.000000%
+  Number of solutions found / nodes   :         0 /         0
+FICO Xpress v9.2.2, Community, solve started 9:39:18, Nov 2, 2023
+Heap usage: 236KB (peak 236KB, 177KB system)
+Minimizing MILP fhnw-sq2 using up to 128 threads and up to 1007GB memory, with these control settings:
+LPITERLIMIT = 0
+Original problem has:
+        91 rows          650 cols         1968 elements       650 entities
+Presolved problem has:
+        91 rows          644 cols         1950 elements       644 entities
+LP relaxation tightened
+Presolve finished in 0 seconds
+Heap usage: 435KB (peak 624KB, 177KB system)
+
+Coefficient range                    original                 solved        
+  Coefficients   [min,max] : [ 1.00e+00,  1.30e+02] / [ 7.81e-03,  1.98e+00]
+  RHS and bounds [min,max] : [ 1.00e+00,  3.94e+02] / [ 1.00e+00,  3.94e+02]
+  Objective      [min,max] : [      0.0,       0.0] / [      0.0,       0.0]
+Autoscaling applied standard scaling
+
+Will try to keep branch and bound tree memory usage below 957.3GB
+Starting concurrent solve with dual (1 thread)
+
+ Concurrent-Solve,   0s
+            Dual        
+----- interrupted ------
+Concurrent statistics:
+      Dual: 0 simplex iterations, 0.00s
+Maximum number of iterations reached
+ *** Search unfinished ***    Time:     0.01 Nodes:          0
+  Solution time / primaldual integral :      0.01s/ 100.000000%
+  Number of solutions found / nodes   :         0 /         0
+FICO Xpress v9.2.2, Community, solve started 9:39:54, Nov 2, 2023
+Heap usage: 439KB (peak 439KB, 562KB system)
+Minimizing MILP neos-3530905-gaula using up to 128 threads and up to 1007GB memory, with these control settings:
+LPITERLIMIT = 0
+Original problem has:
+       200 rows         2090 cols         3990 elements      2090 entities
+Presolved problem has:
+       200 rows         2090 cols         3990 elements      2090 entities
+Presolve finished in 0 seconds
+Heap usage: 914KB (peak 1467KB, 563KB system)
+
+Coefficient range                    original                 solved        
+  Coefficients   [min,max] : [ 1.00e+00,  1.00e+04] / [ 2.05e-01,  1.22e+00]
+  RHS and bounds [min,max] : [ 1.00e+00,  9.70e+01] / [ 1.00e+00,  9.70e+01]
+  Objective      [min,max] : [ 1.00e+00,  1.00e+00] / [ 1.00e+00,  1.00e+00]
+Autoscaling applied standard scaling
+
+Symmetric problem: generators: 189, support set: 2090
+ Number of orbits: 11, largest orbit: 190
+ Row orbits: 1, row support: 190
+Will try to keep branch and bound tree memory usage below 957.3GB
+STOPPING - LPITERLIMIT limit reached (LPITERLIMIT=0  simplexiter=0).
+ *** Search unfinished ***    Time:     0.01 Nodes:          0
+  Solution time / primaldual integral :      0.01s/ 100.000000%
+  Number of solutions found / nodes   :         0 /         0
+FICO Xpress v9.2.2, Community, solve started 9:41:11, Nov 2, 2023
+Heap usage: 439KB (peak 439KB, 562KB system)
+Minimizing MILP neos-3530905-gaula using up to 128 threads and up to 1007GB memory, with these control settings:
+LPITERLIMIT = 0
+Original problem has:
+       200 rows         2090 cols         3990 elements      2090 entities
+Presolved problem has:
+       200 rows         2090 cols         3990 elements      2090 entities
+Presolve finished in 0 seconds
+Heap usage: 914KB (peak 1467KB, 563KB system)
+
+Coefficient range                    original                 solved        
+  Coefficients   [min,max] : [ 1.00e+00,  1.00e+04] / [ 2.05e-01,  1.22e+00]
+  RHS and bounds [min,max] : [ 1.00e+00,  9.70e+01] / [ 1.00e+00,  9.70e+01]
+  Objective      [min,max] : [ 1.00e+00,  1.00e+00] / [ 1.00e+00,  1.00e+00]
+Autoscaling applied standard scaling
+
+Symmetric problem: generators: 189, support set: 2090
+ Number of orbits: 11, largest orbit: 190
+ Row orbits: 1, row support: 190
+Will try to keep branch and bound tree memory usage below 957.3GB
+STOPPING - LPITERLIMIT limit reached (LPITERLIMIT=0  simplexiter=0).
+ *** Search unfinished ***    Time:     0.01 Nodes:          0
+  Solution time / primaldual integral :      0.01s/ 100.000000%
+  Number of solutions found / nodes   :         0 /         0
+FICO Xpress v9.2.2, Community, solve started 9:41:16, Nov 2, 2023
+Heap usage: 439KB (peak 439KB, 562KB system)
+Minimizing MILP neos-3530905-gaula using up to 128 threads and up to 1007GB memory, with these control settings:
+LPITERLIMIT = 0
+Original problem has:
+       200 rows         2090 cols         3990 elements      2090 entities
+Presolved problem has:
+       200 rows         2090 cols         3990 elements      2090 entities
+Presolve finished in 0 seconds
+Heap usage: 914KB (peak 1467KB, 563KB system)
+
+Coefficient range                    original                 solved        
+  Coefficients   [min,max] : [ 1.00e+00,  1.00e+04] / [ 2.05e-01,  1.22e+00]
+  RHS and bounds [min,max] : [ 1.00e+00,  9.70e+01] / [ 1.00e+00,  9.70e+01]
+  Objective      [min,max] : [ 1.00e+00,  1.00e+00] / [ 1.00e+00,  1.00e+00]
+Autoscaling applied standard scaling
+
+Symmetric problem: generators: 189, support set: 2090
+ Number of orbits: 11, largest orbit: 190
+ Row orbits: 1, row support: 190
+Will try to keep branch and bound tree memory usage below 957.3GB
+STOPPING - LPITERLIMIT limit reached (LPITERLIMIT=0  simplexiter=0).
+ *** Search unfinished ***    Time:     0.01 Nodes:          0
+  Solution time / primaldual integral :      0.01s/ 100.000000%
+  Number of solutions found / nodes   :         0 /         0
+FICO Xpress v9.2.2, Community, solve started 9:41:23, Nov 2, 2023
+Heap usage: 236KB (peak 236KB, 177KB system)
+Minimizing MILP fhnw-sq2 using up to 128 threads and up to 1007GB memory, with these control settings:
+LPITERLIMIT = 0
+Original problem has:
+        91 rows          650 cols         1968 elements       650 entities
+Presolved problem has:
+        91 rows          644 cols         1950 elements       644 entities
+LP relaxation tightened
+Presolve finished in 0 seconds
+Heap usage: 435KB (peak 624KB, 177KB system)
+
+Coefficient range                    original                 solved        
+  Coefficients   [min,max] : [ 1.00e+00,  1.30e+02] / [ 7.81e-03,  1.98e+00]
+  RHS and bounds [min,max] : [ 1.00e+00,  3.94e+02] / [ 1.00e+00,  3.94e+02]
+  Objective      [min,max] : [      0.0,       0.0] / [      0.0,       0.0]
+Autoscaling applied standard scaling
+
+Will try to keep branch and bound tree memory usage below 957.3GB
+Starting concurrent solve with dual (1 thread)
+
+ Concurrent-Solve,   0s
+            Dual        
+----- interrupted ------
+Concurrent statistics:
+      Dual: 0 simplex iterations, 0.00s
+Maximum number of iterations reached
+ *** Search unfinished ***    Time:     0.00 Nodes:          0
+  Solution time / primaldual integral :      0.00s/ 100.000000%
+  Number of solutions found / nodes   :         0 /         0
+FICO Xpress v9.2.2, Community, solve started 9:41:35, Nov 2, 2023
+Heap usage: 236KB (peak 236KB, 177KB system)
+Minimizing MILP fhnw-sq2 using up to 128 threads and up to 1007GB memory, with these control settings:
+LPITERLIMIT = 0
+Original problem has:
+        91 rows          650 cols         1968 elements       650 entities
+Presolved problem has:
+        91 rows          644 cols         1950 elements       644 entities
+LP relaxation tightened
+Presolve finished in 0 seconds
+Heap usage: 435KB (peak 624KB, 177KB system)
+
+Coefficient range                    original                 solved        
+  Coefficients   [min,max] : [ 1.00e+00,  1.30e+02] / [ 7.81e-03,  1.98e+00]
+  RHS and bounds [min,max] : [ 1.00e+00,  3.94e+02] / [ 1.00e+00,  3.94e+02]
+  Objective      [min,max] : [      0.0,       0.0] / [      0.0,       0.0]
+Autoscaling applied standard scaling
+
+Will try to keep branch and bound tree memory usage below 957.3GB
+Starting concurrent solve with dual (1 thread)
+
+ Concurrent-Solve,   0s
+            Dual        
+----- interrupted ------
+Concurrent statistics:
+      Dual: 0 simplex iterations, 0.00s
+Maximum number of iterations reached
+ *** Search unfinished ***    Time:     0.01 Nodes:          0
+  Solution time / primaldual integral :      0.01s/ 100.000000%
+  Number of solutions found / nodes   :         0 /         0
+FICO Xpress v9.2.2, Community, solve started 9:42:52, Nov 2, 2023
+Heap usage: 236KB (peak 236KB, 177KB system)
+Minimizing MILP fhnw-sq2 using up to 128 threads and up to 1007GB memory, with these control settings:
+LPITERLIMIT = 0
+Original problem has:
+        91 rows          650 cols         1968 elements       650 entities
+Presolved problem has:
+        91 rows          644 cols         1950 elements       644 entities
+LP relaxation tightened
+Presolve finished in 0 seconds
+Heap usage: 435KB (peak 624KB, 177KB system)
+
+Coefficient range                    original                 solved        
+  Coefficients   [min,max] : [ 1.00e+00,  1.30e+02] / [ 7.81e-03,  1.98e+00]
+  RHS and bounds [min,max] : [ 1.00e+00,  3.94e+02] / [ 1.00e+00,  3.94e+02]
+  Objective      [min,max] : [      0.0,       0.0] / [      0.0,       0.0]
+Autoscaling applied standard scaling
+
+Will try to keep branch and bound tree memory usage below 957.3GB
+Starting concurrent solve with dual (1 thread)
+
+ Concurrent-Solve,   0s
+            Dual        
+----- interrupted ------
+Concurrent statistics:
+      Dual: 0 simplex iterations, 0.00s
+Maximum number of iterations reached
+ *** Search unfinished ***    Time:     0.01 Nodes:          0
+  Solution time / primaldual integral :      0.01s/ 100.000000%
+  Number of solutions found / nodes   :         0 /         0
+FICO Xpress v9.2.2, Community, solve started 7:14:30, Nov 2, 2023
+Heap usage: 236KB (peak 236KB, 177KB system)
+Minimizing MILP fhnw-sq2 using up to 192 threads and up to 1007GB memory, with these control settings:
+LPITERLIMIT = 0
+Original problem has:
+        91 rows          650 cols         1968 elements       650 entities
+Presolved problem has:
+        91 rows          644 cols         1950 elements       644 entities
+LP relaxation tightened
+Presolve finished in 0 seconds
+Heap usage: 435KB (peak 624KB, 177KB system)
+
+Coefficient range                    original                 solved        
+  Coefficients   [min,max] : [ 1.00e+00,  1.30e+02] / [ 7.81e-03,  1.98e+00]
+  RHS and bounds [min,max] : [ 1.00e+00,  3.94e+02] / [ 1.00e+00,  3.94e+02]
+  Objective      [min,max] : [      0.0,       0.0] / [      0.0,       0.0]
+Autoscaling applied standard scaling
+
+Will try to keep branch and bound tree memory usage below 957.2GB
+Starting concurrent solve with dual (1 thread)
+
+ Concurrent-Solve,   0s
+            Dual        
+----- interrupted ------
+Concurrent statistics:
+      Dual: 0 simplex iterations, 0.00s
+Maximum number of iterations reached
+ *** Search unfinished ***    Time:     0.07 Nodes:          0
+  Solution time / primaldual integral :      0.07s/ 100.000000%
+  Number of solutions found / nodes   :         0 /         0

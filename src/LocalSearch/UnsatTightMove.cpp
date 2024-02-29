@@ -27,45 +27,48 @@ bool LocalMIP::UnsatTightMove()
   vector<Value> &neighborDeltas = localVarUtil.tempDeltas;
   neighborVarIdxs.clear();
   neighborDeltas.clear();
-  size_t neighborSize = localConUtil.unsatConIdxs.size();
-  vector<size_t> *neighborConIdxs = &localConUtil.unsatConIdxs;
-  if (sampleUnsat < neighborSize)
+  if (localConUtil.unsatConIdxs.size() > 0)
   {
-    neighborSize = sampleUnsat;
-    neighborConIdxs = &localConUtil.tempUnsatConIdxs;
-    neighborConIdxs->clear();
-    neighborConIdxs->assign(
-        localConUtil.unsatConIdxs.begin(), localConUtil.unsatConIdxs.end());
-    for (size_t sampleIdx = 0; sampleIdx < sampleUnsat; ++sampleIdx)
+    size_t neighborSize = localConUtil.unsatConIdxs.size();
+    vector<size_t> *neighborConIdxs = &localConUtil.unsatConIdxs;
+    if (sampleUnsat < neighborSize)
     {
-      size_t randomIdx = mt() % (neighborConIdxs->size() - sampleIdx);
-      size_t temp = neighborConIdxs->at(sampleIdx);
-      neighborConIdxs->at(sampleIdx) = neighborConIdxs->at(randomIdx + sampleIdx);
-      neighborConIdxs->at(randomIdx + sampleIdx) = temp;
+      neighborSize = sampleUnsat;
+      neighborConIdxs = &localConUtil.tempUnsatConIdxs;
+      neighborConIdxs->clear();
+      neighborConIdxs->assign(
+          localConUtil.unsatConIdxs.begin(), localConUtil.unsatConIdxs.end());
+      for (size_t sampleIdx = 0; sampleIdx < sampleUnsat; ++sampleIdx)
+      {
+        size_t randomIdx = mt() % (neighborConIdxs->size() - sampleIdx);
+        size_t temp = neighborConIdxs->at(sampleIdx);
+        neighborConIdxs->at(sampleIdx) = neighborConIdxs->at(randomIdx + sampleIdx);
+        neighborConIdxs->at(randomIdx + sampleIdx) = temp;
+      }
     }
-  }
-  for (size_t neighborIdx = 0; neighborIdx < neighborSize; ++neighborIdx)
-  {
-    auto &localCon = localConUtil.conSet[neighborConIdxs->at(neighborIdx)];
-    auto &modelCon = modelConUtil->conSet[neighborConIdxs->at(neighborIdx)];
-    for (size_t termIdx = 0; termIdx < modelCon.termNum; ++termIdx)
+    for (size_t neighborIdx = 0; neighborIdx < neighborSize; ++neighborIdx)
     {
-      size_t varIdx = modelCon.varIdxSet[termIdx];
-      auto &localVar = localVarUtil.GetVar(varIdx);
-      auto &modelVar = modelVarUtil->GetVar(varIdx);
-      Value delta;
-      if (!TightDelta(localCon, modelCon, termIdx, delta))
-        if (modelCon.coeffSet[termIdx] > 0)
-          delta = modelVar.lowerBound - localVar.nowValue;
-        else
-          delta = modelVar.upperBound - localVar.nowValue;
-      if (delta < 0 && curStep < localVar.allowDecStep ||
-          delta > 0 && curStep < localVar.allowIncStep)
-        continue;
-      if (fabs(delta) < FeasibilityTol)
-        continue;
-      neighborVarIdxs.push_back(varIdx);
-      neighborDeltas.push_back(delta);
+      auto &localCon = localConUtil.conSet[neighborConIdxs->at(neighborIdx)];
+      auto &modelCon = modelConUtil->conSet[neighborConIdxs->at(neighborIdx)];
+      for (size_t termIdx = 0; termIdx < modelCon.termNum; ++termIdx)
+      {
+        size_t varIdx = modelCon.varIdxSet[termIdx];
+        auto &localVar = localVarUtil.GetVar(varIdx);
+        auto &modelVar = modelVarUtil->GetVar(varIdx);
+        Value delta;
+        if (!TightDelta(localCon, modelCon, termIdx, delta))
+          if (modelCon.coeffSet[termIdx] > 0)
+            delta = modelVar.lowerBound - localVar.nowValue;
+          else
+            delta = modelVar.upperBound - localVar.nowValue;
+        if (delta < 0 && curStep < localVar.allowDecStep ||
+            delta > 0 && curStep < localVar.allowIncStep)
+          continue;
+        if (fabs(delta) < FeasibilityTol)
+          continue;
+        neighborVarIdxs.push_back(varIdx);
+        neighborDeltas.push_back(delta);
+      }
     }
   }
   auto &localObj = localConUtil.conSet[0];

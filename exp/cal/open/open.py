@@ -177,7 +177,7 @@ class calculater(object):
                     slv.cal_soln(ins_name)
                     best_value = min(slv.datas[ins_name].best_obj, best_value)
                     if (best_value <= BESTOBJ and best_value != OBJ_MAX):
-                        print(ins_detail, best_value, BESTOBJ)
+                        print(f"{ins_name}: {BESTOBJ} --> {best_value}")
 
                 if (not best_value == OBJ_MAX):
                     for slv in self.solvers:
@@ -200,13 +200,13 @@ data = "/pub/netdisk1/linpeng/paralle-local-ILP/miplib_open_hard_17_10_03/"
 
 def Calopen():
     solvers = []
-    result = "/pub/netdisk1/linpeng/Local-MIP/result"
+    result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
     # solvers.append(solver(
     #     f"{result}/Local-MIP/v2/open/8_1200_59_50_100/", "Local-MIP"))
     # solvers.append(solver(
     #     f"{result}/Local-MIP/v3/open/9_1500_125_30_150_50_50_2/", "Local-MIP"))
     solvers.append(solver(
-        f"{result}/Local-MIP/v4/open/50000_50000_50000_50000_50000_50000_50000_3000000", "Local-MIP"))
+        f"{result}/Local-MIP/v5/open/_12_2000_3000_20_190_20_150_3_123/60", "Local-MIP"))
     samples = []
     samples.append(
         ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/open.txt", "open"])

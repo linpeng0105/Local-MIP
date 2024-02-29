@@ -21,37 +21,40 @@ void LocalMIP::RandomTightMove()
   long bestSubscore = -std::numeric_limits<long>::max();
   size_t bestVarIdx = -1;
   Value bestDelta = 0;
-  size_t conIdx = localConUtil.unsatConIdxs[mt() % localConUtil.unsatConIdxs.size()];
-  auto &localCon = localConUtil.conSet[conIdx];
-  auto &modelCon = modelConUtil->conSet[conIdx];
   vector<size_t> &neighborVarIdxs = localVarUtil.tempVarIdxs;
   vector<Value> &neighborDeltas = localVarUtil.tempDeltas;
   neighborVarIdxs.clear();
   neighborDeltas.clear();
-  for (size_t termIdx = 0; termIdx < modelCon.termNum; ++termIdx)
+  if (localConUtil.unsatConIdxs.size() > 0)
   {
-    size_t varIdx = modelCon.varIdxSet[termIdx];
-    auto &localVar = localVarUtil.GetVar(varIdx);
-    auto &modelVar = modelVarUtil->GetVar(varIdx);
-    Value delta;
-    if (!TightDelta(localCon, modelCon, termIdx, delta))
+    size_t conIdx = localConUtil.unsatConIdxs[mt() % localConUtil.unsatConIdxs.size()];
+    auto &localCon = localConUtil.conSet[conIdx];
+    auto &modelCon = modelConUtil->conSet[conIdx];
+    for (size_t termIdx = 0; termIdx < modelCon.termNum; ++termIdx)
     {
-      if (modelCon.coeffSet[termIdx] > 0)
-        delta = modelVar.lowerBound - localVar.nowValue;
-      else
-        delta = modelVar.upperBound - localVar.nowValue;
+      size_t varIdx = modelCon.varIdxSet[termIdx];
+      auto &localVar = localVarUtil.GetVar(varIdx);
+      auto &modelVar = modelVarUtil->GetVar(varIdx);
+      Value delta;
+      if (!TightDelta(localCon, modelCon, termIdx, delta))
+      {
+        if (modelCon.coeffSet[termIdx] > 0)
+          delta = modelVar.lowerBound - localVar.nowValue;
+        else
+          delta = modelVar.upperBound - localVar.nowValue;
+      }
+      if (
+          (delta < 0 && curStep == localVar.lastIncStep + 1 ||
+           delta > 0 && curStep == localVar.lastDecStep + 1))
+        continue;
+      // if (delta < 0 && curStep < localVar.allowDecStep ||
+      //     delta > 0 && curStep < localVar.allowIncStep)
+      //   continue;
+      if (fabs(delta) < FeasibilityTol)
+        continue;
+      neighborVarIdxs.push_back(varIdx);
+      neighborDeltas.push_back(delta);
     }
-    if (
-        (delta < 0 && curStep == localVar.lastIncStep + 1 ||
-         delta > 0 && curStep == localVar.lastDecStep + 1))
-      continue;
-    // if (delta < 0 && curStep < localVar.allowDecStep ||
-    //     delta > 0 && curStep < localVar.allowIncStep)
-    //   continue;
-    if (fabs(delta) < FeasibilityTol)
-      continue;
-    neighborVarIdxs.push_back(varIdx);
-    neighborDeltas.push_back(delta);
   }
   auto &localObj = localConUtil.conSet[0];
   auto &modelObj = modelConUtil->conSet[0];

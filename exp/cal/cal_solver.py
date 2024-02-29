@@ -86,7 +86,7 @@ class solver(solver):
                     self.datas[ins_name].best_obj = best_obj
             except:
                 pass
-                # print(f"real_file_path: {real_file_path}\t ins_name: {ins_name}\t solver: {self.print_name}")
+                print(f"real_file_path: {real_file_path}\t ins_name: {ins_name}\t solver: {self.print_name}")
         return super().cal_soln(ins_name)
 
     def to_string(self, state):
@@ -186,14 +186,14 @@ class calculater(object):
             self.__show_in_mark_down(samp_name, show)
 
 
-result = "/pub/netdisk1/linpeng/Local-MIP/result"
+result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
 data = "/pub/netdisk1/linpeng/paralle-local-ILP/miplib_open_hard_17_10_03/"
 
 
 def turn(path):
     max_all_gap = -1000
     best_temp = ""
-    times = ['10']
+    times = ['60']
     best_list = []
     dirs = os.listdir(path)
     dirs.sort()
@@ -201,7 +201,7 @@ def turn(path):
         all_gap = 0
         for time in times:
             solvers = []
-            result = "/pub/netdisk1/linpeng/Local-MIP/result"
+            result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
             for so in ["gurobi-h", "gurobi-c", "scip", "highs1.6"]:
                 # for so in ["scip", "highs1.6"]:
                 # for so in ["gurobi-h", "gurobi-c"]:
@@ -210,14 +210,14 @@ def turn(path):
             print(path+dir)
             samples = []
             samples.append(
-                ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/open_hard.txt", "ALL"])
+                ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt", "ALL"])
             clt = calculater(solvers, samples)
             gap = clt.cal_and_show()
             all_gap += gap
         if all_gap >= max_all_gap:
             max_all_gap = all_gap
             best_temp = dir
-        if all_gap >= 8:
+        if all_gap >= -25:
             best_list.append([dir, all_gap])
     print()
     best_list_0 = sorted(best_list, key=lambda item: item[1])
@@ -229,52 +229,72 @@ def turn(path):
 
 def compGurobi(time):
     solvers = []
-    result = "/pub/netdisk1/linpeng/Local-MIP/result"
-    # for so in ["gurobi-h", "gurobi-c", "scip", "highs1.6"]:
-    for so in ["gurobi-h", "gurobi-c"]:
+    result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
+    for so in ["gurobi-h", "gurobi-c", "scip", "highs1.6"]:
+    # for so in ["gurobi-h", "gurobi-c"]:
         solvers.append(solver(f"{result}/{so}/result/{time}", f"{so}"))
     solvers.append(solver(
-        f"{result}/{LocalMIP}/{time}", "Local-MIP-v4"))
+        f"{result}/{LocalMIP}/{time}", "Local-MIP"))
     samples = []
-    # D = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list"
-    # for data in ["BP", "IP", "MBP", "MIP"]:
-    # # for data in ["MBP"]:
-    #     samples.append(
-    #         [f"{D}/{data}.txt", f"{data}"])
+    D = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list"
+    for data in ["BP", "IP", "MBP", "MIP", "jsp", "openshop"]:
+    # for data in ["MBP"]:
+        samples.append(
+            [f"{D}/{data}.txt", f"{data}"])
     samples.append(
-        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/open_hard.txt", "ALL"])
+        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt", "ALL"])
     clt = calculater(solvers, samples)
     all_gap = clt.cal_and_show()
 
 
 def compSCIP(time):
     solvers = []
-    result = "/pub/netdisk1/linpeng/Local-MIP/result"
+    result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
     for so in ["scip", "highs1.6"]:
         solvers.append(solver(f"{result}/{so}/result/{time}", f"{so}"))
     solvers.append(solver(
-        f"{result}/{LocalMIP}/{time}", "Local-MIP-v4"))
+        f"{result}/{LocalMIP}/{time}", "Local-MIP"))
     samples = []
-    # D = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list"
-    # for data in ["BP", "IP", "MBP", "MIP"]:
-    #     # for data in ["MBP"]:
-    #     samples.append(
-    #         [f"{D}/{data}.txt", f"{data}"])
+    D = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list"
+    for data in ["BP", "IP", "MBP", "MIP", "jsp", "fjsp", "openshop"]:
+        samples.append(
+            [f"{D}/{data}.txt", f"{data}"])
     samples.append(
-        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/open_hard.txt", "ALL"])
+        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt", "ALL"])
+    clt = calculater(solvers, samples)
+    all_gap = clt.cal_and_show()
+
+def compFJ(time):
+    solvers = []
+    result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
+    for so in ["FJ-16"]:
+        solvers.append(solver(f"{result}/{so}/result/{time}", f"{so}"))
+    solvers.append(solver(
+        f"{result}/{LocalMIP}/{time}", "Local-MIP"))
+    samples = []
+    D = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list"
+    for data in ["BP", "IP", "MBP", "MIP", "jsp", "openshop"]:
+        samples.append(
+            [f"{D}/{data}.txt", f"{data}"])
+    samples.append(
+        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt", "ALL"])
     clt = calculater(solvers, samples)
     all_gap = clt.cal_and_show()
 
 
 # LocalMIP = "Local-MIP/v3/turn/4/log/"
 # LocalMIP = "Local-MIP/v4/try/6_2000_2000_40_60_30_50_3000000/log/"
-# LocalMIP = "Local-MIP/v4/try/12_10000_4000_70_35_20_50_3000000/log/"
-LocalMIP = "Local-MIP/v4/try/12_3000_4000_70_35_20_50_3000000/log/"
+# LocalMIP = "Local-MIP/v5/turn/3/log/_12_2000_3000_20_190_20_150_3"
+# LocalMIP = "Local-MIP/v4/try/_12_900_100_10_20_20_200_2832/"
+LocalMIP = "Local-MIP/v5/try/_12_2000_3000_20_190_20_150_2832/"
 if __name__ == "__main__":
     compGurobi("10")
     compGurobi("60")
-    # compGurobi("300")
-    compSCIP("10")
-    compSCIP("60")
+    compGurobi("300")
+    # compSCIP("10")
+    # compSCIP("60")
     # compSCIP("300")
-    # turn(f"{result}/Local-MIP/v4/turn/11/log/")
+    # compFJ("10")
+    # compFJ("60")
+    compFJ("300")
+    # turn(f"{result}/Local-MIP/v5/turn/6/log/")

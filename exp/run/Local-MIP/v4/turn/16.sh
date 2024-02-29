@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SEND_THREAD_NUM=128
+SEND_THREAD_NUM=192
 tmp_fifofile="/tmp/$$.fifo" # 脚本运行的当前进程ID号作为文件名
 mkfifo "$tmp_fifofile" # 新建一个随机fifo管道文件
 exec 6<>"$tmp_fifofile" # 定义文件描述符6指向这个fifo管道文件
@@ -10,21 +10,21 @@ do
   echo # for循环 往 fifo管道文件中写入 $SEND_THREAD_NUM 个空行
 done >&6
 
-res_no="/pub/netdisk1/linpeng/Local-MIP/result/unused"
-instance="/pub/netdisk1/linpeng/Local-MIP/benchmark/collection"
-benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/open_hard-shuffle.txt"
-result="/pub/netdisk1/linpeng/Local-MIP/result/Local-MIP/v4/turn/11/log/"
+res_no="/pub/netdisk1/linpeng/Local-MIP/result-new/unused"
+instance="/pub/netdisk1/linpeng/Local-MIP/benchmark/ALL"
+benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt"
+result="/pub/netdisk1/linpeng/Local-MIP/result-new/Local-MIP/v4/turn/8/log/"
 
 sampleUnsat="12"
-bmsUnsatInfeas="3000"
-bmsUnsatFeas="100 200 300 400 500 600 700 800 900 1000 2000 3000 4000 5000 6000 7000 8000 9000 10000"
-sampleSat="10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200"
-bmsSat="35"
-bmsFlip="10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200"
-bmsRandom="50"
-restartStep="3000000"
+bmsUnsatInfeas="900"
+bmsUnsatFeas="100"
+sampleSat="10"
+bmsSat="20"
+bmsFlip="20"
+bmsRandom="200"
+Seed="2832"
 
-cutoff="10"
+cutoff="60"
 all_datas=($instance)
 for a in $sampleUnsat
 do
@@ -40,14 +40,14 @@ for f in $bmsFlip
 do
 for g in $bmsRandom
 do
-for h in $restartStep
+for h in $Seed
 do
 for co in $cutoff
 do
   for((i=0;i<${#all_datas[*]};i++))
   do
     instance=${all_datas[$i]}
-    res_solver_ins=$result/${a}_${b}_${c}_${d}_${e}_${f}_${g}_${h}/${co}
+    res_solver_ins=$result/_${a}_${b}_${c}_${d}_${e}_${f}_${g}_${h}/${co}
     if [ ! -d "$res_solver_ins" ]; then
       mkdir -p $res_solver_ins
     fi
@@ -59,7 +59,7 @@ do
       read -u 6
       {
         cd /pub/netdisk1/linpeng/Local-MIP/code/bin/Local-MIP/
-        time ./Local-MIP -i $instance/$file --cutoff=$co --sampleUnsat=$a --bmsUnsatInfeas=$b --bmsUnsatFeas=$c --sampleSat=$d --bmsSat=$e --bmsFlip=$f --bmsRandom=$g --restartStep=$h
+        time ./Local-MIP -i $instance/$file --cutoff=$co --sampleUnsat=$a --bmsUnsatInfeas=$b --bmsUnsatFeas=$c --sampleSat=$d --bmsSat=$e --bmsFlip=$f --bmsRandom=$g --Seed=$h
         echo >&6
       } >$res_solver_ins/$file   2>>$res_solver_ins/$file &
     done

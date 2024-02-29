@@ -1,13 +1,13 @@
 import os
 import re
 
-readfolder = "/pub/netdisk1/linpeng/Local-MIP/result/highs1.5/log"
-result_file = "/pub/netdisk1/linpeng/Local-MIP/result/highs1.5/time"
-dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/open_hard.txt"
+readfolder = "/pub/netdisk1/linpeng/Local-MIP/result-new/highs1.6/log"
+result_file = "/pub/netdisk1/linpeng/Local-MIP/result-new/highs1.6/time"
+dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt"
 
 
 def record():
-    for cutoff in ["10", "60", "300", "3600"]:
+    for cutoff in ["10", "60", "300"]:
         for instance in open(dataset):
             instance = instance.strip()
             out_file = open(f"{result_file}/{cutoff}/{instance}", "w")

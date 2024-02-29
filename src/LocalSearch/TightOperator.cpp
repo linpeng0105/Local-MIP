@@ -120,13 +120,11 @@ void LocalMIP::UpdateWeight()
   for (size_t conIdx : localConUtil.unsatConIdxs)
   {
     auto &localCon = localConUtil.conSet[conIdx];
-    if (localCon.weight < weightUpperBound)
       ++localCon.weight;
   }
   auto &localObj = localConUtil.conSet[0];
   if (isFoundFeasible &&
-      localObj.UNSAT() &&
-      localObj.weight <= objWeightUpperBound)
+      localConUtil.unsatConIdxs.empty())
     ++localObj.weight;
 }
 

@@ -1,0 +1,148 @@
+
+Gurobi 10.0.0 (linux64, gurobi_cl) logging started Thu Feb 29 21:37:13 2024
+
+Set parameter LogFile to value "gurobi.log"
+Using license file /home/linpeng/gurobi.lic
+
+Gurobi Optimizer version 10.0.0 build v10.0.0rc2 (linux64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read MPS format model from file /pub/netdisk1/linpeng/Local-MIP/benchmark/collection/neos-4232544-orira.mps
+Reading time = 0.24 seconds
+neos-4232544-orira: 180600 rows, 87060 columns, 492456 nonzeros
+
+Unknown variable '=obj=' in MIP start -1 - ignored
+Read input file 'neos-4232544-orira.sol'
+
+
+CPU model: AMD EPYC 7763 64-Core Processor, instruction set [SSE2|AVX|AVX2]
+Thread count: 128 physical cores, 128 logical processors, using up to 32 threads
+
+Optimize a model with 180600 rows, 87060 columns and 492456 nonzeros
+Model fingerprint: 0x7761dffa
+Variable types: 43080 continuous, 43980 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [6e-02, 5e+07]
+  Objective range  [5e+01, 5e+03]
+  Bounds range     [1e+00, 5e+07]
+  RHS range        [2e-01, 5e+07]
+
+User MIP start produced solution with objective 1.7182e+07 (0.13s)
+Loaded user MIP start with objective 1.7182e+07
+
+Presolve removed 74540 rows and 34364 columns
+Presolve time: 3.80s
+Presolved: 106060 rows, 52696 columns, 357805 nonzeros
+Variable types: 32576 continuous, 20120 integer (14300 binary)
+
+Deterministic concurrent LP optimizer: primal and dual simplex (primal and dual model)
+Showing first log only...
+
+Root relaxation presolved: 106056 rows, 52694 columns, 357783 nonzeros
+
+
+Root simplex log...
+
+Iteration    Objective       Primal Inf.    Dual Inf.      Time
+    9299    5.9406995e+06   3.015443e+02   1.240318e+09      5s
+Concurrent spin time: 0.69s
+
+Solved with dual simplex (primal model)
+
+Root relaxation: objective 5.070365e+06, 29595 iterations, 3.37 seconds (3.98 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0 5070365.05    0 6148 1.7182e+07 5070365.05  70.5%     -    8s
+     0     0 5070365.05    0 6148 1.7182e+07 5070365.05  70.5%     -    8s
+     0     0 5070417.36    0 7828 1.7182e+07 5070417.36  70.5%     -   15s
+     0     0 5070417.36    0 7828 1.7182e+07 5070417.36  70.5%     -   15s
+     0     0 5070452.72    0 8346 1.7182e+07 5070452.72  70.5%     -   17s
+     0     0 5070452.72    0 8343 1.7182e+07 5070452.72  70.5%     -   17s
+     0     0 5070472.56    0 7784 1.7182e+07 5070472.56  70.5%     -   22s
+H    0     0                    1.696282e+07 5070472.56  70.1%     -   22s
+     0     0 5070472.56    0 8105 1.6963e+07 5070472.56  70.1%     -   24s
+     0     0 5070472.56    0 7838 1.6963e+07 5070472.56  70.1%     -   30s
+     0     0 5070472.56    0 7922 1.6963e+07 5070472.56  70.1%     -   30s
+     0     0 5070472.56    0 7952 1.6963e+07 5070472.56  70.1%     -   32s
+     0     0 5070472.56    0 6990 1.6963e+07 5070472.56  70.1%     -   34s
+     0     0 5070476.17    0 7744 1.6963e+07 5070476.17  70.1%     -   39s
+H    0     0                    1.680811e+07 5070476.17  69.8%     -   40s
+     0     0 5070476.17    0 7746 1.6808e+07 5070476.17  69.8%     -   40s
+     0     0 5070476.17    0 7747 1.6808e+07 5070476.17  69.8%     -   40s
+     0     0 5070478.42    0 7549 1.6808e+07 5070478.42  69.8%     -   42s
+     0     0 5070478.42    0 7599 1.6808e+07 5070478.42  69.8%     -   42s
+     0     0 5070479.74    0 7709 1.6808e+07 5070479.74  69.8%     -   44s
+     0     0 5070479.74    0 7757 1.6808e+07 5070479.74  69.8%     -   56s
+H    0     0                    1.423156e+07 5070479.74  64.4%     -   61s
+H    0     0                    1.423144e+07 5070479.74  64.4%     -   68s
+H    0     2                    1.420606e+07 5070479.74  64.3%     -   71s
+     0     2 5070479.74    0 7761 1.4206e+07 5070479.74  64.3%     -   71s
+
+Cutting planes:
+  Learned: 22
+  Gomory: 4
+  Cover: 128
+  Implied bound: 476
+  Clique: 58
+  MIR: 263
+  StrongCG: 1
+  Flow cover: 537
+  Flow path: 280
+  GUB cover: 21
+  Zero half: 1
+  RLT: 297
+  Relax-and-lift: 189
+  PSD: 1
+
+Explored 3 nodes (84056 simplex iterations) in 72.29 seconds (102.47 work units)
+Thread count was 32 (of 128 available processors)
+
+Solution count 7: 1.42061e+07 1.42061e+07 1.42314e+07 ... 1.7182e+07
+
+Solve interrupted
+Warning: max constraint violation (9.9660e-04) exceeds tolerance
+Best objective 1.420606019994e+07, best bound 5.070481960770e+06, gap 64.3076%
+
+Gurobi 10.0.0 (linux64, gurobi_cl) logging started Thu Feb 29 21:48:22 2024
+
+Set parameter LogFile to value "gurobi.log"
+Using license file /home/linpeng/gurobi.lic
+
+Gurobi Optimizer version 10.0.0 build v10.0.0rc2 (linux64)
+Copyright (c) 2022, Gurobi Optimization, LLC
+
+Read MPS format model from file /pub/netdisk1/linpeng/Local-MIP/benchmark/collection/neos-4232544-orira.mps
+Reading time = 0.11 seconds
+neos-4232544-orira: 180600 rows, 87060 columns, 492456 nonzeros
+
+Unknown variable '=obj=' in MIP start -1 - ignored
+Read input file 'neos-4232544-orira.sol'
+
+
+CPU model: AMD EPYC 7763 64-Core Processor, instruction set [SSE2|AVX|AVX2]
+Thread count: 128 physical cores, 128 logical processors, using up to 32 threads
+
+Optimize a model with 180600 rows, 87060 columns and 492456 nonzeros
+Model fingerprint: 0x7761dffa
+Variable types: 43080 continuous, 43980 integer (0 binary)
+Coefficient statistics:
+  Matrix range     [6e-02, 5e+07]
+  Objective range  [5e+01, 5e+03]
+  Bounds range     [1e+00, 5e+07]
+  RHS range        [2e-01, 5e+07]
+
+User MIP start produced solution with objective 1.7182e+07 (0.09s)
+Loaded user MIP start with objective 1.7182e+07
+
+Presolve removed 25760 rows and 11384 columns
+Presolve time: 1.60s
+
+Explored 0 nodes (0 simplex iterations) in 1.71 seconds (2.39 work units)
+Thread count was 1 (of 128 available processors)
+
+Solution count 1: 1.7182e+07 
+
+Solve interrupted
+Best objective 1.718202740000e+07, best bound -, gap -

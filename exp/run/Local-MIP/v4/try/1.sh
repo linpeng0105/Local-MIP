@@ -10,19 +10,19 @@ do
   echo # for循环 往 fifo管道文件中写入 $SEND_THREAD_NUM 个空行
 done >&6
 
-res_no="/pub/netdisk1/linpeng/Local-MIP/result/unused"
-instance="/pub/netdisk1/linpeng/Local-MIP/benchmark/collection"
-benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/open_hard-shuffle.txt"
-result="/pub/netdisk1/linpeng/Local-MIP/result/Local-MIP/v4/try/"
+res_no="/pub/netdisk1/linpeng/Local-MIP/result-new/unused"
+instance="/pub/netdisk1/linpeng/Local-MIP/benchmark/ALL"
+benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL-1.txt"
+result="/pub/netdisk1/linpeng/Local-MIP/result-new/Local-MIP/v4/try/"
 
 sampleUnsat="12"
-bmsUnsatInfeas="3000"
-bmsUnsatFeas="4000"
-sampleSat="70"
-bmsSat="35"
+bmsUnsatInfeas="900"
+bmsUnsatFeas="100"
+sampleSat="10"
+bmsSat="20"
 bmsFlip="20"
-bmsRandom="50"
-restartStep="3000000"
+bmsRandom="200"
+Seed="2832"
 
 cutoff="10 60 300"
 all_datas=($instance)
@@ -40,14 +40,14 @@ for f in $bmsFlip
 do
 for g in $bmsRandom
 do
-for h in $restartStep
+for h in $Seed
 do
 for co in $cutoff
 do
   for((i=0;i<${#all_datas[*]};i++))
   do
     instance=${all_datas[$i]}
-    res_solver_ins=$result/${a}_${b}_${c}_${d}_${e}_${f}_${g}_${h}/log/${co}
+    res_solver_ins=$result/_${a}_${b}_${c}_${d}_${e}_${f}_${g}_${h}/${co}
     if [ ! -d "$res_solver_ins" ]; then
       mkdir -p $res_solver_ins
     fi
@@ -59,7 +59,7 @@ do
       read -u 6
       {
         cd /pub/netdisk1/linpeng/Local-MIP/code/bin/Local-MIP/
-        time ./Local-MIP -i $instance/$file --cutoff=$co --sampleUnsat=$a --bmsUnsatInfeas=$b --bmsUnsatFeas=$c --sampleSat=$d --bmsSat=$e --bmsFlip=$f --bmsRandom=$g --restartStep=$h
+        time ./Local-MIP -i $instance/$file --cutoff=$co --sampleUnsat=$a --bmsUnsatInfeas=$b --bmsUnsatFeas=$c --sampleSat=$d --bmsSat=$e --bmsFlip=$f --bmsRandom=$g --Seed=$h
         echo >&6
       } >$res_solver_ins/$file   2>>$res_solver_ins/$file &
     done
@@ -73,5 +73,4 @@ done
 done
 done
 done
-
 exit 0
