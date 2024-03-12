@@ -183,7 +183,7 @@ class calculater(object):
                 #    print(ins_detail)
                 #    print()
             self.sample_ins_ct = sample_ins_ct
-            self.__show_in_mark_down(samp_name, show)
+            return self.__show_in_mark_down(samp_name, show)
 
 
 result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
@@ -202,11 +202,11 @@ def turn(path):
         for time in times:
             solvers = []
             result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
-            for so in ["gurobi-h", "gurobi-c", "scip", "highs1.6"]:
+            for so in ["gurobi-h", "gurobi-c", "scip", "highs1.6", "cplex"]:
                 # for so in ["scip", "highs1.6"]:
                 # for so in ["gurobi-h", "gurobi-c"]:
                 solvers.append(solver(f"{result}/{so}/result/{time}", f"{so}"))
-            solvers.append(solver(f"{path}/{dir}/{time}", dir))
+            solvers.append(solver(f"{path}/{dir}/", dir))
             print(path+dir)
             samples = []
             samples.append(
@@ -230,7 +230,7 @@ def turn(path):
 def compGurobi(time):
     solvers = []
     result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
-    for so in ["gurobi-h", "gurobi-c", "scip", "highs1.6"]:
+    for so in ["gurobi-h", "gurobi-c", "scip", "highs1.6", "cplex"]:
     # for so in ["gurobi-h", "gurobi-c"]:
         solvers.append(solver(f"{result}/{so}/result/{time}", f"{so}"))
     solvers.append(solver(
@@ -286,15 +286,19 @@ def compFJ(time):
 # LocalMIP = "Local-MIP/v4/try/6_2000_2000_40_60_30_50_3000000/log/"
 # LocalMIP = "Local-MIP/v5/turn/3/log/_12_2000_3000_20_190_20_150_3"
 # LocalMIP = "Local-MIP/v4/try/_12_900_100_10_20_20_200_2832/"
-LocalMIP = "Local-MIP/v5/try/_12_2000_3000_20_190_20_150_2832/"
+# LocalMIP = "Local-MIP/v5/try/_12_2000_3000_20_190_20_150_2832/"
+# LocalMIP = "Local-MIP/v6/try/_12_2000_3000_20_190_20_150_2832/"
+# LocalMIP = "Local-MIP/v6/try/_12_3000_3000_20_200_20_150_2832/"
+LocalMIP = "Local-MIP/v6/try/std/"
 if __name__ == "__main__":
     compGurobi("10")
     compGurobi("60")
-    compGurobi("300")
+    # compGurobi("300")
     # compSCIP("10")
     # compSCIP("60")
     # compSCIP("300")
     # compFJ("10")
     # compFJ("60")
-    compFJ("300")
-    # turn(f"{result}/Local-MIP/v5/turn/6/log/")
+    # compFJ("300")
+    # turn(f"{result}/Local-MIP/v6/turn/1/log/")
+    turn(f"{result}/Local-MIP/v6/turning/17-new/")

@@ -43,13 +43,9 @@ void LocalMIP::RandomTightMove()
         else
           delta = modelVar.upperBound - localVar.nowValue;
       }
-      if (
-          (delta < 0 && curStep == localVar.lastIncStep + 1 ||
-           delta > 0 && curStep == localVar.lastDecStep + 1))
+      if (delta < 0 && curStep == localVar.lastIncStep + 1 ||
+           delta > 0 && curStep == localVar.lastDecStep + 1)
         continue;
-      // if (delta < 0 && curStep < localVar.allowDecStep ||
-      //     delta > 0 && curStep < localVar.allowIncStep)
-      //   continue;
       if (fabs(delta) < FeasibilityTol)
         continue;
       neighborVarIdxs.push_back(varIdx);

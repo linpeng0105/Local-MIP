@@ -28,6 +28,8 @@ long LocalMIP::TightScore(
   bool isNowSat;
   bool isPreStable;
   bool isNowStable;
+  bool isPreBetter;
+  bool isNowBetter;
   subscore = 0;
   for (size_t termIdx = 0; termIdx < _modelVar.termNum; ++termIdx)
   {
@@ -45,8 +47,12 @@ long LocalMIP::TightScore(
           score += localCon.weight;
         else
           score -= localCon.weight;
-        if (newOBJ < localCon.RHS)
+        isPreBetter = localCon.LHS < localCon.RHS;
+        isNowBetter = newOBJ < localCon.RHS;
+        if (!isPreBetter && isNowBetter)
           subscore += localCon.weight;
+        else if (isPreBetter && !isNowBetter)
+          subscore -= localCon.weight;
       }
     }
     else
@@ -72,11 +78,6 @@ long LocalMIP::TightScore(
         subscore -= localCon.weight;
     }
   }
-  auto &localObj = localConUtil.conSet[0];
-  if (isFoundFeasible &&
-      modelVarUtil->varIdx2ObjIdx[_modelVar.idx] == -1 &&
-      localObj.LHS < localObj.RHS)
-    subscore += localObj.weight;
   return score;
 }
 
@@ -120,7 +121,7 @@ void LocalMIP::UpdateWeight()
   for (size_t conIdx : localConUtil.unsatConIdxs)
   {
     auto &localCon = localConUtil.conSet[conIdx];
-      ++localCon.weight;
+    ++localCon.weight;
   }
   auto &localObj = localConUtil.conSet[0];
   if (isFoundFeasible &&
