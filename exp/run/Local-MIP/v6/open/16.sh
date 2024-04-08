@@ -15,13 +15,13 @@ instance="/pub/netdisk1/linpeng/Local-MIP/benchmark/collection"
 benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/open.txt"
 result="/pub/netdisk1/linpeng/Local-MIP/result-new/Local-MIP/v6/open/"
 
-sampleUnsat="12"
-bmsUnsatInfeas="2000"
-bmsUnsatFeas="3000"
-sampleSat="20"
-bmsSat="190"
-bmsFlip="20"
-bmsRandom="150"
+sampleUnsat="12000"
+bmsUnsatInfeas="200000"
+bmsUnsatFeas="300000"
+sampleSat="20000"
+bmsSat="190000"
+bmsFlip="20000"
+bmsRandom="150000"
 sp="3"
 
 cutoff="60"
@@ -59,7 +59,7 @@ do
       read -u 6
       {
         cd /pub/netdisk1/linpeng/Local-MIP/code/bin/Local-MIP/std
-        time ./Local-MIP -i $instance/$file --cutoff=604800 --sampleUnsat=$a --bmsUnsatInfeas=$b --bmsUnsatFeas=$c --sampleSat=$d --bmsSat=$e --bmsFlip=$f --bmsRandom=$g --sp=$h --PrintSol=1
+        time ./Local-MIP -i $instance/$file --cutoff=1204800 --sampleUnsat=$a --bmsUnsatInfeas=$b --bmsUnsatFeas=$c --sampleSat=$d --bmsSat=$e --bmsFlip=$f --bmsRandom=$g --sp=$h --PrintSol=1
         echo >&6
       } >$res_solver_ins/$file   2>>$res_solver_ins/$file &
     done

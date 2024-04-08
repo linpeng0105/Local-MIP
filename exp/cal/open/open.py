@@ -205,8 +205,10 @@ def Calopen():
     #     f"{result}/Local-MIP/v2/open/8_1200_59_50_100/", "Local-MIP"))
     # solvers.append(solver(
     #     f"{result}/Local-MIP/v3/open/9_1500_125_30_150_50_50_2/", "Local-MIP"))
+    # solvers.append(solver(
+    #     f"{result}/Local-MIP/v5/open/_12_2000_3000_20_190_20_150_3_123/60", "Local-MIP"))
     solvers.append(solver(
-        f"{result}/Local-MIP/v5/open/_12_2000_3000_20_190_20_150_3_123/60", "Local-MIP"))
+        f"{result}/Local-MIP/v6/open/_120_20000_30000_200_1900_200_1500_3/60", "Local-MIP"))
     samples = []
     samples.append(
         ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/open.txt", "open"])

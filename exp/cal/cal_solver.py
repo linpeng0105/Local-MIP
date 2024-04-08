@@ -183,7 +183,7 @@ class calculater(object):
                 #    print(ins_detail)
                 #    print()
             self.sample_ins_ct = sample_ins_ct
-            return self.__show_in_mark_down(samp_name, show)
+            self.__show_in_mark_down(samp_name, show)
 
 
 result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
@@ -281,6 +281,24 @@ def compFJ(time):
     clt = calculater(solvers, samples)
     all_gap = clt.cal_and_show()
 
+def compAb(time):
+    solvers = []
+    result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
+    # for so in ["Local-MIP/v6/ablation/no-om"]:
+    # for so in ["Local-MIP/v6/ablation/no-weight"]:
+    for so in ["Local-MIP/v6/ablation/no-bonus"]:
+        solvers.append(solver(f"{result}/{so}/{time}", f"{so}"))
+    solvers.append(solver(
+        f"{result}/{LocalMIP}/{time}", "Local-MIP"))
+    samples = []
+    D = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list"
+    for data in ["BP", "IP", "MBP", "MIP", "jsp", "openshop"]:
+        samples.append(
+            [f"{D}/{data}.txt", f"{data}"])
+    samples.append(
+        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt", "ALL"])
+    clt = calculater(solvers, samples)
+    all_gap = clt.cal_and_show()
 
 # LocalMIP = "Local-MIP/v3/turn/4/log/"
 # LocalMIP = "Local-MIP/v4/try/6_2000_2000_40_60_30_50_3000000/log/"
@@ -293,12 +311,15 @@ LocalMIP = "Local-MIP/v6/try/std/"
 if __name__ == "__main__":
     compGurobi("10")
     compGurobi("60")
-    # compGurobi("300")
+    compGurobi("300")
     # compSCIP("10")
     # compSCIP("60")
     # compSCIP("300")
     # compFJ("10")
     # compFJ("60")
     # compFJ("300")
+    # compAb("10")
+    # compAb("60")
+    # compAb("300")
     # turn(f"{result}/Local-MIP/v6/turn/1/log/")
-    turn(f"{result}/Local-MIP/v6/turning/17-new/")
+    # turn(f"{result}/Local-MIP/v6/turning/17-new/")

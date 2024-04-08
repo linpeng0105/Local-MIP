@@ -2,7 +2,7 @@ import re
 import numpy as np
 import os
 
-result = "/pub/netdisk1/linpeng/Local-MIP/result"
+result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
 samp_dir = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/open_hard.txt"
 MAXV = 1e20
 
@@ -107,7 +107,7 @@ def compSolver():
         "highs1.6",
         # "highs1.5",
         "scip",
-        "FJ-16",
+        # "FJ-16",
         # "Local-MIP/v3/try/v3-4",
         # "Local-MIP/v3/try/v3-5",
         # "Local-MIP/v3/try/v3-stable",
@@ -117,6 +117,7 @@ def compSolver():
         # "Local-MIP/v4/try/6_2000_2000_40_60_30_50_3000000",
         # "Local-MIP/v4/try/12_10000_4000_70_35_20_50_3000000",
         # "Local-MIP/v4/try/12_3000_4000_70_35_20_50_3000000",
+        "Local-MIP/v6/try/std"
     ]
     Benchmark = choose_samp()
     cal(Solver, Benchmark)

@@ -1,8 +1,8 @@
 import os
 import re
 
-readfolder = "/pub/netdisk1/linpeng/Local-MIP/result/Local-MIP/v4/try/12_3000_4000_70_35_20_50_3000000/log"
-result_file = "/pub/netdisk1/linpeng/Local-MIP/result/Local-MIP/v4/try/12_3000_4000_70_35_20_50_3000000/time"
+readfolder = "/pub/netdisk1/linpeng/Local-MIP/result-new/Local-MIP/v6/try/std/"
+result_file = "/pub/netdisk1/linpeng/Local-MIP/result-new/Local-MIP/v6/try/std/time"
 dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt"
 
 
