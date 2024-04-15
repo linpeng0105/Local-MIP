@@ -129,7 +129,7 @@ class calculater(object):
         for i in range(0, len(self.solvers)-1):
             maxWin = max(self.solvers[i].win_num, maxWin)
         gap = self.solvers[-1].win_num-maxWin
-        print(f"{self.split_line}gap: {gap}")
+        # print(f"{self.split_line}gap: {gap}")
         return gap
 
     def cal_and_show(self, show=False):
@@ -180,7 +180,7 @@ class calculater(object):
                 else:
                     wins[idx] = f"{wins[idx]} &{slv.win_num}"
             self.sample_ins_ct = sample_ins_ct
-            self.__show_in_mark_down(samp_name, show)
+            # self.__show_in_mark_down(samp_name, show)
 
 
 res = "/pub/netdisk1/linpeng/paralle-local-ILP/result/"
@@ -196,7 +196,7 @@ def choose_samp():
     #     Benchmark.append(
     #         [f"{D}/{data}.txt", f"{data}"])
     Benchmark.append(
-        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt", "Total"])
+        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL-20240408.txt", "Total"])
     return Benchmark
 
 
@@ -215,8 +215,10 @@ def compSolver():
         solvers.append(solver(
             f"{result}/{LocalMIP}/time/{time}", "Local-MIP"))
         # for so in ["highs1.6", "scip", "cplex", "gurobi-c", "gurobi-h"]:
+        # for so in ["highs1.6"]:
+        # for so in ["scip"]:
+        # for so in ["gurobi-c"]:
         for so in ["gurobi-h"]:
-        # for so in ["FJ-16"]:
             solvers.append(solver(f"{result}/{so}/time/{time}", f"{so}"))
         clt = calculater(solvers, samples)
         clt.cal_and_show()

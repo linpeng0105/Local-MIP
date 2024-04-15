@@ -198,11 +198,11 @@ wins = []
 def choose_samp():
     Benchmark = []
     D = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list"
-    for data in ["MIPLIB-BP", "MIPLIB-IP", "MIPLIB-MBP", "MIPLIB-MIP", "JSP", "OSP"]:
+    for data in ["MIPLIB-BP", "MIPLIB-IP", "MIPLIB-MBP", "MIPLIB-MIP", "BPP", "JSP", "OSP"]:
         Benchmark.append(
             [f"{D}/{data}.txt", f"{data}"])
     Benchmark.append(
-        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt", "Total"])
+        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL-20240408.txt", "Total"])
     return Benchmark
 
 

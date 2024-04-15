@@ -43,6 +43,7 @@ public:
   vector<ModelCon> conSet;
   string objName;
   size_t conNum;
+  int MIN = 1;
 
   ModelConUtil();
   ~ModelConUtil();

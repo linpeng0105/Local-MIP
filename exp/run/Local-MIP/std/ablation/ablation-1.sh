@@ -12,11 +12,11 @@ done >&6
 
 res_no="/pub/netdisk1/linpeng/Local-MIP/result-new/unused"
 instance="/pub/netdisk1/linpeng/Local-MIP/benchmark/ALL"
-benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt"
-cutoff="3600"
+benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/BPP.txt"
+cutoff="10 60 300"
 all_datas=($instance)
 
-result="/pub/netdisk1/linpeng/Local-MIP/result-new/Local-MIP/v6/ablation/sameScore"
+result="/pub/netdisk1/linpeng/Local-MIP/result-new/Local-MIP/v6/ablation/random"
 for co in $cutoff
 do
   for((i=0;i<${#all_datas[*]};i++))

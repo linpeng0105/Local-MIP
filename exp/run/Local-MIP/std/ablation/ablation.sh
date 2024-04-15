@@ -12,7 +12,7 @@ done >&6
 
 res_no="/pub/netdisk1/linpeng/Local-MIP/result-new/unused"
 instance="/pub/netdisk1/linpeng/Local-MIP/benchmark/ALL"
-benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt"
+benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/BPP.txt"
 cutoff="10 60 300"
 all_datas=($instance)
 
@@ -60,6 +60,31 @@ do
       {
         cd /pub/netdisk1/linpeng/Local-MIP/code/bin/ablation
         time ./Local-MIP-no-om -i $instance/$file --cutoff=$co
+        echo >&6
+      } >$res_solver_ins/$file   2>>$res_solver_ins/$file &
+    done
+  done
+done
+
+result="/pub/netdisk1/linpeng/Local-MIP/result-new/Local-MIP/v6/ablation/random"
+for co in $cutoff
+do
+  for((i=0;i<${#all_datas[*]};i++))
+  do
+    instance=${all_datas[$i]}
+    res_solver_ins=$result/${co}
+    if [ ! -d "$res_solver_ins" ]; then
+      mkdir -p $res_solver_ins
+    fi
+    for dir_file in `cat $benchmark_list`
+    do
+      file=$dir_file
+      echo $file
+      touch $res_solver_ins/$file
+      read -u 6
+      {
+        cd /pub/netdisk1/linpeng/Local-MIP/code/bin/ablation
+        time ./Local-MIP-random -i $instance/$file --cutoff=$co
         echo >&6
       } >$res_solver_ins/$file   2>>$res_solver_ins/$file &
     done

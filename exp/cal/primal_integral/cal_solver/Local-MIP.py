@@ -3,7 +3,7 @@ import re
 
 readfolder = "/pub/netdisk1/linpeng/Local-MIP/result-new/Local-MIP/v6/try/std/"
 result_file = "/pub/netdisk1/linpeng/Local-MIP/result-new/Local-MIP/v6/try/std/time"
-dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt"
+dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL-20240408.txt"
 
 
 def record():

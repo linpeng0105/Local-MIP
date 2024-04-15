@@ -12,10 +12,10 @@ done >&6
 
 res_no="/pub/netdisk1/linpeng/Local-MIP/result-new/unused"
 instance="/pub/netdisk1/linpeng/Local-MIP/benchmark/ALL"
-benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt"
+benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/BPP.txt"
 result="/pub/netdisk1/linpeng/Local-MIP/result-new/Local-MIP/v6/try/seed/"
 
-cutoff="300"
+cutoff="10 60 300"
 all_datas=($instance)
 seeds="1 2 3 4 5 6 7 8 9 10"
 
@@ -44,5 +44,19 @@ do
       done
     done
   done
+done
+
+res_solver_ins=$res_no
+if [ ! -d "$res_solver_ins" ]; then
+  mkdir -p $res_solver_ins
+fi
+for((i=0;i<192;i++))
+do
+  read -u 6
+  {
+    cd /home/chenzh/solvers/sota/kissat-MAB/build
+    ./kissat /home/chenzh/data/hard_cnfs/49.cnf
+    echo >&6
+  } >$res_solver_ins/$i &
 done
 exit 0

@@ -210,7 +210,7 @@ def turn(path):
             print(path+dir)
             samples = []
             samples.append(
-                ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt", "ALL"])
+                ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL-20240408.txt", "ALL"])
             clt = calculater(solvers, samples)
             gap = clt.cal_and_show()
             all_gap += gap
@@ -237,12 +237,12 @@ def compGurobi(time):
         f"{result}/{LocalMIP}/{time}", "Local-MIP"))
     samples = []
     D = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list"
-    for data in ["BP", "IP", "MBP", "MIP", "jsp", "openshop"]:
+    for data in ["MIPLIB-BP", "MIPLIB-IP", "MIPLIB-MBP", "MIPLIB-MIP", "JSP", "OSP", "BPP"]:
     # for data in ["MBP"]:
         samples.append(
             [f"{D}/{data}.txt", f"{data}"])
     samples.append(
-        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt", "ALL"])
+        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL-20240408.txt", "ALL"])
     clt = calculater(solvers, samples)
     all_gap = clt.cal_and_show()
 
@@ -260,7 +260,7 @@ def compSCIP(time):
         samples.append(
             [f"{D}/{data}.txt", f"{data}"])
     samples.append(
-        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt", "ALL"])
+        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL-20240408.txt", "ALL"])
     clt = calculater(solvers, samples)
     all_gap = clt.cal_and_show()
 
@@ -277,7 +277,7 @@ def compFJ(time):
         samples.append(
             [f"{D}/{data}.txt", f"{data}"])
     samples.append(
-        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt", "ALL"])
+        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL-20240408.txt", "ALL"])
     clt = calculater(solvers, samples)
     all_gap = clt.cal_and_show()
 
@@ -296,7 +296,7 @@ def compAb(time):
         samples.append(
             [f"{D}/{data}.txt", f"{data}"])
     samples.append(
-        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt", "ALL"])
+        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL-20240408.txt", "ALL"])
     clt = calculater(solvers, samples)
     all_gap = clt.cal_and_show()
 

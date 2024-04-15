@@ -101,7 +101,8 @@ class solver(solver):
                     self.datas[ins_name].best_obj = best_obj
             except:
                 pass
-                print(f"real_file_path: {real_file_path}\t ins_name: {ins_name}\t solver: {self.print_name}")
+                print(
+                    f"real_file_path: {real_file_path}\t ins_name: {ins_name}\t solver: {self.print_name}")
         return super().cal_soln(ins_name)
 
     def to_string(self, state):
@@ -179,7 +180,10 @@ class calculater(object):
             S_avg_sol = 0
             S_std = 0
             S_ins_count = 0
-            S_gap = 0
+            A = 0
+            B = 0
+            C = 0
+            D = 0
             for ins_name in open(samp_dir):
                 ins_detail = ""
                 ins_detail += ins_name
@@ -200,18 +204,28 @@ class calculater(object):
                 sol = []
                 for slv in self.solvers:
                     sol_i = slv.datas[ins_name].best_obj
-                    if sol_i != OBJ_MAX and sol_i > 0:
+                    if sol_i != OBJ_MAX:
                         sol.append(abs(sol_i))
                 if len(sol) > 0:
                     np_sol = np.array(sol)
                     S_avg_sol += np_sol.mean()
                     S_std += np_sol.std()
                     S_ins_count += 1
-                    # if np_sol.std()/np_sol.mean() > 0.6:
-                    #     print(sol, np_sol.std(), np_sol.mean(),
-                    #           np_sol.std()/np_sol.mean())
+                    now = np_sol.std()/np_sol.mean()
+                    if now < 0.01:
+                        A += 1
+                    elif now < 0.1:
+                        B += 1
+                    elif now < 0.5:
+                        C += 1
+                    else:
+                        D += 1
+                else:
+                    A += 1
             S_avg_sol /= S_ins_count
             S_std /= S_ins_count
+            print(f"&{A} &{B} &{C} &{D}\\\\")
+            print(A+B+C+D)
             wins[idx] = f"{wins[idx]} &{S_avg_sol:.3f} &{S_std:.3f}  &{S_std/S_avg_sol:.3f}"
             self.sample_ins_ct = sample_ins_ct
             self.__show_in_mark_down(samp_name, show)
@@ -225,11 +239,11 @@ wins = []
 def choose_samp():
     Benchmark = []
     D = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list"
-    for data in ["MIPLIB-BP", "MIPLIB-IP", "MIPLIB-MBP", "MIPLIB-MIP", "JSP", "OSP"]:
-        Benchmark.append(
-            [f"{D}/{data}.txt", f"{data}"])
+    # for data in ["MIPLIB-BP", "MIPLIB-IP", "MIPLIB-MBP", "MIPLIB-MIP", "BPP", "JSP", "OSP"]:
+    #     Benchmark.append(
+    #         [f"{D}/{data}.txt", f"{data}"])
     Benchmark.append(
-        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt", "Total"])
+        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL-20240408.txt", "Total"])
     return Benchmark
 
 
@@ -241,13 +255,13 @@ def compSolver():
         for ins_name in open(s[0]):
             ins += 1
         wins.append(f"{s[1]} &{ins}\t")
-    for time in ["10",]:
+    for time in ["10", "60", "300",]:
         solvers = []
         result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
         # for so in ["highs1.6", "scip", "cplex", "gurobi-c", "gurobi-h"]:
         # for so in ["FJ-16"]:
         #     solvers.append(solver(f"{result}/{so}/result/{time}", f"{so}"))
-        for so in range(1, 10):
+        for so in range(1, 11):
             solvers.append(solver(
                 f"{result}/{LocalMIP}/{so}/{time}", "Local-MIP"))
         clt = calculater(solvers, samples)
@@ -264,11 +278,10 @@ def compSolver():
     #     clt = calculater(solvers, samples)
     #     clt.cal_and_show()
     print('\hline')
-    for idx in range(0, len(samples)):
-        if idx == len(samples)-1:
-            print("\hline")
-        print(f"{wins[idx]} \\\\")
-
+    # for idx in range(0, len(samples)):
+    #     if idx == len(samples)-1:
+    #         print("\hline")
+    #     print(f"{wins[idx]} \\\\")
 
 
 if __name__ == "__main__":

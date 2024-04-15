@@ -38,7 +38,7 @@ private:
   inline void IssSetup();
   void PushCoeffVarIdx(
       const size_t _conIdx,
-      const Value _coeff,
+    Value _coeff,
       const string &_varName);
 
 public:

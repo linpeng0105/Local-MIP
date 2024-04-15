@@ -54,7 +54,7 @@ void ReaderMPS::Read(
     if (readLine[0] == '*' ||
         readLine.length() < 1)
       continue;
-    if (readLine[0] == 'R')
+    if (readLine[0] == 'R' || readLine[0] == 'O')
       break;
     IssSetup();
     if (!(iss >> tempStr >> modelName))
@@ -62,6 +62,23 @@ void ReaderMPS::Read(
     if (tempStr != "NAME")
       PrintfError(readLine);
     printf("c Model name: %s\n", modelName.c_str());
+  }
+  if (readLine[0] == 'O')
+  {
+    if (readLine.find("MAX") != string::npos)
+      modelConUtil->MIN = -1;
+    while (getline(infile, readLine))
+    {
+      if (readLine[0] == '*' || readLine.length() < 1)
+        continue;
+      if (readLine[0] == 'R')
+        break;
+      IssSetup();
+      iss >> tempStr;
+      cout << tempStr << endl;
+      if (tempStr == "MAX")
+        modelConUtil->MIN = -1;
+    }
   }
   modelConUtil->conSet.emplace_back("", 0); // obj
   while (getline(infile, readLine))         // ROWS section
@@ -257,7 +274,7 @@ inline void ReaderMPS::IssSetup()
 
 void ReaderMPS::PushCoeffVarIdx(
     const size_t _conIdx,
-    const Value _coeff,
+    Value _coeff,
     const string &_varName)
 {
   auto &con = modelConUtil->conSet[_conIdx];
@@ -267,7 +284,8 @@ void ReaderMPS::PushCoeffVarIdx(
 
   var.conIdxSet.push_back(_conIdx);
   var.posInCon.push_back(con.varIdxSet.size());
-
+  if (_conIdx == 0)
+    _coeff *= modelConUtil->MIN;
   con.coeffSet.push_back(_coeff);
   con.varIdxSet.push_back(_varIdx);
   con.posInVar.push_back(var.conIdxSet.size() - 1);

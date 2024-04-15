@@ -86,7 +86,7 @@ class solver(solver):
                     self.datas[ins_name].best_obj = best_obj
             except:
                 pass
-                # print(f"real_file_path: {real_file_path}\t ins_name: {ins_name}\t solver: {self.print_name}")
+                print(f"real_file_path: {real_file_path}\t ins_name: {ins_name}\t solver: {self.print_name}")
         return super().cal_soln(ins_name)
 
     def to_string(self, state):
@@ -203,11 +203,11 @@ wins = []
 def choose_samp():
     Benchmark = []
     D = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list"
-    for data in ["MIPLIB-BP", "MIPLIB-IP", "MIPLIB-MBP", "MIPLIB-MIP", "JSP", "OSP"]:
+    for data in ["MIPLIB-BP", "MIPLIB-IP", "MIPLIB-MBP", "MIPLIB-MIP", "BPP", "JSP", "OSP"]:
         Benchmark.append(
             [f"{D}/{data}.txt", f"{data}"])
     Benchmark.append(
-        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt", "Total"])
+        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL-20240408.txt", "Total"])
     return Benchmark
 
 
@@ -223,7 +223,7 @@ def compSolver():
         solvers = []
         result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
         # for so in ["random", "no-bonus", "no-om", "no-weight"]:
-        for so in ["no-om"]:
+        for so in ["random"]:
             solvers.append(solver(
                 f"/pub/netdisk1/linpeng/Local-MIP/result-new/Local-MIP/v6/ablation/{so}/{time}", f"{so}"))
         solvers.append(solver(
@@ -234,17 +234,17 @@ def compSolver():
         solvers = []
         result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
         # for so in ["random", "no-bonus", "no-om", "no-weight"]:
-        for so in ["no-weight"]:
+        for so in ["no-bonus"]:
             solvers.append(solver(
                 f"/pub/netdisk1/linpeng/Local-MIP/result-new/Local-MIP/v6/ablation/{so}/{time}", f"{so}"))
         solvers.append(solver(
             f"{result}/{LocalMIP}/{time}", "Local-MIP"))
         clt = calculater(solvers, samples)
         clt.cal_and_show()
-    print('\hline')
+    # print('\hline')
     for idx in range(0, len(samples)):
-        if idx == len(samples)-1:
-            print("\hline")
+        # if idx == len(samples)-1:
+        #     print("\hline")
         print(f"{wins[idx]} \\\\")
 
 

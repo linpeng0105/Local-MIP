@@ -323,7 +323,7 @@ void LocalMIP::Allocate()
 
 Value LocalMIP::GetObjValue()
 {
-  return bestOBJ + modelVarUtil->objBias;
+  return modelConUtil->MIN * (bestOBJ + modelVarUtil->objBias);
 }
 
 LocalMIP::LocalMIP(

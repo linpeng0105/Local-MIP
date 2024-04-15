@@ -12,7 +12,7 @@ done >&6
 
 res_no="/pub/netdisk1/linpeng/Local-MIP/result-new/unused"
 instance="/pub/netdisk1/linpeng/Local-MIP/benchmark/ALL"
-benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt"
+benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/BPP.txt"
 result="/pub/netdisk1/linpeng/Local-MIP/result-new/FJ-16/log"
 cutoff="10 60 300"
 all_datas=($instance)

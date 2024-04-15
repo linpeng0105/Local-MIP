@@ -3,7 +3,7 @@ import re
 
 readfolder = "/pub/netdisk1/linpeng/Local-MIP/result-new/gurobi-c/log"
 result_file = "/pub/netdisk1/linpeng/Local-MIP/result-new/gurobi-c/time"
-dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt"
+dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/BPP.txt"
 
 
 def record():

@@ -12,7 +12,7 @@ done >&6
 
 res_no="/pub/netdisk1/linpeng/Local-MIP/result-new/unused"
 Instance="/pub/netdisk1/linpeng/Local-MIP/benchmark/ALL"
-benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt"
+benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/BPP.txt"
 cutoff="10 60 300"
 ulimit -t 5000
 all_datas=($Instance)
@@ -109,6 +109,31 @@ do
       read -u 6
       {
         time gurobi_cl Threads=1 timeLimit=$cut $instance/$file
+        echo >&6
+      } >$res_solver_ins/$file   2>>$res_solver_ins/$file &
+    done
+  done
+done
+
+result="/pub/netdisk1/linpeng/Local-MIP/result-new/cplex/log"
+for cut in $cutoff
+do
+  for((i=0;i<${#all_datas[*]};i++))
+  do
+    instance=${all_datas[$i]}
+    res_solver_ins=$result/${cut}
+    if [ ! -d "$res_solver_ins" ]; then
+      mkdir -p $res_solver_ins
+    fi
+    for dir_file in `cat $benchmark_list`
+    do
+      file=$dir_file
+      echo $file
+      touch $res_solver_ins/$file
+      read -u 6
+      {
+        cd /home/linpeng/software/cplex-2210/software/cplex/bin/x86-64_linux
+        time ./cplex -c "set timelimit $cut" "read $instance/$file" "set threads 1" "optimize"
         echo >&6
       } >$res_solver_ins/$file   2>>$res_solver_ins/$file &
     done

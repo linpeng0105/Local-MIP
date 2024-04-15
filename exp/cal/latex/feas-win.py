@@ -205,11 +205,11 @@ wins = []
 def choose_samp():
     Benchmark = []
     D = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list"
-    for data in ["MIPLIB-BP", "MIPLIB-IP", "MIPLIB-MBP", "MIPLIB-MIP", "JSP", "OSP"]:
+    for data in ["MIPLIB-BP", "MIPLIB-IP", "MIPLIB-MBP", "MIPLIB-MIP", "BPP", "JSP", "OSP"]:
         Benchmark.append(
             [f"{D}/{data}.txt", f"{data}"])
     Benchmark.append(
-        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL.txt", "Total"])
+        ["/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL-20240408.txt", "Total"])
     return Benchmark
 
 
@@ -221,11 +221,11 @@ def compSolver():
         for ins_name in open(s[0]):
             ins += 1
         wins.append(f"{s[1]} &{ins}")
-    for time in ["300",]:
+    for time in ["10","60","300",]:
         solvers = []
         result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
-        for so in ["highs1.6", "scip", "cplex", "gurobi-c", "gurobi-h"]:
-        # for so in ["FJ-16"]:
+        # for so in ["highs1.6", "scip", "cplex", "gurobi-c", "gurobi-h"]:
+        for so in ["FJ-16"]:
             solvers.append(solver(f"{result}/{so}/result/{time}", f"{so}"))
         solvers.append(solver(
             f"{result}/{LocalMIP}/{time}", "Local-MIP"))
