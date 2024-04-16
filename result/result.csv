@@ -284,7 +284,7 @@ tpl-tub-ws1617.mps, SCIP, 10, N/A
 tpl-tub-ws1617.mps, CPLEX, 10, N/A
 tpl-tub-ws1617.mps, Gurobi(comp), 10, 20133310.0
 tpl-tub-ws1617.mps, Gurobi(heur), 10, 20133310.0
-tpl-tub-ws1617.mps, Feasibility Jump, 10, 5841173815655.0
+tpl-tub-ws1617.mps, Feasibility Jump, 10, N/A
 tpl-tub-ws1617.mps, Local-MIP, 10, N/A
 lr1dr04vc05v17a-t360.mps, HiGHS, 10, N/A
 lr1dr04vc05v17a-t360.mps, SCIP, 10, 7419468.0
@@ -382,7 +382,7 @@ rwth-timetable.mps, SCIP, 10, N/A
 rwth-timetable.mps, CPLEX, 10, 24967487.0
 rwth-timetable.mps, Gurobi(comp), 10, 29160070.0
 rwth-timetable.mps, Gurobi(heur), 10, 29160070.0
-rwth-timetable.mps, Feasibility Jump, 10, 25662411.0
+rwth-timetable.mps, Feasibility Jump, 10, N/A
 rwth-timetable.mps, Local-MIP, 10, N/A
 rocII-10-11.mps, HiGHS, 10, N/A
 rocII-10-11.mps, SCIP, 10, N/A
@@ -690,7 +690,7 @@ a2864-99blp.mps, SCIP, 10, N/A
 a2864-99blp.mps, CPLEX, 10, -17.0
 a2864-99blp.mps, Gurobi(comp), 10, N/A
 a2864-99blp.mps, Gurobi(heur), 10, N/A
-a2864-99blp.mps, Feasibility Jump, 10, -18.0
+a2864-99blp.mps, Feasibility Jump, 10, N/A
 a2864-99blp.mps, Local-MIP, 10, -33.0
 bley_xs1noM.mps, HiGHS, 10, N/A
 bley_xs1noM.mps, SCIP, 10, 8835074.0
@@ -1026,7 +1026,7 @@ rmatr200-p10.mps, SCIP, 10, 3333.0
 rmatr200-p10.mps, CPLEX, 10, 2366.0
 rmatr200-p10.mps, Gurobi(comp), 10, 2663.0
 rmatr200-p10.mps, Gurobi(heur), 10, 2607.0
-rmatr200-p10.mps, Feasibility Jump, 10, 0.0
+rmatr200-p10.mps, Feasibility Jump, 10, N/A
 rmatr200-p10.mps, Local-MIP, 10, 2523.0
 neos-4165869-wannon.mps, HiGHS, 10, N/A
 neos-4165869-wannon.mps, SCIP, 10, N/A
@@ -1159,7 +1159,7 @@ fhnw-schedule-pairb400.mps, SCIP, 10, 0.0
 fhnw-schedule-pairb400.mps, CPLEX, 10, 0.0
 fhnw-schedule-pairb400.mps, Gurobi(comp), 10, -0.042896
 fhnw-schedule-pairb400.mps, Gurobi(heur), 10, -0.042896
-fhnw-schedule-pairb400.mps, Feasibility Jump, 10, -0.998486
+fhnw-schedule-pairb400.mps, Feasibility Jump, 10, -0.992396
 fhnw-schedule-pairb400.mps, Local-MIP, 10, -17.789306
 neos-3355120-tarago.mps, HiGHS, 10, N/A
 neos-3355120-tarago.mps, SCIP, 10, N/A
@@ -1418,7 +1418,7 @@ usafa.mps, SCIP, 10, N/A
 usafa.mps, CPLEX, 10, 28526.25
 usafa.mps, Gurobi(comp), 10, 28526.25
 usafa.mps, Gurobi(heur), 10, 28526.25
-usafa.mps, Feasibility Jump, 10, 28526.25
+usafa.mps, Feasibility Jump, 10, N/A
 usafa.mps, Local-MIP, 10, N/A
 ger50_17_trans.mps, HiGHS, 10, N/A
 ger50_17_trans.mps, SCIP, 10, N/A
@@ -1579,7 +1579,7 @@ hgms-det.mps, SCIP, 10, -47256.8
 hgms-det.mps, CPLEX, 10, -47307.159381
 hgms-det.mps, Gurobi(comp), 10, -47310.49701
 hgms-det.mps, Gurobi(heur), 10, -47311.46168
-hgms-det.mps, Feasibility Jump, 10, 0.0
+hgms-det.mps, Feasibility Jump, 10, N/A
 hgms-det.mps, Local-MIP, 10, 0.0
 neos-4355351-swalm.mps, HiGHS, 10, N/A
 neos-4355351-swalm.mps, SCIP, 10, N/A
@@ -1789,7 +1789,7 @@ rmine25.mps, SCIP, 10, N/A
 rmine25.mps, CPLEX, 10, 0.0
 rmine25.mps, Gurobi(comp), 10, -185.327577
 rmine25.mps, Gurobi(heur), 10, -185.327577
-rmine25.mps, Feasibility Jump, 10, 0.0
+rmine25.mps, Feasibility Jump, 10, N/A
 rmine25.mps, Local-MIP, 10, -50.101852
 neos-4409277-trave.mps, HiGHS, 10, N/A
 neos-4409277-trave.mps, SCIP, 10, N/A
@@ -1838,7 +1838,7 @@ scpn2.mps, SCIP, 10, N/A
 scpn2.mps, CPLEX, 10, 50506522.0
 scpn2.mps, Gurobi(comp), 10, 84900.0
 scpn2.mps, Gurobi(heur), 10, 84900.0
-scpn2.mps, Feasibility Jump, 10, 31110.0
+scpn2.mps, Feasibility Jump, 10, N/A
 scpn2.mps, Local-MIP, 10, 20002.0
 neos-3372571-onahau.mps, HiGHS, 10, N/A
 neos-3372571-onahau.mps, SCIP, 10, 0.6277616
@@ -3469,420 +3469,420 @@ t501_00.mps, SCIP, 10, N/A
 t501_00.mps, CPLEX, 10, 334.0
 t501_00.mps, Gurobi(comp), 10, 204.0
 t501_00.mps, Gurobi(heur), 10, 200.0
-t501_00.mps, Feasibility Jump, 10, N/A
+t501_00.mps, Feasibility Jump, 10, 267.0
 t501_00.mps, Local-MIP, 10, 181.0
 t501_01.mps, HiGHS, 10, N/A
 t501_01.mps, SCIP, 10, N/A
 t501_01.mps, CPLEX, 10, 334.0
 t501_01.mps, Gurobi(comp), 10, 195.0
 t501_01.mps, Gurobi(heur), 10, 195.0
-t501_01.mps, Feasibility Jump, 10, N/A
+t501_01.mps, Feasibility Jump, 10, 275.0
 t501_01.mps, Local-MIP, 10, 180.0
 t501_02.mps, HiGHS, 10, N/A
 t501_02.mps, SCIP, 10, N/A
 t501_02.mps, CPLEX, 10, 334.0
 t501_02.mps, Gurobi(comp), 10, 195.0
 t501_02.mps, Gurobi(heur), 10, 195.0
-t501_02.mps, Feasibility Jump, 10, N/A
+t501_02.mps, Feasibility Jump, 10, 267.0
 t501_02.mps, Local-MIP, 10, 180.0
 t501_03.mps, HiGHS, 10, N/A
 t501_03.mps, SCIP, 10, N/A
 t501_03.mps, CPLEX, 10, 334.0
 t501_03.mps, Gurobi(comp), 10, 197.0
 t501_03.mps, Gurobi(heur), 10, 197.0
-t501_03.mps, Feasibility Jump, 10, N/A
+t501_03.mps, Feasibility Jump, 10, 277.0
 t501_03.mps, Local-MIP, 10, 179.0
 t501_04.mps, HiGHS, 10, 281.0
 t501_04.mps, SCIP, 10, N/A
 t501_04.mps, CPLEX, 10, 334.0
 t501_04.mps, Gurobi(comp), 10, 194.0
 t501_04.mps, Gurobi(heur), 10, 194.0
-t501_04.mps, Feasibility Jump, 10, N/A
+t501_04.mps, Feasibility Jump, 10, 272.0
 t501_04.mps, Local-MIP, 10, 180.0
 t501_05.mps, HiGHS, 10, 281.0
 t501_05.mps, SCIP, 10, N/A
 t501_05.mps, CPLEX, 10, 334.0
 t501_05.mps, Gurobi(comp), 10, 194.0
 t501_05.mps, Gurobi(heur), 10, 191.0
-t501_05.mps, Feasibility Jump, 10, N/A
+t501_05.mps, Feasibility Jump, 10, 266.0
 t501_05.mps, Local-MIP, 10, 180.0
 t501_06.mps, HiGHS, 10, N/A
 t501_06.mps, SCIP, 10, N/A
 t501_06.mps, CPLEX, 10, 334.0
 t501_06.mps, Gurobi(comp), 10, 187.0
 t501_06.mps, Gurobi(heur), 10, 198.0
-t501_06.mps, Feasibility Jump, 10, N/A
+t501_06.mps, Feasibility Jump, 10, 271.0
 t501_06.mps, Local-MIP, 10, 180.0
 t501_07.mps, HiGHS, 10, 282.0
 t501_07.mps, SCIP, 10, N/A
 t501_07.mps, CPLEX, 10, 334.0
 t501_07.mps, Gurobi(comp), 10, 191.0
 t501_07.mps, Gurobi(heur), 10, 191.0
-t501_07.mps, Feasibility Jump, 10, N/A
+t501_07.mps, Feasibility Jump, 10, 272.0
 t501_07.mps, Local-MIP, 10, 180.0
 t501_08.mps, HiGHS, 10, 281.0
 t501_08.mps, SCIP, 10, N/A
 t501_08.mps, CPLEX, 10, 334.0
 t501_08.mps, Gurobi(comp), 10, 204.0
 t501_08.mps, Gurobi(heur), 10, 200.0
-t501_08.mps, Feasibility Jump, 10, N/A
+t501_08.mps, Feasibility Jump, 10, 263.0
 t501_08.mps, Local-MIP, 10, 179.0
 t501_09.mps, HiGHS, 10, 282.0
 t501_09.mps, SCIP, 10, N/A
 t501_09.mps, CPLEX, 10, 334.0
 t501_09.mps, Gurobi(comp), 10, 197.0
 t501_09.mps, Gurobi(heur), 10, 197.0
-t501_09.mps, Feasibility Jump, 10, N/A
+t501_09.mps, Feasibility Jump, 10, 272.0
 t501_09.mps, Local-MIP, 10, 179.0
 t501_10.mps, HiGHS, 10, 284.0
 t501_10.mps, SCIP, 10, N/A
 t501_10.mps, CPLEX, 10, 334.0
 t501_10.mps, Gurobi(comp), 10, 195.0
 t501_10.mps, Gurobi(heur), 10, 194.0
-t501_10.mps, Feasibility Jump, 10, N/A
+t501_10.mps, Feasibility Jump, 10, 266.0
 t501_10.mps, Local-MIP, 10, 180.0
 t501_11.mps, HiGHS, 10, N/A
 t501_11.mps, SCIP, 10, N/A
 t501_11.mps, CPLEX, 10, 334.0
 t501_11.mps, Gurobi(comp), 10, 193.0
 t501_11.mps, Gurobi(heur), 10, 193.0
-t501_11.mps, Feasibility Jump, 10, N/A
+t501_11.mps, Feasibility Jump, 10, 271.0
 t501_11.mps, Local-MIP, 10, 179.0
 t501_12.mps, HiGHS, 10, N/A
 t501_12.mps, SCIP, 10, N/A
 t501_12.mps, CPLEX, 10, 334.0
 t501_12.mps, Gurobi(comp), 10, 187.0
 t501_12.mps, Gurobi(heur), 10, 194.0
-t501_12.mps, Feasibility Jump, 10, N/A
+t501_12.mps, Feasibility Jump, 10, 272.0
 t501_12.mps, Local-MIP, 10, 179.0
 t501_13.mps, HiGHS, 10, 282.0
 t501_13.mps, SCIP, 10, N/A
 t501_13.mps, CPLEX, 10, 334.0
 t501_13.mps, Gurobi(comp), 10, 196.0
 t501_13.mps, Gurobi(heur), 10, 195.0
-t501_13.mps, Feasibility Jump, 10, N/A
+t501_13.mps, Feasibility Jump, 10, 269.0
 t501_13.mps, Local-MIP, 10, 181.0
 t501_14.mps, HiGHS, 10, N/A
 t501_14.mps, SCIP, 10, N/A
 t501_14.mps, CPLEX, 10, 334.0
 t501_14.mps, Gurobi(comp), 10, 190.0
 t501_14.mps, Gurobi(heur), 10, 190.0
-t501_14.mps, Feasibility Jump, 10, N/A
+t501_14.mps, Feasibility Jump, 10, 269.0
 t501_14.mps, Local-MIP, 10, 179.0
 t501_15.mps, HiGHS, 10, N/A
 t501_15.mps, SCIP, 10, N/A
 t501_15.mps, CPLEX, 10, 334.0
 t501_15.mps, Gurobi(comp), 10, 195.0
 t501_15.mps, Gurobi(heur), 10, 195.0
-t501_15.mps, Feasibility Jump, 10, N/A
+t501_15.mps, Feasibility Jump, 10, 269.0
 t501_15.mps, Local-MIP, 10, 180.0
 t501_16.mps, HiGHS, 10, N/A
 t501_16.mps, SCIP, 10, N/A
 t501_16.mps, CPLEX, 10, 334.0
 t501_16.mps, Gurobi(comp), 10, 195.0
 t501_16.mps, Gurobi(heur), 10, 273.0
-t501_16.mps, Feasibility Jump, 10, N/A
+t501_16.mps, Feasibility Jump, 10, 274.0
 t501_16.mps, Local-MIP, 10, 182.0
 t501_17.mps, HiGHS, 10, 282.0
 t501_17.mps, SCIP, 10, N/A
 t501_17.mps, CPLEX, 10, 334.0
 t501_17.mps, Gurobi(comp), 10, 196.0
 t501_17.mps, Gurobi(heur), 10, 196.0
-t501_17.mps, Feasibility Jump, 10, N/A
+t501_17.mps, Feasibility Jump, 10, 276.0
 t501_17.mps, Local-MIP, 10, 180.0
 t501_18.mps, HiGHS, 10, 280.0
 t501_18.mps, SCIP, 10, N/A
 t501_18.mps, CPLEX, 10, 334.0
 t501_18.mps, Gurobi(comp), 10, 196.0
 t501_18.mps, Gurobi(heur), 10, 195.0
-t501_18.mps, Feasibility Jump, 10, N/A
+t501_18.mps, Feasibility Jump, 10, 280.0
 t501_18.mps, Local-MIP, 10, 179.0
 t501_19.mps, HiGHS, 10, N/A
 t501_19.mps, SCIP, 10, N/A
 t501_19.mps, CPLEX, 10, 334.0
 t501_19.mps, Gurobi(comp), 10, 197.0
 t501_19.mps, Gurobi(heur), 10, 273.0
-t501_19.mps, Feasibility Jump, 10, N/A
+t501_19.mps, Feasibility Jump, 10, 270.0
 t501_19.mps, Local-MIP, 10, 181.0
 u500_00.mps, HiGHS, 10, N/A
 u500_00.mps, SCIP, 10, N/A
 u500_00.mps, CPLEX, 10, 396.0
 u500_00.mps, Gurobi(comp), 10, 254.0
 u500_00.mps, Gurobi(heur), 10, 322.0
-u500_00.mps, Feasibility Jump, 10, N/A
+u500_00.mps, Feasibility Jump, 10, 320.0
 u500_00.mps, Local-MIP, 10, 208.0
 u500_01.mps, HiGHS, 10, N/A
 u500_01.mps, SCIP, 10, N/A
 u500_01.mps, CPLEX, 10, 402.0
 u500_01.mps, Gurobi(comp), 10, 263.0
 u500_01.mps, Gurobi(heur), 10, 318.0
-u500_01.mps, Feasibility Jump, 10, N/A
+u500_01.mps, Feasibility Jump, 10, 323.0
 u500_01.mps, Local-MIP, 10, 211.0
 u500_02.mps, HiGHS, 10, N/A
 u500_02.mps, SCIP, 10, N/A
 u500_02.mps, CPLEX, 10, 404.0
 u500_02.mps, Gurobi(comp), 10, 260.0
 u500_02.mps, Gurobi(heur), 10, 321.0
-u500_02.mps, Feasibility Jump, 10, N/A
+u500_02.mps, Feasibility Jump, 10, 321.0
 u500_02.mps, Local-MIP, 10, 212.0
 u500_03.mps, HiGHS, 10, N/A
 u500_03.mps, SCIP, 10, N/A
 u500_03.mps, CPLEX, 10, 408.0
 u500_03.mps, Gurobi(comp), 10, 271.0
 u500_03.mps, Gurobi(heur), 10, 327.0
-u500_03.mps, Feasibility Jump, 10, N/A
+u500_03.mps, Feasibility Jump, 10, 322.0
 u500_03.mps, Local-MIP, 10, 214.0
 u500_04.mps, HiGHS, 10, N/A
 u500_04.mps, SCIP, 10, N/A
 u500_04.mps, CPLEX, 10, 412.0
 u500_04.mps, Gurobi(comp), 10, 270.0
 u500_04.mps, Gurobi(heur), 10, 328.0
-u500_04.mps, Feasibility Jump, 10, N/A
+u500_04.mps, Feasibility Jump, 10, 325.0
 u500_04.mps, Local-MIP, 10, 216.0
 u500_05.mps, HiGHS, 10, N/A
 u500_05.mps, SCIP, 10, N/A
 u500_05.mps, CPLEX, 10, 412.0
 u500_05.mps, Gurobi(comp), 10, 262.0
 u500_05.mps, Gurobi(heur), 10, 330.0
-u500_05.mps, Feasibility Jump, 10, N/A
+u500_05.mps, Feasibility Jump, 10, 328.0
 u500_05.mps, Local-MIP, 10, 216.0
 u500_06.mps, HiGHS, 10, N/A
 u500_06.mps, SCIP, 10, N/A
 u500_06.mps, CPLEX, 10, 414.0
 u500_06.mps, Gurobi(comp), 10, 268.0
 u500_06.mps, Gurobi(heur), 10, 244.0
-u500_06.mps, Feasibility Jump, 10, N/A
+u500_06.mps, Feasibility Jump, 10, 331.0
 u500_06.mps, Local-MIP, 10, 218.0
 u500_07.mps, HiGHS, 10, N/A
 u500_07.mps, SCIP, 10, N/A
 u500_07.mps, CPLEX, 10, 408.0
 u500_07.mps, Gurobi(comp), 10, 273.0
 u500_07.mps, Gurobi(heur), 10, 328.0
-u500_07.mps, Feasibility Jump, 10, N/A
+u500_07.mps, Feasibility Jump, 10, 329.0
 u500_07.mps, Local-MIP, 10, 215.0
 u500_08.mps, HiGHS, 10, N/A
 u500_08.mps, SCIP, 10, N/A
 u500_08.mps, CPLEX, 10, 392.0
 u500_08.mps, Gurobi(comp), 10, 253.0
 u500_08.mps, Gurobi(heur), 10, 232.0
-u500_08.mps, Feasibility Jump, 10, N/A
+u500_08.mps, Feasibility Jump, 10, 302.0
 u500_08.mps, Local-MIP, 10, 206.0
 u500_09.mps, HiGHS, 10, N/A
 u500_09.mps, SCIP, 10, N/A
 u500_09.mps, CPLEX, 10, 404.0
 u500_09.mps, Gurobi(comp), 10, 265.0
 u500_09.mps, Gurobi(heur), 10, 239.0
-u500_09.mps, Feasibility Jump, 10, N/A
+u500_09.mps, Feasibility Jump, 10, 321.0
 u500_09.mps, Local-MIP, 10, 212.0
 u500_10.mps, HiGHS, 10, N/A
 u500_10.mps, SCIP, 10, N/A
 u500_10.mps, CPLEX, 10, 400.0
 u500_10.mps, Gurobi(comp), 10, 262.0
 u500_10.mps, Gurobi(heur), 10, 313.0
-u500_10.mps, Feasibility Jump, 10, N/A
+u500_10.mps, Feasibility Jump, 10, 322.0
 u500_10.mps, Local-MIP, 10, 209.0
 u500_11.mps, HiGHS, 10, N/A
 u500_11.mps, SCIP, 10, N/A
 u500_11.mps, CPLEX, 10, 400.0
 u500_11.mps, Gurobi(comp), 10, 265.0
 u500_11.mps, Gurobi(heur), 10, 315.0
-u500_11.mps, Feasibility Jump, 10, N/A
+u500_11.mps, Feasibility Jump, 10, 310.0
 u500_11.mps, Local-MIP, 10, 210.0
 u500_12.mps, HiGHS, 10, N/A
 u500_12.mps, SCIP, 10, N/A
 u500_12.mps, CPLEX, 10, 398.0
 u500_12.mps, Gurobi(comp), 10, 256.0
 u500_12.mps, Gurobi(heur), 10, 318.0
-u500_12.mps, Feasibility Jump, 10, N/A
+u500_12.mps, Feasibility Jump, 10, 315.0
 u500_12.mps, Local-MIP, 10, 209.0
 u500_13.mps, HiGHS, 10, N/A
 u500_13.mps, SCIP, 10, N/A
 u500_13.mps, CPLEX, 10, 392.0
 u500_13.mps, Gurobi(comp), 10, 242.0
 u500_13.mps, Gurobi(heur), 10, 315.0
-u500_13.mps, Feasibility Jump, 10, N/A
+u500_13.mps, Feasibility Jump, 10, 319.0
 u500_13.mps, Local-MIP, 10, 205.0
 u500_14.mps, HiGHS, 10, N/A
 u500_14.mps, SCIP, 10, N/A
 u500_14.mps, CPLEX, 10, 408.0
 u500_14.mps, Gurobi(comp), 10, 260.0
 u500_14.mps, Gurobi(heur), 10, 329.0
-u500_14.mps, Feasibility Jump, 10, N/A
+u500_14.mps, Feasibility Jump, 10, 324.0
 u500_14.mps, Local-MIP, 10, 213.0
 u500_15.mps, HiGHS, 10, N/A
 u500_15.mps, SCIP, 10, N/A
 u500_15.mps, CPLEX, 10, 402.0
 u500_15.mps, Gurobi(comp), 10, 253.0
 u500_15.mps, Gurobi(heur), 10, 318.0
-u500_15.mps, Feasibility Jump, 10, N/A
+u500_15.mps, Feasibility Jump, 10, 314.0
 u500_15.mps, Local-MIP, 10, 211.0
 u500_16.mps, HiGHS, 10, N/A
 u500_16.mps, SCIP, 10, N/A
 u500_16.mps, CPLEX, 10, 404.0
 u500_16.mps, Gurobi(comp), 10, 263.0
 u500_16.mps, Gurobi(heur), 10, 322.0
-u500_16.mps, Feasibility Jump, 10, N/A
+u500_16.mps, Feasibility Jump, 10, 319.0
 u500_16.mps, Local-MIP, 10, 211.0
 u500_17.mps, HiGHS, 10, N/A
 u500_17.mps, SCIP, 10, N/A
 u500_17.mps, CPLEX, 10, 396.0
 u500_17.mps, Gurobi(comp), 10, 255.0
 u500_17.mps, Gurobi(heur), 10, 321.0
-u500_17.mps, Feasibility Jump, 10, N/A
+u500_17.mps, Feasibility Jump, 10, 315.0
 u500_17.mps, Local-MIP, 10, 208.0
 u500_18.mps, HiGHS, 10, N/A
 u500_18.mps, SCIP, 10, N/A
 u500_18.mps, CPLEX, 10, 404.0
 u500_18.mps, Gurobi(comp), 10, 269.0
 u500_18.mps, Gurobi(heur), 10, 237.0
-u500_18.mps, Feasibility Jump, 10, N/A
+u500_18.mps, Feasibility Jump, 10, 328.0
 u500_18.mps, Local-MIP, 10, 211.0
 u500_19.mps, HiGHS, 10, N/A
 u500_19.mps, SCIP, 10, N/A
 u500_19.mps, CPLEX, 10, 392.0
 u500_19.mps, Gurobi(comp), 10, 257.0
 u500_19.mps, Gurobi(heur), 10, 315.0
-u500_19.mps, Feasibility Jump, 10, N/A
+u500_19.mps, Feasibility Jump, 10, 320.0
 u500_19.mps, Local-MIP, 10, 205.0
 u1000_00.mps, HiGHS, 10, N/A
 u1000_00.mps, SCIP, 10, N/A
 u1000_00.mps, CPLEX, 10, 798.0
 u1000_00.mps, Gurobi(comp), 10, 627.0
 u1000_00.mps, Gurobi(heur), 10, 627.0
-u1000_00.mps, Feasibility Jump, 10, N/A
+u1000_00.mps, Feasibility Jump, 10, 646.0
 u1000_00.mps, Local-MIP, 10, 421.0
 u1000_01.mps, HiGHS, 10, N/A
 u1000_01.mps, SCIP, 10, N/A
 u1000_01.mps, CPLEX, 10, 812.0
 u1000_01.mps, Gurobi(comp), 10, 642.0
 u1000_01.mps, Gurobi(heur), 10, 642.0
-u1000_01.mps, Feasibility Jump, 10, N/A
+u1000_01.mps, Feasibility Jump, 10, 650.0
 u1000_01.mps, Local-MIP, 10, 428.0
 u1000_02.mps, HiGHS, 10, N/A
 u1000_02.mps, SCIP, 10, N/A
 u1000_02.mps, CPLEX, 10, 822.0
 u1000_02.mps, Gurobi(comp), 10, 656.0
 u1000_02.mps, Gurobi(heur), 10, 656.0
-u1000_02.mps, Feasibility Jump, 10, N/A
+u1000_02.mps, Feasibility Jump, 10, 651.0
 u1000_02.mps, Local-MIP, 10, 434.0
 u1000_03.mps, HiGHS, 10, N/A
 u1000_03.mps, SCIP, 10, N/A
 u1000_03.mps, CPLEX, 10, 822.0
 u1000_03.mps, Gurobi(comp), 10, 656.0
 u1000_03.mps, Gurobi(heur), 10, 656.0
-u1000_03.mps, Feasibility Jump, 10, N/A
+u1000_03.mps, Feasibility Jump, 10, 652.0
 u1000_03.mps, Local-MIP, 10, 434.0
 u1000_04.mps, HiGHS, 10, N/A
 u1000_04.mps, SCIP, 10, N/A
 u1000_04.mps, CPLEX, 10, 794.0
 u1000_04.mps, Gurobi(comp), 10, 627.0
 u1000_04.mps, Gurobi(heur), 10, 627.0
-u1000_04.mps, Feasibility Jump, 10, N/A
+u1000_04.mps, Feasibility Jump, 10, 635.0
 u1000_04.mps, Local-MIP, 10, 420.0
 u1000_05.mps, HiGHS, 10, N/A
 u1000_05.mps, SCIP, 10, N/A
 u1000_05.mps, CPLEX, 10, 798.0
 u1000_05.mps, Gurobi(comp), 10, 628.0
 u1000_05.mps, Gurobi(heur), 10, 628.0
-u1000_05.mps, Feasibility Jump, 10, N/A
+u1000_05.mps, Feasibility Jump, 10, 638.0
 u1000_05.mps, Local-MIP, 10, 421.0
 u1000_06.mps, HiGHS, 10, N/A
 u1000_06.mps, SCIP, 10, N/A
 u1000_06.mps, CPLEX, 10, 790.0
 u1000_06.mps, Gurobi(comp), 10, 628.0
 u1000_06.mps, Gurobi(heur), 10, 628.0
-u1000_06.mps, Feasibility Jump, 10, N/A
+u1000_06.mps, Feasibility Jump, 10, 617.0
 u1000_06.mps, Local-MIP, 10, 415.0
 u1000_07.mps, HiGHS, 10, N/A
 u1000_07.mps, SCIP, 10, N/A
 u1000_07.mps, CPLEX, 10, 808.0
 u1000_07.mps, Gurobi(comp), 10, 636.0
 u1000_07.mps, Gurobi(heur), 10, 636.0
-u1000_07.mps, Feasibility Jump, 10, N/A
+u1000_07.mps, Feasibility Jump, 10, 652.0
 u1000_07.mps, Local-MIP, 10, 427.0
 u1000_08.mps, HiGHS, 10, N/A
 u1000_08.mps, SCIP, 10, N/A
 u1000_08.mps, CPLEX, 10, 798.0
 u1000_08.mps, Gurobi(comp), 10, 629.0
 u1000_08.mps, Gurobi(heur), 10, 629.0
-u1000_08.mps, Feasibility Jump, 10, N/A
+u1000_08.mps, Feasibility Jump, 10, 619.0
 u1000_08.mps, Local-MIP, 10, 420.0
 u1000_09.mps, HiGHS, 10, N/A
 u1000_09.mps, SCIP, 10, N/A
 u1000_09.mps, CPLEX, 10, 794.0
 u1000_09.mps, Gurobi(comp), 10, 631.0
 u1000_09.mps, Gurobi(heur), 10, 631.0
-u1000_09.mps, Feasibility Jump, 10, N/A
+u1000_09.mps, Feasibility Jump, 10, 638.0
 u1000_09.mps, Local-MIP, 10, 420.0
 u1000_10.mps, HiGHS, 10, N/A
 u1000_10.mps, SCIP, 10, N/A
 u1000_10.mps, CPLEX, 10, 800.0
 u1000_10.mps, Gurobi(comp), 10, 641.0
 u1000_10.mps, Gurobi(heur), 10, 641.0
-u1000_10.mps, Feasibility Jump, 10, N/A
+u1000_10.mps, Feasibility Jump, 10, 643.0
 u1000_10.mps, Local-MIP, 10, 422.0
 u1000_11.mps, HiGHS, 10, N/A
 u1000_11.mps, SCIP, 10, N/A
 u1000_11.mps, CPLEX, 10, 802.0
 u1000_11.mps, Gurobi(comp), 10, 627.0
 u1000_11.mps, Gurobi(heur), 10, 627.0
-u1000_11.mps, Feasibility Jump, 10, N/A
+u1000_11.mps, Feasibility Jump, 10, 634.0
 u1000_11.mps, Local-MIP, 10, 423.0
 u1000_12.mps, HiGHS, 10, N/A
 u1000_12.mps, SCIP, 10, N/A
 u1000_12.mps, CPLEX, 10, 786.0
 u1000_12.mps, Gurobi(comp), 10, 636.0
 u1000_12.mps, Gurobi(heur), 10, 636.0
-u1000_12.mps, Feasibility Jump, 10, N/A
+u1000_12.mps, Feasibility Jump, 10, 628.0
 u1000_12.mps, Local-MIP, 10, 413.0
 u1000_13.mps, HiGHS, 10, N/A
 u1000_13.mps, SCIP, 10, N/A
 u1000_13.mps, CPLEX, 10, 792.0
 u1000_13.mps, Gurobi(comp), 10, 624.0
 u1000_13.mps, Gurobi(heur), 10, 624.0
-u1000_13.mps, Feasibility Jump, 10, N/A
+u1000_13.mps, Feasibility Jump, 10, 627.0
 u1000_13.mps, Local-MIP, 10, 417.0
 u1000_14.mps, HiGHS, 10, N/A
 u1000_14.mps, SCIP, 10, N/A
 u1000_14.mps, CPLEX, 10, 788.0
 u1000_14.mps, Gurobi(comp), 10, 631.0
 u1000_14.mps, Gurobi(heur), 10, 631.0
-u1000_14.mps, Feasibility Jump, 10, N/A
+u1000_14.mps, Feasibility Jump, 10, 626.0
 u1000_14.mps, Local-MIP, 10, 417.0
 u1000_15.mps, HiGHS, 10, N/A
 u1000_15.mps, SCIP, 10, N/A
 u1000_15.mps, CPLEX, 10, 804.0
 u1000_15.mps, Gurobi(comp), 10, 645.0
 u1000_15.mps, Gurobi(heur), 10, 645.0
-u1000_15.mps, Feasibility Jump, 10, N/A
+u1000_15.mps, Feasibility Jump, 10, 650.0
 u1000_15.mps, Local-MIP, 10, 425.0
 u1000_16.mps, HiGHS, 10, N/A
 u1000_16.mps, SCIP, 10, N/A
 u1000_16.mps, CPLEX, 10, 808.0
 u1000_16.mps, Gurobi(comp), 10, 638.0
 u1000_16.mps, Gurobi(heur), 10, 638.0
-u1000_16.mps, Feasibility Jump, 10, N/A
+u1000_16.mps, Feasibility Jump, 10, 647.0
 u1000_16.mps, Local-MIP, 10, 426.0
 u1000_17.mps, HiGHS, 10, N/A
 u1000_17.mps, SCIP, 10, N/A
 u1000_17.mps, CPLEX, 10, 808.0
 u1000_17.mps, Gurobi(comp), 10, 638.0
 u1000_17.mps, Gurobi(heur), 10, 638.0
-u1000_17.mps, Feasibility Jump, 10, N/A
+u1000_17.mps, Feasibility Jump, 10, 638.0
 u1000_17.mps, Local-MIP, 10, 426.0
 u1000_18.mps, HiGHS, 10, N/A
 u1000_18.mps, SCIP, 10, N/A
 u1000_18.mps, CPLEX, 10, 798.0
 u1000_18.mps, Gurobi(comp), 10, 629.0
 u1000_18.mps, Gurobi(heur), 10, 629.0
-u1000_18.mps, Feasibility Jump, 10, N/A
+u1000_18.mps, Feasibility Jump, 10, 639.0
 u1000_18.mps, Local-MIP, 10, 421.0
 u1000_19.mps, HiGHS, 10, N/A
 u1000_19.mps, SCIP, 10, N/A
 u1000_19.mps, CPLEX, 10, 800.0
 u1000_19.mps, Gurobi(comp), 10, 641.0
 u1000_19.mps, Gurobi(heur), 10, 641.0
-u1000_19.mps, Feasibility Jump, 10, N/A
+u1000_19.mps, Feasibility Jump, 10, 630.0
 u1000_19.mps, Local-MIP, 10, 422.0
 core2586-950.mps, HiGHS, 60, 1005.0
 core2586-950.mps, SCIP, 60, 987.0
@@ -3952,7 +3952,7 @@ neos-3740487-motru.mps, SCIP, 60, N/A
 neos-3740487-motru.mps, CPLEX, 60, N/A
 neos-3740487-motru.mps, Gurobi(comp), 60, N/A
 neos-3740487-motru.mps, Gurobi(heur), 60, N/A
-neos-3740487-motru.mps, Feasibility Jump, 60, 303.577916
+neos-3740487-motru.mps, Feasibility Jump, 60, N/A
 neos-3740487-motru.mps, Local-MIP, 60, N/A
 assign1-10-4.mps, HiGHS, 60, 427.0
 assign1-10-4.mps, SCIP, 60, 463.0
@@ -4183,7 +4183,7 @@ sct1.mps, SCIP, 60, 71.91701
 sct1.mps, CPLEX, 60, -169.92001785
 sct1.mps, Gurobi(comp), 60, -167.2380069
 sct1.mps, Gurobi(heur), 60, -165.7009178
-sct1.mps, Feasibility Jump, 60, 1.3091233561200004e+23
+sct1.mps, Feasibility Jump, 60, 1.4735636298550002e+23
 sct1.mps, Local-MIP, 60, 176.182954
 lr1dr12vc10v70b-t360.mps, HiGHS, 60, N/A
 lr1dr12vc10v70b-t360.mps, SCIP, 60, N/A
@@ -5044,7 +5044,7 @@ fhnw-schedule-pairb400.mps, SCIP, 60, -0.9998022
 fhnw-schedule-pairb400.mps, CPLEX, 60, 0.0
 fhnw-schedule-pairb400.mps, Gurobi(comp), 60, -2.2321292
 fhnw-schedule-pairb400.mps, Gurobi(heur), 60, -2.2321292
-fhnw-schedule-pairb400.mps, Feasibility Jump, 60, -0.999802
+fhnw-schedule-pairb400.mps, Feasibility Jump, 60, -0.998486
 fhnw-schedule-pairb400.mps, Local-MIP, 60, -22.95717
 neos-3355120-tarago.mps, HiGHS, 60, N/A
 neos-3355120-tarago.mps, SCIP, 60, N/A
@@ -5527,7 +5527,7 @@ sct5.mps, SCIP, 60, -182.939
 sct5.mps, CPLEX, 60, -227.92358079
 sct5.mps, Gurobi(comp), 60, -221.4466277
 sct5.mps, Gurobi(heur), 60, -227.9976134
-sct5.mps, Feasibility Jump, 60, 1.3400399999999998e+23
+sct5.mps, Feasibility Jump, 60, 1.3750375599999998e+23
 sct5.mps, Local-MIP, 60, -57.501082
 nag.mps, HiGHS, 60, 4820.0
 nag.mps, SCIP, 60, 3885.0
@@ -5807,7 +5807,7 @@ reblock354.mps, SCIP, 60, -34304330.0
 reblock354.mps, CPLEX, 60, -39118491.73
 reblock354.mps, Gurobi(comp), 60, -39225600.0
 reblock354.mps, Gurobi(heur), 60, -39261200.0
-reblock354.mps, Feasibility Jump, 60, -14990.122408
+reblock354.mps, Feasibility Jump, 60, 0.0
 reblock354.mps, Local-MIP, 60, -35494699.757395
 fhnw-binschedule1.mps, HiGHS, 60, N/A
 fhnw-binschedule1.mps, SCIP, 60, N/A
@@ -7354,420 +7354,420 @@ t501_00.mps, SCIP, 60, 190.0
 t501_00.mps, CPLEX, 60, 173.0
 t501_00.mps, Gurobi(comp), 60, 172.0
 t501_00.mps, Gurobi(heur), 60, 173.0
-t501_00.mps, Feasibility Jump, 60, N/A
+t501_00.mps, Feasibility Jump, 60, 267.0
 t501_00.mps, Local-MIP, 60, 178.0
 t501_01.mps, HiGHS, 60, 279.0
 t501_01.mps, SCIP, 60, 191.0
 t501_01.mps, CPLEX, 60, 171.0
 t501_01.mps, Gurobi(comp), 60, 174.0
 t501_01.mps, Gurobi(heur), 60, 175.0
-t501_01.mps, Feasibility Jump, 60, N/A
+t501_01.mps, Feasibility Jump, 60, 275.0
 t501_01.mps, Local-MIP, 60, 179.0
 t501_02.mps, HiGHS, 60, 280.0
 t501_02.mps, SCIP, 60, 190.0
 t501_02.mps, CPLEX, 60, 173.0
 t501_02.mps, Gurobi(comp), 60, 174.0
 t501_02.mps, Gurobi(heur), 60, 177.0
-t501_02.mps, Feasibility Jump, 60, N/A
+t501_02.mps, Feasibility Jump, 60, 267.0
 t501_02.mps, Local-MIP, 60, 178.0
 t501_03.mps, HiGHS, 60, 282.0
 t501_03.mps, SCIP, 60, 190.0
 t501_03.mps, CPLEX, 60, 188.0
 t501_03.mps, Gurobi(comp), 60, 176.0
 t501_03.mps, Gurobi(heur), 60, 176.0
-t501_03.mps, Feasibility Jump, 60, N/A
+t501_03.mps, Feasibility Jump, 60, 277.0
 t501_03.mps, Local-MIP, 60, 176.0
 t501_04.mps, HiGHS, 60, 280.0
 t501_04.mps, SCIP, 60, 191.0
 t501_04.mps, CPLEX, 60, 174.0
 t501_04.mps, Gurobi(comp), 60, 177.0
 t501_04.mps, Gurobi(heur), 60, 174.0
-t501_04.mps, Feasibility Jump, 60, N/A
+t501_04.mps, Feasibility Jump, 60, 272.0
 t501_04.mps, Local-MIP, 60, 178.0
 t501_05.mps, HiGHS, 60, 280.0
 t501_05.mps, SCIP, 60, 190.0
 t501_05.mps, CPLEX, 60, 190.0
 t501_05.mps, Gurobi(comp), 60, 173.0
 t501_05.mps, Gurobi(heur), 60, 172.0
-t501_05.mps, Feasibility Jump, 60, N/A
+t501_05.mps, Feasibility Jump, 60, 266.0
 t501_05.mps, Local-MIP, 60, 178.0
 t501_06.mps, HiGHS, 60, 281.0
 t501_06.mps, SCIP, 60, 190.0
 t501_06.mps, CPLEX, 60, 177.0
 t501_06.mps, Gurobi(comp), 60, 174.0
 t501_06.mps, Gurobi(heur), 60, 173.0
-t501_06.mps, Feasibility Jump, 60, N/A
+t501_06.mps, Feasibility Jump, 60, 271.0
 t501_06.mps, Local-MIP, 60, 178.0
 t501_07.mps, HiGHS, 60, 281.0
 t501_07.mps, SCIP, 60, 189.0
 t501_07.mps, CPLEX, 60, 172.0
 t501_07.mps, Gurobi(comp), 60, 174.0
 t501_07.mps, Gurobi(heur), 60, 172.0
-t501_07.mps, Feasibility Jump, 60, N/A
+t501_07.mps, Feasibility Jump, 60, 272.0
 t501_07.mps, Local-MIP, 60, 177.0
 t501_08.mps, HiGHS, 60, 280.0
 t501_08.mps, SCIP, 60, 191.0
 t501_08.mps, CPLEX, 60, 175.0
 t501_08.mps, Gurobi(comp), 60, 175.0
 t501_08.mps, Gurobi(heur), 60, 174.0
-t501_08.mps, Feasibility Jump, 60, N/A
+t501_08.mps, Feasibility Jump, 60, 263.0
 t501_08.mps, Local-MIP, 60, 178.0
 t501_09.mps, HiGHS, 60, 281.0
 t501_09.mps, SCIP, 60, 190.0
 t501_09.mps, CPLEX, 60, 174.0
 t501_09.mps, Gurobi(comp), 60, 177.0
 t501_09.mps, Gurobi(heur), 60, 176.0
-t501_09.mps, Feasibility Jump, 60, N/A
+t501_09.mps, Feasibility Jump, 60, 272.0
 t501_09.mps, Local-MIP, 60, 178.0
 t501_10.mps, HiGHS, 60, 283.0
 t501_10.mps, SCIP, 60, 190.0
 t501_10.mps, CPLEX, 60, 190.0
 t501_10.mps, Gurobi(comp), 60, 174.0
 t501_10.mps, Gurobi(heur), 60, 172.0
-t501_10.mps, Feasibility Jump, 60, N/A
+t501_10.mps, Feasibility Jump, 60, 266.0
 t501_10.mps, Local-MIP, 60, 177.0
 t501_11.mps, HiGHS, 60, 282.0
 t501_11.mps, SCIP, 60, 190.0
 t501_11.mps, CPLEX, 60, 171.0
 t501_11.mps, Gurobi(comp), 60, 176.0
 t501_11.mps, Gurobi(heur), 60, 176.0
-t501_11.mps, Feasibility Jump, 60, N/A
+t501_11.mps, Feasibility Jump, 60, 271.0
 t501_11.mps, Local-MIP, 60, 178.0
 t501_12.mps, HiGHS, 60, 279.0
 t501_12.mps, SCIP, 60, 190.0
 t501_12.mps, CPLEX, 60, 188.0
 t501_12.mps, Gurobi(comp), 60, 172.0
 t501_12.mps, Gurobi(heur), 60, 172.0
-t501_12.mps, Feasibility Jump, 60, N/A
+t501_12.mps, Feasibility Jump, 60, 272.0
 t501_12.mps, Local-MIP, 60, 177.0
 t501_13.mps, HiGHS, 60, 281.0
 t501_13.mps, SCIP, 60, 190.0
 t501_13.mps, CPLEX, 60, 172.0
 t501_13.mps, Gurobi(comp), 60, 174.0
 t501_13.mps, Gurobi(heur), 60, 181.0
-t501_13.mps, Feasibility Jump, 60, N/A
+t501_13.mps, Feasibility Jump, 60, 269.0
 t501_13.mps, Local-MIP, 60, 176.0
 t501_14.mps, HiGHS, 60, 280.0
 t501_14.mps, SCIP, 60, 189.0
 t501_14.mps, CPLEX, 60, 172.0
 t501_14.mps, Gurobi(comp), 60, 173.0
 t501_14.mps, Gurobi(heur), 60, 173.0
-t501_14.mps, Feasibility Jump, 60, N/A
+t501_14.mps, Feasibility Jump, 60, 269.0
 t501_14.mps, Local-MIP, 60, 178.0
 t501_15.mps, HiGHS, 60, 282.0
 t501_15.mps, SCIP, 60, 190.0
 t501_15.mps, CPLEX, 60, 189.0
 t501_15.mps, Gurobi(comp), 60, 176.0
 t501_15.mps, Gurobi(heur), 60, 177.0
-t501_15.mps, Feasibility Jump, 60, N/A
+t501_15.mps, Feasibility Jump, 60, 269.0
 t501_15.mps, Local-MIP, 60, 176.0
 t501_16.mps, HiGHS, 60, 281.0
 t501_16.mps, SCIP, 60, 189.0
 t501_16.mps, CPLEX, 60, 173.0
 t501_16.mps, Gurobi(comp), 60, 173.0
 t501_16.mps, Gurobi(heur), 60, 174.0
-t501_16.mps, Feasibility Jump, 60, N/A
+t501_16.mps, Feasibility Jump, 60, 274.0
 t501_16.mps, Local-MIP, 60, 177.0
 t501_17.mps, HiGHS, 60, 281.0
 t501_17.mps, SCIP, 60, 191.0
 t501_17.mps, CPLEX, 60, 171.0
 t501_17.mps, Gurobi(comp), 60, 173.0
 t501_17.mps, Gurobi(heur), 60, 181.0
-t501_17.mps, Feasibility Jump, 60, N/A
+t501_17.mps, Feasibility Jump, 60, 276.0
 t501_17.mps, Local-MIP, 60, 177.0
 t501_18.mps, HiGHS, 60, 279.0
 t501_18.mps, SCIP, 60, 189.0
 t501_18.mps, CPLEX, 60, 189.0
 t501_18.mps, Gurobi(comp), 60, 174.0
 t501_18.mps, Gurobi(heur), 60, 174.0
-t501_18.mps, Feasibility Jump, 60, N/A
+t501_18.mps, Feasibility Jump, 60, 280.0
 t501_18.mps, Local-MIP, 60, 178.0
 t501_19.mps, HiGHS, 60, 280.0
 t501_19.mps, SCIP, 60, 191.0
 t501_19.mps, CPLEX, 60, 174.0
 t501_19.mps, Gurobi(comp), 60, 172.0
 t501_19.mps, Gurobi(heur), 60, 174.0
-t501_19.mps, Feasibility Jump, 60, N/A
+t501_19.mps, Feasibility Jump, 60, 270.0
 t501_19.mps, Local-MIP, 60, 178.0
 u500_00.mps, HiGHS, 60, 325.0
 u500_00.mps, SCIP, 60, N/A
 u500_00.mps, CPLEX, 60, 235.0
 u500_00.mps, Gurobi(comp), 60, 208.0
 u500_00.mps, Gurobi(heur), 60, 219.0
-u500_00.mps, Feasibility Jump, 60, N/A
+u500_00.mps, Feasibility Jump, 60, 320.0
 u500_00.mps, Local-MIP, 60, 207.0
 u500_01.mps, HiGHS, 60, 335.0
 u500_01.mps, SCIP, 60, N/A
 u500_01.mps, CPLEX, 60, 239.0
 u500_01.mps, Gurobi(comp), 60, 214.0
 u500_01.mps, Gurobi(heur), 60, 210.0
-u500_01.mps, Feasibility Jump, 60, N/A
+u500_01.mps, Feasibility Jump, 60, 323.0
 u500_01.mps, Local-MIP, 60, 210.0
 u500_02.mps, HiGHS, 60, 328.0
 u500_02.mps, SCIP, 60, N/A
 u500_02.mps, CPLEX, 60, 212.0
 u500_02.mps, Gurobi(comp), 60, 214.0
 u500_02.mps, Gurobi(heur), 60, 215.0
-u500_02.mps, Feasibility Jump, 60, N/A
+u500_02.mps, Feasibility Jump, 60, 321.0
 u500_02.mps, Local-MIP, 60, 211.0
 u500_03.mps, HiGHS, 60, 331.0
 u500_03.mps, SCIP, 60, N/A
 u500_03.mps, CPLEX, 60, 214.0
 u500_03.mps, Gurobi(comp), 60, 213.0
 u500_03.mps, Gurobi(heur), 60, 216.0
-u500_03.mps, Feasibility Jump, 60, N/A
+u500_03.mps, Feasibility Jump, 60, 322.0
 u500_03.mps, Local-MIP, 60, 214.0
 u500_04.mps, HiGHS, 60, 355.0
 u500_04.mps, SCIP, 60, N/A
 u500_04.mps, CPLEX, 60, 412.0
 u500_04.mps, Gurobi(comp), 60, 218.0
 u500_04.mps, Gurobi(heur), 60, 220.0
-u500_04.mps, Feasibility Jump, 60, N/A
+u500_04.mps, Feasibility Jump, 60, 325.0
 u500_04.mps, Local-MIP, 60, 215.0
 u500_05.mps, HiGHS, 60, 349.0
 u500_05.mps, SCIP, 60, N/A
 u500_05.mps, CPLEX, 60, 238.0
 u500_05.mps, Gurobi(comp), 60, 215.0
 u500_05.mps, Gurobi(heur), 60, 217.0
-u500_05.mps, Feasibility Jump, 60, N/A
+u500_05.mps, Feasibility Jump, 60, 328.0
 u500_05.mps, Local-MIP, 60, 216.0
 u500_06.mps, HiGHS, 60, 345.0
 u500_06.mps, SCIP, 60, N/A
 u500_06.mps, CPLEX, 60, 219.0
 u500_06.mps, Gurobi(comp), 60, 217.0
 u500_06.mps, Gurobi(heur), 60, 218.0
-u500_06.mps, Feasibility Jump, 60, N/A
+u500_06.mps, Feasibility Jump, 60, 331.0
 u500_06.mps, Local-MIP, 60, 218.0
 u500_07.mps, HiGHS, 60, 337.0
 u500_07.mps, SCIP, 60, N/A
 u500_07.mps, CPLEX, 60, 231.0
 u500_07.mps, Gurobi(comp), 60, 218.0
 u500_07.mps, Gurobi(heur), 60, 220.0
-u500_07.mps, Feasibility Jump, 60, N/A
+u500_07.mps, Feasibility Jump, 60, 329.0
 u500_07.mps, Local-MIP, 60, 214.0
 u500_08.mps, HiGHS, 60, 331.0
 u500_08.mps, SCIP, 60, N/A
 u500_08.mps, CPLEX, 60, 215.0
 u500_08.mps, Gurobi(comp), 60, 210.0
 u500_08.mps, Gurobi(heur), 60, 211.0
-u500_08.mps, Feasibility Jump, 60, N/A
+u500_08.mps, Feasibility Jump, 60, 302.0
 u500_08.mps, Local-MIP, 60, 205.0
 u500_09.mps, HiGHS, 60, 326.0
 u500_09.mps, SCIP, 60, N/A
 u500_09.mps, CPLEX, 60, 229.0
 u500_09.mps, Gurobi(comp), 60, 209.0
 u500_09.mps, Gurobi(heur), 60, 214.0
-u500_09.mps, Feasibility Jump, 60, N/A
+u500_09.mps, Feasibility Jump, 60, 321.0
 u500_09.mps, Local-MIP, 60, 211.0
 u500_10.mps, HiGHS, 60, 319.0
 u500_10.mps, SCIP, 60, N/A
 u500_10.mps, CPLEX, 60, 212.0
 u500_10.mps, Gurobi(comp), 60, 206.0
 u500_10.mps, Gurobi(heur), 60, 209.0
-u500_10.mps, Feasibility Jump, 60, N/A
+u500_10.mps, Feasibility Jump, 60, 322.0
 u500_10.mps, Local-MIP, 60, 208.0
 u500_11.mps, HiGHS, 60, 319.0
 u500_11.mps, SCIP, 60, N/A
 u500_11.mps, CPLEX, 60, 220.0
 u500_11.mps, Gurobi(comp), 60, 215.0
 u500_11.mps, Gurobi(heur), 60, 208.0
-u500_11.mps, Feasibility Jump, 60, N/A
+u500_11.mps, Feasibility Jump, 60, 310.0
 u500_11.mps, Local-MIP, 60, 210.0
 u500_12.mps, HiGHS, 60, 327.0
 u500_12.mps, SCIP, 60, N/A
 u500_12.mps, CPLEX, 60, 225.0
 u500_12.mps, Gurobi(comp), 60, 213.0
 u500_12.mps, Gurobi(heur), 60, 209.0
-u500_12.mps, Feasibility Jump, 60, N/A
+u500_12.mps, Feasibility Jump, 60, 315.0
 u500_12.mps, Local-MIP, 60, 208.0
 u500_13.mps, HiGHS, 60, 332.0
 u500_13.mps, SCIP, 60, N/A
 u500_13.mps, CPLEX, 60, 213.0
 u500_13.mps, Gurobi(comp), 60, 204.0
 u500_13.mps, Gurobi(heur), 60, 204.0
-u500_13.mps, Feasibility Jump, 60, N/A
+u500_13.mps, Feasibility Jump, 60, 319.0
 u500_13.mps, Local-MIP, 60, 204.0
 u500_14.mps, HiGHS, 60, 335.0
 u500_14.mps, SCIP, 60, N/A
 u500_14.mps, CPLEX, 60, 213.0
 u500_14.mps, Gurobi(comp), 60, 212.0
 u500_14.mps, Gurobi(heur), 60, 211.0
-u500_14.mps, Feasibility Jump, 60, N/A
+u500_14.mps, Feasibility Jump, 60, 324.0
 u500_14.mps, Local-MIP, 60, 212.0
 u500_15.mps, HiGHS, 60, 330.0
 u500_15.mps, SCIP, 60, N/A
 u500_15.mps, CPLEX, 60, 233.0
 u500_15.mps, Gurobi(comp), 60, 211.0
 u500_15.mps, Gurobi(heur), 60, 214.0
-u500_15.mps, Feasibility Jump, 60, N/A
+u500_15.mps, Feasibility Jump, 60, 314.0
 u500_15.mps, Local-MIP, 60, 210.0
 u500_16.mps, HiGHS, 60, 333.0
 u500_16.mps, SCIP, 60, N/A
 u500_16.mps, CPLEX, 60, 239.0
 u500_16.mps, Gurobi(comp), 60, 208.0
 u500_16.mps, Gurobi(heur), 60, 207.0
-u500_16.mps, Feasibility Jump, 60, N/A
+u500_16.mps, Feasibility Jump, 60, 319.0
 u500_16.mps, Local-MIP, 60, 210.0
 u500_17.mps, HiGHS, 60, 324.0
 u500_17.mps, SCIP, 60, N/A
 u500_17.mps, CPLEX, 60, 233.0
 u500_17.mps, Gurobi(comp), 60, 210.0
 u500_17.mps, Gurobi(heur), 60, 207.0
-u500_17.mps, Feasibility Jump, 60, N/A
+u500_17.mps, Feasibility Jump, 60, 315.0
 u500_17.mps, Local-MIP, 60, 207.0
 u500_18.mps, HiGHS, 60, 326.0
 u500_18.mps, SCIP, 60, N/A
 u500_18.mps, CPLEX, 60, 206.0
 u500_18.mps, Gurobi(comp), 60, 209.0
 u500_18.mps, Gurobi(heur), 60, 214.0
-u500_18.mps, Feasibility Jump, 60, N/A
+u500_18.mps, Feasibility Jump, 60, 328.0
 u500_18.mps, Local-MIP, 60, 211.0
 u500_19.mps, HiGHS, 60, 327.0
 u500_19.mps, SCIP, 60, N/A
 u500_19.mps, CPLEX, 60, 230.0
 u500_19.mps, Gurobi(comp), 60, 206.0
 u500_19.mps, Gurobi(heur), 60, 208.0
-u500_19.mps, Feasibility Jump, 60, N/A
+u500_19.mps, Feasibility Jump, 60, 320.0
 u500_19.mps, Local-MIP, 60, 205.0
 u1000_00.mps, HiGHS, 60, N/A
 u1000_00.mps, SCIP, 60, N/A
 u1000_00.mps, CPLEX, 60, 798.0
 u1000_00.mps, Gurobi(comp), 60, 555.0
 u1000_00.mps, Gurobi(heur), 60, 627.0
-u1000_00.mps, Feasibility Jump, 60, N/A
+u1000_00.mps, Feasibility Jump, 60, 646.0
 u1000_00.mps, Local-MIP, 60, 419.0
 u1000_01.mps, HiGHS, 60, N/A
 u1000_01.mps, SCIP, 60, N/A
 u1000_01.mps, CPLEX, 60, 812.0
 u1000_01.mps, Gurobi(comp), 60, 574.0
 u1000_01.mps, Gurobi(heur), 60, 501.0
-u1000_01.mps, Feasibility Jump, 60, N/A
+u1000_01.mps, Feasibility Jump, 60, 650.0
 u1000_01.mps, Local-MIP, 60, 426.0
 u1000_02.mps, HiGHS, 60, N/A
 u1000_02.mps, SCIP, 60, N/A
 u1000_02.mps, CPLEX, 60, 822.0
 u1000_02.mps, Gurobi(comp), 60, 583.0
 u1000_02.mps, Gurobi(heur), 60, 511.0
-u1000_02.mps, Feasibility Jump, 60, N/A
+u1000_02.mps, Feasibility Jump, 60, 651.0
 u1000_02.mps, Local-MIP, 60, 431.0
 u1000_03.mps, HiGHS, 60, N/A
 u1000_03.mps, SCIP, 60, N/A
 u1000_03.mps, CPLEX, 60, 822.0
 u1000_03.mps, Gurobi(comp), 60, 589.0
 u1000_03.mps, Gurobi(heur), 60, 516.0
-u1000_03.mps, Feasibility Jump, 60, N/A
+u1000_03.mps, Feasibility Jump, 60, 652.0
 u1000_03.mps, Local-MIP, 60, 432.0
 u1000_04.mps, HiGHS, 60, N/A
 u1000_04.mps, SCIP, 60, N/A
 u1000_04.mps, CPLEX, 60, 794.0
 u1000_04.mps, Gurobi(comp), 60, 566.0
 u1000_04.mps, Gurobi(heur), 60, 627.0
-u1000_04.mps, Feasibility Jump, 60, N/A
+u1000_04.mps, Feasibility Jump, 60, 635.0
 u1000_04.mps, Local-MIP, 60, 417.0
 u1000_05.mps, HiGHS, 60, N/A
 u1000_05.mps, SCIP, 60, N/A
 u1000_05.mps, CPLEX, 60, 798.0
 u1000_05.mps, Gurobi(comp), 60, 506.0
 u1000_05.mps, Gurobi(heur), 60, 628.0
-u1000_05.mps, Feasibility Jump, 60, N/A
+u1000_05.mps, Feasibility Jump, 60, 638.0
 u1000_05.mps, Local-MIP, 60, 419.0
 u1000_06.mps, HiGHS, 60, N/A
 u1000_06.mps, SCIP, 60, N/A
 u1000_06.mps, CPLEX, 60, 790.0
 u1000_06.mps, Gurobi(comp), 60, 628.0
 u1000_06.mps, Gurobi(heur), 60, 628.0
-u1000_06.mps, Feasibility Jump, 60, N/A
+u1000_06.mps, Feasibility Jump, 60, 617.0
 u1000_06.mps, Local-MIP, 60, 412.0
 u1000_07.mps, HiGHS, 60, N/A
 u1000_07.mps, SCIP, 60, N/A
 u1000_07.mps, CPLEX, 60, 808.0
 u1000_07.mps, Gurobi(comp), 60, 510.0
 u1000_07.mps, Gurobi(heur), 60, 636.0
-u1000_07.mps, Feasibility Jump, 60, N/A
+u1000_07.mps, Feasibility Jump, 60, 652.0
 u1000_07.mps, Local-MIP, 60, 423.0
 u1000_08.mps, HiGHS, 60, N/A
 u1000_08.mps, SCIP, 60, N/A
 u1000_08.mps, CPLEX, 60, 798.0
 u1000_08.mps, Gurobi(comp), 60, 570.0
 u1000_08.mps, Gurobi(heur), 60, 629.0
-u1000_08.mps, Feasibility Jump, 60, N/A
+u1000_08.mps, Feasibility Jump, 60, 619.0
 u1000_08.mps, Local-MIP, 60, 418.0
 u1000_09.mps, HiGHS, 60, N/A
 u1000_09.mps, SCIP, 60, N/A
 u1000_09.mps, CPLEX, 60, 794.0
 u1000_09.mps, Gurobi(comp), 60, 569.0
 u1000_09.mps, Gurobi(heur), 60, 631.0
-u1000_09.mps, Feasibility Jump, 60, N/A
+u1000_09.mps, Feasibility Jump, 60, 638.0
 u1000_09.mps, Local-MIP, 60, 417.0
 u1000_10.mps, HiGHS, 60, N/A
 u1000_10.mps, SCIP, 60, N/A
 u1000_10.mps, CPLEX, 60, 800.0
 u1000_10.mps, Gurobi(comp), 60, 641.0
 u1000_10.mps, Gurobi(heur), 60, 641.0
-u1000_10.mps, Feasibility Jump, 60, N/A
+u1000_10.mps, Feasibility Jump, 60, 643.0
 u1000_10.mps, Local-MIP, 60, 419.0
 u1000_11.mps, HiGHS, 60, N/A
 u1000_11.mps, SCIP, 60, N/A
 u1000_11.mps, CPLEX, 60, 802.0
 u1000_11.mps, Gurobi(comp), 60, 515.0
 u1000_11.mps, Gurobi(heur), 60, 501.0
-u1000_11.mps, Feasibility Jump, 60, N/A
+u1000_11.mps, Feasibility Jump, 60, 634.0
 u1000_11.mps, Local-MIP, 60, 421.0
 u1000_12.mps, HiGHS, 60, N/A
 u1000_12.mps, SCIP, 60, N/A
 u1000_12.mps, CPLEX, 60, 786.0
 u1000_12.mps, Gurobi(comp), 60, 513.0
 u1000_12.mps, Gurobi(heur), 60, 636.0
-u1000_12.mps, Feasibility Jump, 60, N/A
+u1000_12.mps, Feasibility Jump, 60, 628.0
 u1000_12.mps, Local-MIP, 60, 412.0
 u1000_13.mps, HiGHS, 60, N/A
 u1000_13.mps, SCIP, 60, N/A
 u1000_13.mps, CPLEX, 60, 792.0
 u1000_13.mps, Gurobi(comp), 60, 574.0
 u1000_13.mps, Gurobi(heur), 60, 624.0
-u1000_13.mps, Feasibility Jump, 60, N/A
+u1000_13.mps, Feasibility Jump, 60, 627.0
 u1000_13.mps, Local-MIP, 60, 415.0
 u1000_14.mps, HiGHS, 60, N/A
 u1000_14.mps, SCIP, 60, N/A
 u1000_14.mps, CPLEX, 60, 788.0
 u1000_14.mps, Gurobi(comp), 60, 568.0
 u1000_14.mps, Gurobi(heur), 60, 631.0
-u1000_14.mps, Feasibility Jump, 60, N/A
+u1000_14.mps, Feasibility Jump, 60, 626.0
 u1000_14.mps, Local-MIP, 60, 414.0
 u1000_15.mps, HiGHS, 60, N/A
 u1000_15.mps, SCIP, 60, N/A
 u1000_15.mps, CPLEX, 60, 804.0
 u1000_15.mps, Gurobi(comp), 60, 510.0
 u1000_15.mps, Gurobi(heur), 60, 645.0
-u1000_15.mps, Feasibility Jump, 60, N/A
+u1000_15.mps, Feasibility Jump, 60, 650.0
 u1000_15.mps, Local-MIP, 60, 423.0
 u1000_16.mps, HiGHS, 60, N/A
 u1000_16.mps, SCIP, 60, N/A
 u1000_16.mps, CPLEX, 60, 808.0
 u1000_16.mps, Gurobi(comp), 60, 583.0
 u1000_16.mps, Gurobi(heur), 60, 502.0
-u1000_16.mps, Feasibility Jump, 60, N/A
+u1000_16.mps, Feasibility Jump, 60, 647.0
 u1000_16.mps, Local-MIP, 60, 423.0
 u1000_17.mps, HiGHS, 60, N/A
 u1000_17.mps, SCIP, 60, N/A
 u1000_17.mps, CPLEX, 60, 808.0
 u1000_17.mps, Gurobi(comp), 60, 516.0
 u1000_17.mps, Gurobi(heur), 60, 638.0
-u1000_17.mps, Feasibility Jump, 60, N/A
+u1000_17.mps, Feasibility Jump, 60, 638.0
 u1000_17.mps, Local-MIP, 60, 424.0
 u1000_18.mps, HiGHS, 60, N/A
 u1000_18.mps, SCIP, 60, N/A
 u1000_18.mps, CPLEX, 60, 798.0
 u1000_18.mps, Gurobi(comp), 60, 574.0
 u1000_18.mps, Gurobi(heur), 60, 497.0
-u1000_18.mps, Feasibility Jump, 60, N/A
+u1000_18.mps, Feasibility Jump, 60, 639.0
 u1000_18.mps, Local-MIP, 60, 417.0
 u1000_19.mps, HiGHS, 60, N/A
 u1000_19.mps, SCIP, 60, N/A
 u1000_19.mps, CPLEX, 60, 800.0
 u1000_19.mps, Gurobi(comp), 60, 564.0
 u1000_19.mps, Gurobi(heur), 60, 500.0
-u1000_19.mps, Feasibility Jump, 60, N/A
+u1000_19.mps, Feasibility Jump, 60, 630.0
 u1000_19.mps, Local-MIP, 60, 419.0
 core2586-950.mps, HiGHS, 300, 971.0
 core2586-950.mps, SCIP, 300, 984.0
@@ -10140,7 +10140,7 @@ in.mps, SCIP, 300, 1047.0
 in.mps, CPLEX, 300, 1489.0
 in.mps, Gurobi(comp), 300, 1487.0
 in.mps, Gurobi(heur), 300, 1487.0
-in.mps, Feasibility Jump, 300, 1488.0
+in.mps, Feasibility Jump, 300, 1489.0
 in.mps, Local-MIP, 300, 129.0
 neos-4954274-beardy.mps, HiGHS, 300, N/A
 neos-4954274-beardy.mps, SCIP, 300, N/A
@@ -10168,7 +10168,7 @@ tbfp-bigm.mps, SCIP, 300, 28.78819
 tbfp-bigm.mps, CPLEX, 300, 25.812499994
 tbfp-bigm.mps, Gurobi(comp), 300, 26.8694444
 tbfp-bigm.mps, Gurobi(heur), 300, 24.625
-tbfp-bigm.mps, Feasibility Jump, 300, 147.274306
+tbfp-bigm.mps, Feasibility Jump, 300, 154.25
 tbfp-bigm.mps, Local-MIP, 300, 26.791667
 ns1631475.mps, HiGHS, 300, N/A
 ns1631475.mps, SCIP, 300, 28800.0
@@ -10182,7 +10182,7 @@ rvb-sub.mps, SCIP, 300, 693.4194
 rvb-sub.mps, CPLEX, 300, 35.29555512
 rvb-sub.mps, Gurobi(comp), 300, 43.3499996
 rvb-sub.mps, Gurobi(heur), 300, 16.5344427
-rvb-sub.mps, Feasibility Jump, 300, -95.688334
+rvb-sub.mps, Feasibility Jump, 300, 725.979999
 rvb-sub.mps, Local-MIP, 300, 323.090832
 scpk4.mps, HiGHS, 300, 945.0
 scpk4.mps, SCIP, 300, 382.0
@@ -11239,418 +11239,418 @@ t501_00.mps, SCIP, 300, 190.0
 t501_00.mps, CPLEX, 300, 173.0
 t501_00.mps, Gurobi(comp), 300, 171.0
 t501_00.mps, Gurobi(heur), 300, 172.0
-t501_00.mps, Feasibility Jump, 300, N/A
+t501_00.mps, Feasibility Jump, 300, 267.0
 t501_00.mps, Local-MIP, 300, 175.0
 t501_01.mps, HiGHS, 300, 279.0
 t501_01.mps, SCIP, 300, 191.0
 t501_01.mps, CPLEX, 300, 171.0
 t501_01.mps, Gurobi(comp), 300, 170.0
 t501_01.mps, Gurobi(heur), 300, 170.0
-t501_01.mps, Feasibility Jump, 300, N/A
+t501_01.mps, Feasibility Jump, 300, 275.0
 t501_01.mps, Local-MIP, 300, 175.0
 t501_02.mps, HiGHS, 300, 280.0
 t501_02.mps, SCIP, 300, 190.0
 t501_02.mps, CPLEX, 300, 172.0
 t501_02.mps, Gurobi(comp), 300, 173.0
 t501_02.mps, Gurobi(heur), 300, 172.0
-t501_02.mps, Feasibility Jump, 300, N/A
+t501_02.mps, Feasibility Jump, 300, 267.0
 t501_02.mps, Local-MIP, 300, 174.0
 t501_03.mps, HiGHS, 300, 282.0
 t501_03.mps, SCIP, 300, 190.0
 t501_03.mps, CPLEX, 300, 170.0
 t501_03.mps, Gurobi(comp), 300, 170.0
 t501_03.mps, Gurobi(heur), 300, 172.0
-t501_03.mps, Feasibility Jump, 300, N/A
+t501_03.mps, Feasibility Jump, 300, 277.0
 t501_03.mps, Local-MIP, 300, 174.0
 t501_04.mps, HiGHS, 300, 280.0
 t501_04.mps, SCIP, 300, 191.0
 t501_04.mps, CPLEX, 300, 170.0
 t501_04.mps, Gurobi(comp), 300, 170.0
 t501_04.mps, Gurobi(heur), 300, 171.0
-t501_04.mps, Feasibility Jump, 300, N/A
+t501_04.mps, Feasibility Jump, 300, 272.0
 t501_04.mps, Local-MIP, 300, 176.0
 t501_05.mps, HiGHS, 300, 280.0
 t501_05.mps, SCIP, 300, 190.0
 t501_05.mps, CPLEX, 300, 171.0
 t501_05.mps, Gurobi(comp), 300, 171.0
 t501_05.mps, Gurobi(heur), 300, 171.0
-t501_05.mps, Feasibility Jump, 300, N/A
+t501_05.mps, Feasibility Jump, 300, 266.0
 t501_05.mps, Local-MIP, 300, 175.0
 t501_06.mps, HiGHS, 300, 281.0
 t501_06.mps, SCIP, 300, 190.0
 t501_06.mps, CPLEX, 300, 174.0
 t501_06.mps, Gurobi(comp), 300, 171.0
 t501_06.mps, Gurobi(heur), 300, 171.0
-t501_06.mps, Feasibility Jump, 300, N/A
+t501_06.mps, Feasibility Jump, 300, 271.0
 t501_06.mps, Local-MIP, 300, 175.0
 t501_07.mps, HiGHS, 300, 281.0
 t501_07.mps, SCIP, 300, 189.0
 t501_07.mps, CPLEX, 300, 170.0
 t501_07.mps, Gurobi(comp), 300, 170.9999999
 t501_07.mps, Gurobi(heur), 300, 171.0
-t501_07.mps, Feasibility Jump, 300, N/A
+t501_07.mps, Feasibility Jump, 300, 272.0
 t501_07.mps, Local-MIP, 300, 175.0
 t501_08.mps, HiGHS, 300, 280.0
 t501_08.mps, SCIP, 300, 191.0
 t501_08.mps, CPLEX, 300, 170.0
 t501_08.mps, Gurobi(comp), 300, 172.0
 t501_08.mps, Gurobi(heur), 300, 172.0
-t501_08.mps, Feasibility Jump, 300, N/A
+t501_08.mps, Feasibility Jump, 300, 263.0
 t501_08.mps, Local-MIP, 300, 175.0
 t501_09.mps, HiGHS, 300, 281.0
 t501_09.mps, SCIP, 300, 190.0
 t501_09.mps, CPLEX, 300, 171.0
 t501_09.mps, Gurobi(comp), 300, 171.0
 t501_09.mps, Gurobi(heur), 300, 172.0
-t501_09.mps, Feasibility Jump, 300, N/A
+t501_09.mps, Feasibility Jump, 300, 272.0
 t501_09.mps, Local-MIP, 300, 175.0
 t501_10.mps, HiGHS, 300, 283.0
 t501_10.mps, SCIP, 300, 190.0
 t501_10.mps, CPLEX, 300, 170.0
 t501_10.mps, Gurobi(comp), 300, 172.0
 t501_10.mps, Gurobi(heur), 300, 171.0
-t501_10.mps, Feasibility Jump, 300, N/A
+t501_10.mps, Feasibility Jump, 300, 266.0
 t501_10.mps, Local-MIP, 300, 175.0
 t501_11.mps, HiGHS, 300, 282.0
 t501_11.mps, SCIP, 300, 190.0
 t501_11.mps, CPLEX, 300, 170.0
 t501_11.mps, Gurobi(comp), 300, 171.0
 t501_11.mps, Gurobi(heur), 300, 173.0
-t501_11.mps, Feasibility Jump, 300, N/A
+t501_11.mps, Feasibility Jump, 300, 271.0
 t501_11.mps, Local-MIP, 300, 175.0
 t501_12.mps, HiGHS, 300, 279.0
 t501_12.mps, SCIP, 300, 190.0
 t501_12.mps, CPLEX, 300, 172.0
 t501_12.mps, Gurobi(comp), 300, 171.0
 t501_12.mps, Gurobi(heur), 300, 172.0
-t501_12.mps, Feasibility Jump, 300, N/A
+t501_12.mps, Feasibility Jump, 300, 272.0
 t501_12.mps, Local-MIP, 300, 174.0
 t501_13.mps, HiGHS, 300, 281.0
 t501_13.mps, SCIP, 300, 190.0
 t501_13.mps, CPLEX, 300, 172.0
 t501_13.mps, Gurobi(comp), 300, 173.0
 t501_13.mps, Gurobi(heur), 300, 172.0
-t501_13.mps, Feasibility Jump, 300, N/A
+t501_13.mps, Feasibility Jump, 300, 269.0
 t501_13.mps, Local-MIP, 300, 175.0
 t501_14.mps, HiGHS, 300, 280.0
 t501_14.mps, SCIP, 300, 189.0
 t501_14.mps, CPLEX, 300, 172.0
 t501_14.mps, Gurobi(comp), 300, 171.0
 t501_14.mps, Gurobi(heur), 300, 172.0
-t501_14.mps, Feasibility Jump, 300, N/A
+t501_14.mps, Feasibility Jump, 300, 269.0
 t501_14.mps, Local-MIP, 300, 175.0
 t501_15.mps, HiGHS, 300, 282.0
 t501_15.mps, SCIP, 300, 190.0
 t501_15.mps, CPLEX, 300, 169.0
 t501_15.mps, Gurobi(comp), 300, 172.0
 t501_15.mps, Gurobi(heur), 300, 172.0
-t501_15.mps, Feasibility Jump, 300, N/A
+t501_15.mps, Feasibility Jump, 300, 269.0
 t501_15.mps, Local-MIP, 300, 175.0
 t501_16.mps, HiGHS, 300, 281.0
 t501_16.mps, SCIP, 300, 189.0
 t501_16.mps, CPLEX, 300, 172.0
 t501_16.mps, Gurobi(comp), 300, 172.0
 t501_16.mps, Gurobi(heur), 300, 172.0
-t501_16.mps, Feasibility Jump, 300, N/A
+t501_16.mps, Feasibility Jump, 300, 274.0
 t501_16.mps, Local-MIP, 300, 176.0
 t501_17.mps, HiGHS, 300, 281.0
 t501_17.mps, SCIP, 300, 191.0
 t501_17.mps, CPLEX, 300, 171.0
 t501_17.mps, Gurobi(comp), 300, 172.0
 t501_17.mps, Gurobi(heur), 300, 172.0
-t501_17.mps, Feasibility Jump, 300, N/A
+t501_17.mps, Feasibility Jump, 300, 276.0
 t501_17.mps, Local-MIP, 300, 175.0
 t501_18.mps, HiGHS, 300, 279.0
 t501_18.mps, SCIP, 300, 189.0
 t501_18.mps, CPLEX, 300, 173.0
 t501_18.mps, Gurobi(comp), 300, 172.0
 t501_18.mps, Gurobi(heur), 300, 172.0
-t501_18.mps, Feasibility Jump, 300, N/A
+t501_18.mps, Feasibility Jump, 300, 280.0
 t501_18.mps, Local-MIP, 300, 174.0
 t501_19.mps, HiGHS, 300, 280.0
 t501_19.mps, SCIP, 300, 191.0
 t501_19.mps, CPLEX, 300, 174.0
 t501_19.mps, Gurobi(comp), 300, 170.0
 t501_19.mps, Gurobi(heur), 300, 171.0
-t501_19.mps, Feasibility Jump, 300, N/A
+t501_19.mps, Feasibility Jump, 300, 270.0
 t501_19.mps, Local-MIP, 300, 175.0
 u500_00.mps, HiGHS, 300, 325.0
 u500_00.mps, SCIP, 300, 253.0
 u500_00.mps, CPLEX, 300, 202.0
 u500_00.mps, Gurobi(comp), 300, 202.0
 u500_00.mps, Gurobi(heur), 300, 204.0
-u500_00.mps, Feasibility Jump, 300, N/A
+u500_00.mps, Feasibility Jump, 300, 320.0
 u500_00.mps, Local-MIP, 300, 207.0
 u500_01.mps, HiGHS, 300, 335.0
 u500_01.mps, SCIP, 300, 255.0
 u500_01.mps, CPLEX, 300, 206.0
 u500_01.mps, Gurobi(comp), 300, 205.0
 u500_01.mps, Gurobi(heur), 300, 207.0
-u500_01.mps, Feasibility Jump, 300, N/A
+u500_01.mps, Feasibility Jump, 300, 323.0
 u500_01.mps, Local-MIP, 300, 210.0
 u500_02.mps, HiGHS, 300, 328.0
 u500_02.mps, SCIP, 300, 260.0
 u500_02.mps, CPLEX, 300, 206.0
 u500_02.mps, Gurobi(comp), 300, 207.0
 u500_02.mps, Gurobi(heur), 300, 208.0
-u500_02.mps, Feasibility Jump, 300, N/A
+u500_02.mps, Feasibility Jump, 300, 321.0
 u500_02.mps, Local-MIP, 300, 211.0
 u500_03.mps, HiGHS, 300, 331.0
 u500_03.mps, SCIP, 300, 264.0
 u500_03.mps, CPLEX, 300, 206.0
 u500_03.mps, Gurobi(comp), 300, 208.0
 u500_03.mps, Gurobi(heur), 300, 210.0
-u500_03.mps, Feasibility Jump, 300, N/A
+u500_03.mps, Feasibility Jump, 300, 322.0
 u500_03.mps, Local-MIP, 300, 213.0
 u500_04.mps, HiGHS, 300, 355.0
 u500_04.mps, SCIP, 300, 265.0
 u500_04.mps, CPLEX, 300, 207.0
 u500_04.mps, Gurobi(comp), 300, 211.0
 u500_04.mps, Gurobi(heur), 300, 210.0
-u500_04.mps, Feasibility Jump, 300, N/A
+u500_04.mps, Feasibility Jump, 300, 325.0
 u500_04.mps, Local-MIP, 300, 215.0
 u500_05.mps, HiGHS, 300, 349.0
 u500_05.mps, SCIP, 300, 266.0
 u500_05.mps, CPLEX, 300, 209.0
 u500_05.mps, Gurobi(comp), 300, 211.0
 u500_05.mps, Gurobi(heur), 300, 211.0
-u500_05.mps, Feasibility Jump, 300, N/A
+u500_05.mps, Feasibility Jump, 300, 328.0
 u500_05.mps, Local-MIP, 300, 215.0
 u500_06.mps, HiGHS, 300, 345.0
 u500_06.mps, SCIP, 300, 267.0
 u500_06.mps, CPLEX, 300, 213.0
 u500_06.mps, Gurobi(comp), 300, 215.0
 u500_06.mps, Gurobi(heur), 300, 215.0
-u500_06.mps, Feasibility Jump, 300, N/A
+u500_06.mps, Feasibility Jump, 300, 331.0
 u500_06.mps, Local-MIP, 300, 217.0
 u500_07.mps, HiGHS, 300, 337.0
 u500_07.mps, SCIP, 300, 264.0
 u500_07.mps, CPLEX, 300, 209.0
 u500_07.mps, Gurobi(comp), 300, 207.0
 u500_07.mps, Gurobi(heur), 300, 210.0
-u500_07.mps, Feasibility Jump, 300, N/A
+u500_07.mps, Feasibility Jump, 300, 329.0
 u500_07.mps, Local-MIP, 300, 213.0
 u500_08.mps, HiGHS, 300, 331.0
 u500_08.mps, SCIP, 300, 248.0
 u500_08.mps, CPLEX, 300, 198.0
 u500_08.mps, Gurobi(comp), 300, 201.0
 u500_08.mps, Gurobi(heur), 300, 203.0
-u500_08.mps, Feasibility Jump, 300, N/A
+u500_08.mps, Feasibility Jump, 300, 302.0
 u500_08.mps, Local-MIP, 300, 205.0
 u500_09.mps, HiGHS, 300, 326.0
 u500_09.mps, SCIP, 300, 255.0
 u500_09.mps, CPLEX, 300, 205.0
 u500_09.mps, Gurobi(comp), 300, 207.0
 u500_09.mps, Gurobi(heur), 300, 209.0
-u500_09.mps, Feasibility Jump, 300, N/A
+u500_09.mps, Feasibility Jump, 300, 321.0
 u500_09.mps, Local-MIP, 300, 211.0
 u500_10.mps, HiGHS, 300, 319.0
 u500_10.mps, SCIP, 300, 255.0
 u500_10.mps, CPLEX, 300, 201.0
 u500_10.mps, Gurobi(comp), 300, 204.0
 u500_10.mps, Gurobi(heur), 300, 206.0
-u500_10.mps, Feasibility Jump, 300, N/A
+u500_10.mps, Feasibility Jump, 300, 322.0
 u500_10.mps, Local-MIP, 300, 208.0
 u500_11.mps, HiGHS, 300, 319.0
 u500_11.mps, SCIP, 300, 256.0
 u500_11.mps, CPLEX, 300, 203.0
 u500_11.mps, Gurobi(comp), 300, 206.0
 u500_11.mps, Gurobi(heur), 300, 206.0
-u500_11.mps, Feasibility Jump, 300, N/A
+u500_11.mps, Feasibility Jump, 300, 310.0
 u500_11.mps, Local-MIP, 300, 209.0
 u500_12.mps, HiGHS, 300, 327.0
 u500_12.mps, SCIP, 300, 249.0
 u500_12.mps, CPLEX, 300, 203.0
 u500_12.mps, Gurobi(comp), 300, 204.0
 u500_12.mps, Gurobi(heur), 300, 205.0
-u500_12.mps, Feasibility Jump, 300, N/A
+u500_12.mps, Feasibility Jump, 300, 315.0
 u500_12.mps, Local-MIP, 300, 208.0
 u500_13.mps, HiGHS, 300, 332.0
 u500_13.mps, SCIP, 300, 249.0
 u500_13.mps, CPLEX, 300, 199.0
 u500_13.mps, Gurobi(comp), 300, 202.0
 u500_13.mps, Gurobi(heur), 300, 201.0
-u500_13.mps, Feasibility Jump, 300, N/A
+u500_13.mps, Feasibility Jump, 300, 319.0
 u500_13.mps, Local-MIP, 300, 204.0
 u500_14.mps, HiGHS, 300, 335.0
 u500_14.mps, SCIP, 300, 261.0
 u500_14.mps, CPLEX, 300, 207.0
 u500_14.mps, Gurobi(comp), 300, 208.0
 u500_14.mps, Gurobi(heur), 300, 210.0
-u500_14.mps, Feasibility Jump, 300, N/A
+u500_14.mps, Feasibility Jump, 300, 324.0
 u500_14.mps, Local-MIP, 300, 212.0
 u500_15.mps, HiGHS, 300, 330.0
 u500_15.mps, SCIP, 300, 254.0
 u500_15.mps, CPLEX, 300, 203.0
 u500_15.mps, Gurobi(comp), 300, 207.0
 u500_15.mps, Gurobi(heur), 300, 206.0
-u500_15.mps, Feasibility Jump, 300, N/A
+u500_15.mps, Feasibility Jump, 300, 314.0
 u500_15.mps, Local-MIP, 300, 210.0
 u500_16.mps, HiGHS, 300, 333.0
 u500_16.mps, SCIP, 300, 260.0
 u500_16.mps, CPLEX, 300, 205.0
 u500_16.mps, Gurobi(comp), 300, 206.0
 u500_16.mps, Gurobi(heur), 300, 206.0
-u500_16.mps, Feasibility Jump, 300, N/A
+u500_16.mps, Feasibility Jump, 300, 319.0
 u500_16.mps, Local-MIP, 300, 210.0
 u500_17.mps, HiGHS, 300, 324.0
 u500_17.mps, SCIP, 300, 253.0
 u500_17.mps, CPLEX, 300, 202.0
 u500_17.mps, Gurobi(comp), 300, 203.0
 u500_17.mps, Gurobi(heur), 300, 204.0
-u500_17.mps, Feasibility Jump, 300, N/A
+u500_17.mps, Feasibility Jump, 300, 315.0
 u500_17.mps, Local-MIP, 300, 207.0
 u500_18.mps, HiGHS, 300, 326.0
 u500_18.mps, SCIP, 300, 263.0
 u500_18.mps, CPLEX, 300, 206.0
 u500_18.mps, Gurobi(comp), 300, 206.0
 u500_18.mps, Gurobi(heur), 300, 208.0
-u500_18.mps, Feasibility Jump, 300, N/A
+u500_18.mps, Feasibility Jump, 300, 328.0
 u500_18.mps, Local-MIP, 300, 211.0
 u500_19.mps, HiGHS, 300, 327.0
 u500_19.mps, SCIP, 300, 252.0
 u500_19.mps, CPLEX, 300, 198.0
 u500_19.mps, Gurobi(comp), 300, 204.0
 u500_19.mps, Gurobi(heur), 300, 202.0
-u500_19.mps, Feasibility Jump, 300, N/A
+u500_19.mps, Feasibility Jump, 300, 320.0
 u500_19.mps, Local-MIP, 300, 204.0
 u1000_00.mps, HiGHS, 300, N/A
 u1000_00.mps, SCIP, 300, N/A
 u1000_00.mps, CPLEX, 300, 798.0
 u1000_00.mps, Gurobi(comp), 300, 412.0
 u1000_00.mps, Gurobi(heur), 300, 414.0
-u1000_00.mps, Feasibility Jump, 300, N/A
+u1000_00.mps, Feasibility Jump, 300, 646.0
 u1000_00.mps, Local-MIP, 300, 418.0
 u1000_01.mps, HiGHS, 300, N/A
 u1000_01.mps, SCIP, 300, N/A
 u1000_01.mps, CPLEX, 300, 482.0
 u1000_01.mps, Gurobi(comp), 300, 423.0
 u1000_01.mps, Gurobi(heur), 300, 424.0
-u1000_01.mps, Feasibility Jump, 300, N/A
+u1000_01.mps, Feasibility Jump, 300, 650.0
 u1000_01.mps, Local-MIP, 300, 425.0
 u1000_02.mps, HiGHS, 300, N/A
 u1000_02.mps, SCIP, 300, N/A
 u1000_02.mps, CPLEX, 300, 457.0
 u1000_02.mps, Gurobi(comp), 300, 421.0
 u1000_02.mps, Gurobi(heur), 300, 424.0
-u1000_02.mps, Feasibility Jump, 300, N/A
+u1000_02.mps, Feasibility Jump, 300, 651.0
 u1000_02.mps, Local-MIP, 300, 430.0
 u1000_03.mps, HiGHS, 300, N/A
 u1000_03.mps, SCIP, 300, N/A
 u1000_03.mps, CPLEX, 300, 822.0
 u1000_03.mps, Gurobi(comp), 300, 423.0
 u1000_03.mps, Gurobi(heur), 300, 423.0
-u1000_03.mps, Feasibility Jump, 300, N/A
+u1000_03.mps, Feasibility Jump, 300, 652.0
 u1000_03.mps, Local-MIP, 300, 431.0
 u1000_04.mps, HiGHS, 300, 659.0
 u1000_04.mps, SCIP, 300, N/A
 u1000_04.mps, CPLEX, 300, 455.0
 u1000_04.mps, Gurobi(comp), 300, 418.0
 u1000_04.mps, Gurobi(heur), 300, 413.0
-u1000_04.mps, Feasibility Jump, 300, N/A
+u1000_04.mps, Feasibility Jump, 300, 635.0
 u1000_04.mps, Local-MIP, 300, 416.0
 u1000_05.mps, HiGHS, 300, 798.0
 u1000_05.mps, SCIP, 300, N/A
 u1000_05.mps, CPLEX, 300, 798.0
 u1000_05.mps, Gurobi(comp), 300, 415.0
 u1000_05.mps, Gurobi(heur), 300, 415.0
-u1000_05.mps, Feasibility Jump, 300, N/A
+u1000_05.mps, Feasibility Jump, 300, 638.0
 u1000_05.mps, Local-MIP, 300, 418.0
 u1000_06.mps, HiGHS, 300, 790.0
 u1000_06.mps, SCIP, 300, N/A
 u1000_06.mps, CPLEX, 300, 790.0
 u1000_06.mps, Gurobi(comp), 300, 408.0
 u1000_06.mps, Gurobi(heur), 300, 414.0
-u1000_06.mps, Feasibility Jump, 300, N/A
+u1000_06.mps, Feasibility Jump, 300, 617.0
 u1000_06.mps, Local-MIP, 300, 412.0
 u1000_07.mps, HiGHS, 300, 584.0
 u1000_07.mps, SCIP, 300, N/A
 u1000_07.mps, CPLEX, 300, 808.0
 u1000_07.mps, Gurobi(comp), 300, 417.0
 u1000_07.mps, Gurobi(heur), 300, 429.0
-u1000_07.mps, Feasibility Jump, 300, N/A
+u1000_07.mps, Feasibility Jump, 300, 652.0
 u1000_07.mps, Local-MIP, 300, 422.0
 u1000_08.mps, HiGHS, 300, N/A
 u1000_08.mps, SCIP, 300, N/A
 u1000_08.mps, CPLEX, 300, 477.0
 u1000_08.mps, Gurobi(comp), 300, 411.0
 u1000_08.mps, Gurobi(heur), 300, 412.0
-u1000_08.mps, Feasibility Jump, 300, N/A
+u1000_08.mps, Feasibility Jump, 300, 619.0
 u1000_08.mps, Local-MIP, 300, 417.0
 u1000_09.mps, HiGHS, 300, N/A
 u1000_09.mps, SCIP, 300, N/A
 u1000_09.mps, CPLEX, 300, 794.0
 u1000_09.mps, Gurobi(comp), 300, 409.0
 u1000_09.mps, Gurobi(heur), 300, 417.0
-u1000_09.mps, Feasibility Jump, 300, N/A
+u1000_09.mps, Feasibility Jump, 300, 638.0
 u1000_09.mps, Local-MIP, 300, 416.0
 u1000_10.mps, HiGHS, 300, N/A
 u1000_10.mps, SCIP, 300, N/A
 u1000_10.mps, CPLEX, 300, 800.0
 u1000_10.mps, Gurobi(comp), 300, 478.0
 u1000_10.mps, Gurobi(heur), 300, 419.0
-u1000_10.mps, Feasibility Jump, 300, N/A
+u1000_10.mps, Feasibility Jump, 300, 643.0
 u1000_10.mps, Local-MIP, 300, 418.0
 u1000_11.mps, HiGHS, 300, 658.0
 u1000_11.mps, SCIP, 300, N/A
 u1000_11.mps, CPLEX, 300, 802.0
 u1000_11.mps, Gurobi(comp), 300, 413.0
 u1000_11.mps, Gurobi(heur), 300, 420.0
-u1000_11.mps, Feasibility Jump, 300, N/A
+u1000_11.mps, Feasibility Jump, 300, 634.0
 u1000_11.mps, Local-MIP, 300, 420.0
 u1000_12.mps, HiGHS, 300, N/A
 u1000_12.mps, SCIP, 300, N/A
 u1000_12.mps, CPLEX, 300, 786.0
 u1000_12.mps, Gurobi(comp), 300, 417.0
 u1000_12.mps, Gurobi(heur), 300, 413.0
-u1000_12.mps, Feasibility Jump, 300, N/A
+u1000_12.mps, Feasibility Jump, 300, 628.0
 u1000_12.mps, Local-MIP, 300, 410.0
 u1000_13.mps, HiGHS, 300, N/A
 u1000_13.mps, SCIP, 300, N/A
 u1000_13.mps, CPLEX, 300, 792.0
 u1000_13.mps, Gurobi(comp), 300, 428.0
 u1000_13.mps, Gurobi(heur), 300, 416.0
-u1000_13.mps, Feasibility Jump, 300, N/A
+u1000_13.mps, Feasibility Jump, 300, 627.0
 u1000_13.mps, Local-MIP, 300, 413.0
 u1000_14.mps, HiGHS, 300, 658.0
 u1000_14.mps, SCIP, 300, N/A
 u1000_14.mps, CPLEX, 300, 788.0
 u1000_14.mps, Gurobi(comp), 300, 412.0
 u1000_14.mps, Gurobi(heur), 300, 412.0
-u1000_14.mps, Feasibility Jump, 300, N/A
+u1000_14.mps, Feasibility Jump, 300, 626.0
 u1000_14.mps, Local-MIP, 300, 413.0
 u1000_15.mps, HiGHS, 300, N/A
 u1000_15.mps, SCIP, 300, N/A
 u1000_15.mps, CPLEX, 300, 804.0
 u1000_15.mps, Gurobi(comp), 300, 413.0
 u1000_15.mps, Gurobi(heur), 300, 415.0
-u1000_15.mps, Feasibility Jump, 300, N/A
+u1000_15.mps, Feasibility Jump, 300, 650.0
 u1000_15.mps, Local-MIP, 300, 421.0
 u1000_16.mps, HiGHS, 300, N/A
 u1000_16.mps, SCIP, 300, N/A
 u1000_16.mps, CPLEX, 300, 808.0
 u1000_16.mps, Gurobi(comp), 300, 420.0
 u1000_16.mps, Gurobi(heur), 300, 417.0
-u1000_16.mps, Feasibility Jump, 300, N/A
+u1000_16.mps, Feasibility Jump, 300, 647.0
 u1000_16.mps, Local-MIP, 300, 423.0
 u1000_17.mps, HiGHS, 300, N/A
 u1000_17.mps, SCIP, 300, N/A
 u1000_17.mps, CPLEX, 300, 808.0
 u1000_17.mps, Gurobi(comp), 300, 415.0
 u1000_17.mps, Gurobi(heur), 300, 420.0
-u1000_17.mps, Feasibility Jump, 300, N/A
+u1000_17.mps, Feasibility Jump, 300, 638.0
 u1000_17.mps, Local-MIP, 300, 423.0
 u1000_18.mps, HiGHS, 300, N/A
 u1000_18.mps, SCIP, 300, N/A
 u1000_18.mps, CPLEX, 300, 798.0
 u1000_18.mps, Gurobi(comp), 300, 411.0
 u1000_18.mps, Gurobi(heur), 300, 412.0
-u1000_18.mps, Feasibility Jump, 300, N/A
+u1000_18.mps, Feasibility Jump, 300, 639.0
 u1000_18.mps, Local-MIP, 300, 417.0
 u1000_19.mps, HiGHS, 300, 800.0
 u1000_19.mps, SCIP, 300, N/A
 u1000_19.mps, CPLEX, 300, 800.0
 u1000_19.mps, Gurobi(comp), 300, 421.0
 u1000_19.mps, Gurobi(heur), 300, 415.0
-u1000_19.mps, Feasibility Jump, 300, N/A
+u1000_19.mps, Feasibility Jump, 300, 630.0
 u1000_19.mps, Local-MIP, 300, 418.0
