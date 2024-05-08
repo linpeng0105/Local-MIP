@@ -3,7 +3,7 @@
 #include "ReaderMPS.h"
 #include "ModelCon.h"
 #include "ModelVar.h"
-#include "LocalSearch/LocalILP.h"
+#include "LocalSearch/LocalMIP.h"
 
 class Solver
 {

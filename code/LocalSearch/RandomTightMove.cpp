@@ -1,5 +1,5 @@
 
-#include "LocalILP.h"
+#include "LocalMIP.h"
 
 void LocalMIP::RandomTightMove()
 {

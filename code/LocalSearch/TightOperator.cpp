@@ -1,5 +1,5 @@
 
-#include "LocalILP.h"
+#include "LocalMIP.h"
 
 long LocalMIP::TightScore(
     const ModelVar &_modelVar,

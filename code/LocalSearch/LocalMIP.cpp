@@ -1,4 +1,4 @@
-#include "LocalILP.h"
+#include "LocalMIP.h"
 
 int LocalMIP::LocalSearch(
     Value _optimalObj,

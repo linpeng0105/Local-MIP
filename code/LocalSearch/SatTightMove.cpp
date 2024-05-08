@@ -1,5 +1,5 @@
 
-#include "LocalILP.h"
+#include "LocalMIP.h"
 
 bool LocalMIP::SatTightMove(
     vector<bool> &score_table,
