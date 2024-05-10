@@ -5,6 +5,8 @@ bool LocalMIP::SatTightMove(
     vector<bool> &score_table,
     vector<size_t> &score_idx)
 {
+  if (modelConUtil->conNum <= 1)
+    return false;
   long bestScore = 0;
   long bestSubscore = -std::numeric_limits<long>::max();
   size_t bestVarIdx = -1;
