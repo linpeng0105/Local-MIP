@@ -1,3 +1,0 @@
-/pub/netdisk1/linpeng/Solver/CP-code-Local-MIP/build/CMakeFiles/rebuild_cache.dir
-/pub/netdisk1/linpeng/Solver/CP-code-Local-MIP/build/CMakeFiles/edit_cache.dir
-/pub/netdisk1/linpeng/Solver/CP-code-Local-MIP/build/CMakeFiles/Local-MIP.dir
