@@ -218,7 +218,8 @@ def compSolver():
         # for so in ["highs1.6"]:
         # for so in ["scip"]:
         # for so in ["gurobi-c"]:
-        for so in ["gurobi-h"]:
+        # for so in ["gurobi-h"]:
+        for so in ["FJ-192"]:
             solvers.append(solver(f"{result}/{so}/time/{time}", f"{so}"))
         clt = calculater(solvers, samples)
         clt.cal_and_show()

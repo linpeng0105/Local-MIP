@@ -3,7 +3,7 @@ import os
 
 
 def cal():
-    for TT in [10,60,300]:
+    for TT in [1200]:
         ori_path = f"/pub/netdisk1/linpeng/Local-MIP/result-new/cplex/log/{TT}/"
         out_path = f"/pub/netdisk1/linpeng/Local-MIP/result-new/cplex/result/{TT}/"
         file_list = os.listdir(ori_path)

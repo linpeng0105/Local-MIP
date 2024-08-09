@@ -3,11 +3,12 @@ import re
 
 readfolder = "/pub/netdisk1/linpeng/Local-MIP/result-new/highs1.6/log"
 result_file = "/pub/netdisk1/linpeng/Local-MIP/result-new/highs1.6/time"
-dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/BPP.txt"
+dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL-20240408.txt"
 
 
 def record():
-    for cutoff in ["10", "60", "300"]:
+    # for cutoff in ["10", "60", "300"]:
+    for cutoff in ["1200"]:
         for instance in open(dataset):
             instance = instance.strip()
             out_file = open(f"{result_file}/{cutoff}/{instance}", "w")

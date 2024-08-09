@@ -13,6 +13,7 @@
                   Beijing, China
 
 =====================================================================================*/
+
 #include "ReaderMPS.h"
 
 ReaderMPS::ReaderMPS(
@@ -202,41 +203,46 @@ void ReaderMPS::Read(
       else
         continue;
     iss >> inputBound;
-    auto &var = modelVarUtil->GetVar(varName);
-    if (var.type == VarType::Binary)
+    if (modelVarUtil->name2idx.find(varName) != modelVarUtil->name2idx.end())
     {
-      var.SetType(VarType::Integer);
-      var.SetUpperBound(InfiniteUpperBound);
+      auto &var = modelVarUtil->GetVar(varName);
+      if (var.type == VarType::Binary)
+      {
+        var.SetType(VarType::Integer);
+        var.SetUpperBound(InfiniteUpperBound);
+      }
+      if (varType == "UP")
+        var.SetUpperBound(inputBound);
+      else if (varType == "LO")
+        var.SetLowerBound(inputBound);
+      else if (varType == "BV")
+      {
+        var.SetType(VarType::Binary);
+        var.SetUpperBound(1.0);
+        var.SetLowerBound(0.0);
+      }
+      else if (varType == "LI")
+        var.SetLowerBound(inputBound);
+      else if (varType == "UI")
+        var.SetUpperBound(inputBound);
+      else if (varType == "FX")
+      {
+        var.SetLowerBound(inputBound);
+        var.SetUpperBound(inputBound);
+        var.SetType(VarType::Fixed);
+      }
+      else if (varType == "FR")
+      {
+        var.SetUpperBound(InfiniteUpperBound);
+        var.SetLowerBound(InfiniteLowerBound);
+      }
+      else if (varType == "MI")
+        var.SetLowerBound(InfiniteLowerBound);
+      else if (varType == "PL")
+        var.SetUpperBound(InfiniteUpperBound);
     }
-    if (varType == "UP")
-      var.SetUpperBound(inputBound);
-    else if (varType == "LO")
-      var.SetLowerBound(inputBound);
-    else if (varType == "BV")
-    {
-      var.SetType(VarType::Binary);
-      var.SetUpperBound(1.0);
-      var.SetLowerBound(0.0);
-    }
-    else if (varType == "LI")
-      var.SetLowerBound(inputBound);
-    else if (varType == "UI")
-      var.SetUpperBound(inputBound);
-    else if (varType == "FX")
-    {
-      var.SetLowerBound(inputBound);
-      var.SetUpperBound(inputBound);
-      var.SetType(VarType::Fixed);
-    }
-    else if (varType == "FR")
-    {
-      var.SetUpperBound(InfiniteUpperBound);
-      var.SetLowerBound(InfiniteLowerBound);
-    }
-    else if (varType == "MI")
-      var.SetLowerBound(InfiniteLowerBound);
-    else if (varType == "PL")
-      var.SetUpperBound(InfiniteUpperBound);
+    else
+      continue;
   }
   infile.close();
   for (conIdx = 1; conIdx < modelConUtil->conSet.size(); ++conIdx)
@@ -252,15 +258,13 @@ void ReaderMPS::Read(
   modelVarUtil->objBias = -modelConUtil->conSet[0].RHS;
   modelConUtil->conNum = modelConUtil->conSet.size();
   modelVarUtil->varNum = modelVarUtil->varSet.size();
-  if (OPT(presolve))
+
+  if (!TightenBound() || !TightBoundGlobally())
   {
-    TightenBound();
-    if (!TightBoundGlobally())
-    {
-      printf("c model is infeasible.\n");
-      exit(-1);
-    }
+    printf("c model is infeasible.\n");
+    exit(-1);
   }
+
   SetVarType();
   SetVarIdx2ObjIdx();
 }
@@ -291,14 +295,30 @@ void ReaderMPS::PushCoeffVarIdx(
   con.posInVar.push_back(var.conIdxSet.size() - 1);
 }
 
-void ReaderMPS::TightenBound()
+bool ReaderMPS::TightenBound()
 {
   for (size_t conIdx = 1; conIdx < modelConUtil->conNum; ++conIdx)
   {
     auto &modelCon = modelConUtil->conSet[conIdx];
     if (modelCon.varIdxSet.size() == 1)
       TightenBoundVar(modelCon);
+    if (modelCon.varIdxSet.size() == 0)
+    {
+      assert(modelCon.coeffSet.size() == 0 &&
+             modelCon.posInVar.size() == 0);
+      if (modelCon.RHS + 1e-6 >= 0)
+      {
+        modelCon.inferSAT = true;
+        deleteConNum++;
+      }
+      else
+      {
+        printf("c con.rhs %lf\n", modelCon.RHS);
+        return false;
+      }
+    }
   }
+  return true;
 }
 
 void ReaderMPS::TightenBoundVar(ModelCon &modelCon)
@@ -426,11 +446,6 @@ bool ReaderMPS::SetVarType()
   if (modelVarUtil->integerNum > 0 ||
       modelVarUtil->realNum > 0)
     modelVarUtil->isBin = false;
-  printf("c fixedNum: %ld\n", modelVarUtil->fixedNum);
-  printf("c binaryNum: %ld\n", modelVarUtil->binaryNum);
-  printf("c integerNum: %ld\n", modelVarUtil->integerNum);
-  printf("c realNum: %ld\n", modelVarUtil->realNum);
-  printf("c allVarNum: %ld\n", modelVarUtil->varNum);
   return true;
 }
 

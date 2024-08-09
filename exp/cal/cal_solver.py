@@ -309,9 +309,10 @@ def compAb(time):
 # LocalMIP = "Local-MIP/v6/try/_12_3000_3000_20_200_20_150_2832/"
 LocalMIP = "Local-MIP/v6/try/std/"
 if __name__ == "__main__":
-    compGurobi("10")
-    compGurobi("60")
-    compGurobi("300")
+    # compGurobi("10")
+    # compGurobi("60")
+    # compGurobi("300")
+    compGurobi("1200")
     # compSCIP("10")
     # compSCIP("60")
     # compSCIP("300")

@@ -221,11 +221,11 @@ def compSolver():
         for ins_name in open(s[0]):
             ins += 1
         wins.append(f"{s[1]} &{ins}")
-    for time in ["10","60","300",]:
+    for time in ["1200",]:
         solvers = []
         result = "/pub/netdisk1/linpeng/Local-MIP/result-new"
-        # for so in ["highs1.6", "scip", "cplex", "gurobi-c", "gurobi-h"]:
-        for so in ["FJ-16"]:
+        for so in ["highs1.6", "scip", "cplex", "gurobi-c", "gurobi-h", "FJ-192"]:
+        # for so in ["FJ-16"]:
             solvers.append(solver(f"{result}/{so}/result/{time}", f"{so}"))
         solvers.append(solver(
             f"{result}/{LocalMIP}/{time}", "Local-MIP"))

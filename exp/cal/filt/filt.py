@@ -1,15 +1,18 @@
 import os
 import re
+import sys
 
-dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/BPP.txt"
+dataset = "/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL-20240408.txt"
 
 
 def record():
-    for solver in ["gurobi-c", "gurobi-h", "highs1.6", "scip"]:
-    # for solver in ["FJ-16", "FJ-192"]:
+    # for solver in ["gurobi-c", "gurobi-h", "highs1.6", "scip"]:
+    for solver in ["FJ-192"]:
         readfolder = f"/pub/netdisk1/linpeng/Local-MIP/result-new/{solver}/time"
         result_file = f"/pub/netdisk1/linpeng/Local-MIP/result-new/{solver}/result"
-        for cutoff in [10, 60, 300]:
+        for cutoff in [1200]:
+            if not os.path.exists(f'{result_file}/{cutoff}'):
+                os.mkdir(f"{result_file}/{cutoff}")
             for instance in open(dataset):
                 instance = instance.strip()
                 try:

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INSTANCE_NUM=16
+INSTANCE_NUM=192
 tmp_fifofile="/tmp/$$.fifo" # 脚本运行的当前进程ID号作为文件名
 mkfifo "$tmp_fifofile" # 新建一个随机fifo管道文件
 exec 6<>"$tmp_fifofile" # 定义文件描述符6指向这个fifo管道文件
@@ -12,9 +12,9 @@ done >&6
 
 res_no="/pub/netdisk1/linpeng/Local-MIP/result-new/unused"
 instance="/pub/netdisk1/linpeng/Local-MIP/benchmark/ALL"
-benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/BPP.txt"
-result="/pub/netdisk1/linpeng/Local-MIP/result-new/FJ-16/log"
-cutoff="10 60 300"
+benchmark_list="/pub/netdisk1/linpeng/Local-MIP/benchmark/list/ALL-20240408.txt"
+result="/pub/netdisk1/linpeng/Local-MIP/result-new/FJ-192/log"
+cutoff="1200"
 all_datas=($instance)
 for cut in $cutoff
 do
@@ -41,7 +41,7 @@ do
 done
 
 
-ulimit -t 500
+ulimit -t 3000
 res_solver_ins=$res_no
 if [ ! -d "$res_solver_ins" ]; then
     mkdir -p $res_solver_ins

@@ -26,8 +26,10 @@ int LocalMIP::LocalSearch(
   curStep = 0;
   while (true)
   {
-    if (DEBUG)
-      printf("\nc UNSAT Size: %-10ld; ", localConUtil.unsatConIdxs.size());
+    if (DEBUG){
+        printf("\nc UNSAT Size: %-10ld; ", localConUtil.unsatConIdxs.size());
+        printf("c %f\n",localVarUtil.GetVar(0).nowValue);
+    }
     if (localConUtil.unsatConIdxs.empty())
     {
       if (!isFoundFeasible || localObj.LHS < localObj.RHS)
